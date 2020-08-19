@@ -51,6 +51,21 @@ export default class App extends Component {
     this.setState(changeOnPersonAndReturnAllPeople)
   }
 
+  sendHome = (e) => {
+    let id = parseInt(e.target.id);
+    let p = this.state.people.find((p) => p.id === id);
+    let updatedP = { ...p, status: "home" }
+
+    function changeOnPersonAndReturnAllPeople(prevState) {
+      return {
+        people: prevState.people.map((person) =>
+          person.id === id ? updatedP : person
+        )
+      }
+    }
+    this.setState(changeOnPersonAndReturnAllPeople)
+  }
+
   generateRiskyPeople = () => {
     return this.state.people
       .filter((p) => p.status === "risky")
@@ -74,7 +89,7 @@ export default class App extends Component {
           ))} */}
 
         {/* <h2>Risky</h2> */}
-        <h2>In Public</h2>
+        <h3>In Public</h3>
         {this.generateRiskyPeople()}
 
         {/* {let riskyPeople = this.props.people.filter(p => p.status === 'risky')
@@ -86,21 +101,21 @@ export default class App extends Component {
         {this.state.people
           .filter((p) => p.status === "safe")
           .map((np) => (
-            <div id={np.id}>😷</div>
+            <span id={np.id}>😷</span>
           ))}
 
         {/* <h2>Sick</h2> */}
         {this.state.people
           .filter((p) => p.status === "sick")
           .map((np) => (
-            <div id={np.id}>🤢</div>
+            <span id={np.id} onClick={this.sendHome}>🤢</span>
           ))}
 
-        <h2>At Home</h2>
+        <h3>At Home</h3>
         {this.state.people
           .filter((p) => p.status === "home")
           .map((np) => (
-            <div id={np.id}>🤢</div>
+            <span id={np.id}>🤢</span>
           ))}
       </div>
     )

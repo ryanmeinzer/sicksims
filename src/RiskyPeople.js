@@ -44,7 +44,7 @@ export default class RiskyPeople extends Component {
 
     render() {
         return(
-            <div id={this.props.id} onClick={this.props.makeSafe}>😎</div>
+            <span id={this.props.id} onClick={this.props.makeSafe}>😎</span>
         )
     }
 
