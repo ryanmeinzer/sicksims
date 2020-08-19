@@ -9,7 +9,7 @@ export default class RiskyPeople extends Component {
   // if risky people aren't masked in 3 seconds after being added, they'll be sick, if they are, they'll be safe
 
     state = {
-        time: 3
+        time: 5
     }
 
     componentDidMount() {
@@ -21,21 +21,20 @@ export default class RiskyPeople extends Component {
     }
 
     startInterval = () => {
-        this.interval = setInterval(this.updateCounter, 1000);
+        this.interval = setInterval(this.updateCounter, 100);
     };
 
     checkTime = () => {
     console.log("checking time", this.state.time)
-    if (this.state.time === 0) {
-        console.log("woo!")
+    if (this.state.time <= 0) {
+        // console.log("woo!")
         this.props.riskyToSickChanger(this.props.id)
+        console.log(this.props.id)
         }
     }
 
     updateCounter = () => {
-        this.setState((prevState) => ({time: prevState.time - 1 }), this.checkTime)
-
-    
+        this.setState((prevState) => ({time: prevState.time - .1 }), this.checkTime)
         // console.log(this.props.id)
     }
 
@@ -45,8 +44,7 @@ export default class RiskyPeople extends Component {
 
     render() {
         return(
-            // <div>Hi There</div>
-            <div id={this.props.id} onClick={this.props.makeSafe}>{`${this.props.name} - 😎 : ${this.state.time}`}</div>
+            <div id={this.props.id} onClick={this.props.makeSafe}>😎</div>
         )
     }
 

@@ -7,10 +7,16 @@ export default class App extends Component {
 
   state = {
     people: [
-      { id: 1, name: "Chris", status: "risky" },
-      { id: 2, name: "Ryan", status: "risky" },
-      { id: 3, name: "Jaeson", status: "sick" },
-      { id: 4, name: "Matt", status: "safe" }
+      { id: 1, status: "risky" },
+      { id: 2, status: "risky" },
+      { id: 3, status: "risky" },
+      { id: 4, status: "safe" },
+      { id: 5, status: "safe" },
+      { id: 6, status: "safe" },
+      { id: 7, status: "safe" },
+      { id: 8, status: "safe" },
+      { id: 9, status: "sick" },
+      { id: 10, status: "sick" }
     ]
   }
 
@@ -49,7 +55,7 @@ export default class App extends Component {
     return this.state.people
       .filter((p) => p.status === "risky")
       .map((rp, index) => (
-        <RiskyPeople key={`risky-${index}`} id={rp.id} name={rp.name} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
+        <RiskyPeople key={`risky-${index}`} id={rp.id} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
       ))
   }
 
@@ -79,13 +85,13 @@ export default class App extends Component {
         {this.state.people
           .filter((p) => p.status === "safe")
           .map((np) => (
-            <div id={np.id}>{`${np.name} - 😷`}</div>
+            <div id={np.id}>😷</div>
           ))}
         <h2>Sick</h2>
         {this.state.people
           .filter((p) => p.status === "sick")
           .map((np) => (
-            <div id={np.id}>{`${np.name} - 🤢`}</div>
+            <div id={np.id}>🤢</div>
           ))}
       </div>
     )
