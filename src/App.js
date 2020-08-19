@@ -14,9 +14,9 @@ export default class App extends Component {
       { id: 5, status: "safe" },
       { id: 6, status: "safe" },
       { id: 7, status: "safe" },
-      { id: 8, status: "safe" },
+      { id: 8, status: "sick" },
       { id: 9, status: "sick" },
-      { id: 10, status: "sick" }
+      { id: 10, status: "home" }
     ]
   }
 
@@ -73,7 +73,8 @@ export default class App extends Component {
             <div id={np.id} onClick={this.makeSafe}>{`${np.name} - 😎`}</div>
           ))} */}
 
-        <h2>Risky</h2>
+        {/* <h2>Risky</h2> */}
+        <h2>In Public</h2>
         {this.generateRiskyPeople()}
 
         {/* {let riskyPeople = this.props.people.filter(p => p.status === 'risky')
@@ -81,15 +82,23 @@ export default class App extends Component {
               < RiskyPeople people={this.state.people} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
         } */}
 
-        <h2>Safe</h2>
+        {/* <h2>Safe</h2> */}
         {this.state.people
           .filter((p) => p.status === "safe")
           .map((np) => (
             <div id={np.id}>😷</div>
           ))}
-        <h2>Sick</h2>
+
+        {/* <h2>Sick</h2> */}
         {this.state.people
           .filter((p) => p.status === "sick")
+          .map((np) => (
+            <div id={np.id}>🤢</div>
+          ))}
+
+        <h2>At Home</h2>
+        {this.state.people
+          .filter((p) => p.status === "home")
           .map((np) => (
             <div id={np.id}>🤢</div>
           ))}
