@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class RiskyPeople extends Component {
+export default class HomePeople extends Component {
 
   // make a new person component that has a timer on it/each (vs. on the App-level)
   // pass in the state to the person component
@@ -9,7 +9,7 @@ export default class RiskyPeople extends Component {
   // if risky people aren't masked in 3 seconds after being added, they'll be sick, if they are, they'll be safe
 
     state = {
-        time: 5
+        time: 10
     }
 
     componentDidMount() {
@@ -28,7 +28,7 @@ export default class RiskyPeople extends Component {
     console.log("checking time", this.state.time)
     if (this.state.time <= 0) {
         // console.log("woo!")
-        this.props.riskyToSickChanger(this.props.id)
+        this.props.homeToRiskyChanger(this.props.id)
         console.log(this.props.id)
         }
     }
@@ -44,7 +44,7 @@ export default class RiskyPeople extends Component {
 
     render() {
         return(
-            <span id={this.props.id} onClick={this.props.makeSafe} style={{ cursor: 'pointer'}}>😎</span>
+            <span id={this.props.id} style={{ cursor: 'not-allowed' }}>🤢</span>
         )
     }
 

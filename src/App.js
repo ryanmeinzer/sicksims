@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Header from './Header.js'
 import RiskyPeople from './RiskyPeople.js'
+import HomePeople from './HomePeople.js'
 
 export default class App extends Component {
 
@@ -21,7 +22,7 @@ export default class App extends Component {
   }
 
   riskyToSickChanger = sickPersonId => {
-    console.log("In risky to sick¸")
+    // console.log("In risky to sick¸")
     let p = this.state.people.find((p) => p.id === sickPersonId)
       // .map((np) => np.status       ))
     let updatedP = { ...p, status: 'sick' }
@@ -66,12 +67,36 @@ export default class App extends Component {
     this.setState(changeOnPersonAndReturnAllPeople)
   }
 
+  homeToRiskyChanger = homePersonId => {
+    // console.log("In risky to sick¸")
+    let p = this.state.people.find((p) => p.id === homePersonId)
+    // .map((np) => np.status       ))
+    let updatedP = { ...p, status: 'risky' }
+
+    function changeHomePersonAndReturnAllPeople(prevState) {
+      return {
+        people: prevState.people.map((person) =>
+          person.id === homePersonId ? updatedP : person
+        )
+      }
+    }
+    this.setState(changeHomePersonAndReturnAllPeople)
+  }
+
   generateRiskyPeople = () => {
     return this.state.people
       .filter((p) => p.status === "risky")
       .map((rp, index) => (
         <RiskyPeople key={`risky-${index}`} id={rp.id} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
-      ))
+      )).sort((a, b) => (a.id - b.id))
+  }
+
+  generateHomePeople = () => {
+    return this.state.people
+      .filter((p) => p.status === "home")
+      .map((hp, index) => (
+        <HomePeople key={`home-${index}`} id={hp.id} status={hp.status} homeToRiskyChanger={this.homeToRiskyChanger} />
+      )).sort((a, b) => (a.id - b.id))
   }
 
   render() {
@@ -101,22 +126,23 @@ export default class App extends Component {
         {this.state.people
           .filter((p) => p.status === "safe")
           .map((np) => (
-            <span id={np.id}>😷</span>
-          ))}
+            <span id={np.id} style={{ cursor: 'not-allowed' }}>😷</span>
+          )).sort((a, b) => (a.id - b.id))}
 
         {/* <h2>Sick</h2> */}
         {this.state.people
           .filter((p) => p.status === "sick")
           .map((np) => (
-            <span id={np.id} onClick={this.sendHome}>🤢</span>
-          ))}
+            <span id={np.id} onClick={this.sendHome} style={{ cursor: 'pointer' }}>🤢</span>
+          )).sort((a, b) => (a.id - b.id))}
 
         <h3>At Home</h3>
-        {this.state.people
+        {this.generateHomePeople()}
+        {/* {this.state.people
           .filter((p) => p.status === "home")
           .map((np) => (
-            <span id={np.id}>🤢</span>
-          ))}
+            <span id={np.id} style={{ cursor: 'not-allowed' }}>🤢</span>
+          )).sort((a, b) => (a.id - b.id))} */}
       </div>
     )
   }
