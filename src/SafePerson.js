@@ -11,8 +11,15 @@ export default class SafePerson extends Component {
     //     time: 5
     // }
 
+    // checks to see if every person is safe
     // componentDidMount = () => {
-    //     this.startInterval()
+    //     console.log('checking if component mount is working')
+    //     // debugger
+    //     if (!this.props.allPeople.find(({ status }) => status === 'naive' || status === 'sick' || status === 'home')) {
+    //         console.log('checking if every person is safe')
+    //         // this.startInterval()
+    //         this.props.safeToSavedChanger()
+    //     }
     // }
 
     // componentWillUnmount() {
@@ -20,7 +27,7 @@ export default class SafePerson extends Component {
     // }
 
     // startInterval = () => {
-    //     this.interval = setInterval(this.updateCounter, 1000);
+    //     this.interval = setInterval(this.props.safeToSavedChanger(this.props.id), 1000);
     // }
 
     // checkTime = () => {

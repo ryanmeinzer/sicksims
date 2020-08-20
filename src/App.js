@@ -44,14 +44,14 @@ export default class App extends Component {
     let p = this.state.people.find((p) => p.id === id);
     let updatedP = { ...p, status: "safe" }
 
-    function changeOnPersonAndReturnAllPeople(prevState) {
+    function changeOnePersonAndReturnAllPeople(prevState) {
       return {
         people: prevState.people.map((person) =>
           person.id === id ? updatedP : person
         )
       }
     }
-    this.setState(changeOnPersonAndReturnAllPeople)
+    this.setState(changeOnePersonAndReturnAllPeople, this.isEveryoneSafe)
   }
 
   sendHome = (e) => {
@@ -85,6 +85,42 @@ export default class App extends Component {
     this.setState(changeHomePersonAndReturnAllPeople)
   }
 
+  // safeToSavedChanger = safePersonId => {
+  //   // console.log("In naive to sick¸")
+  //   let p = this.state.people.find((p) => p.id === safePersonId)
+  //   // .map((np) => np.status       ))
+  //   let updatedP = { ...p, status: 'saved' }
+
+  //   function changeSafePersonAndReturnAllPeople(prevState) {
+  //     return {
+  //       people: prevState.people.map((person) =>
+  //         person.id === safePersonId ? updatedP : person
+  //       )
+  //     }
+  //   }
+  //   this.setState(changeSafePersonAndReturnAllPeople)
+  // }
+
+  isEveryoneSafe = () => {
+    if (!this.state.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'home')) {
+        this.safeToSavedChanger()
+      }
+  }
+
+  safeToSavedChanger = () => {
+    function changeSafePersonAndReturnAllPeople(prevState) {
+      return {
+        people: prevState.people.map((person) =>  {
+          // debugger
+          if (person.status === 'safe') {
+            return { ...person, status: 'saved' } 
+          }
+        })
+      }
+    }
+    this.setState(changeSafePersonAndReturnAllPeople)
+  }
+
   generateNaivePeople = () => {
     return this.state.people
       .filter((p) => p.status === "naive")
@@ -105,7 +141,7 @@ export default class App extends Component {
     return this.state.people
       .filter((p) => p.status === "safe")
       .map((sp) => (
-        <SafePerson key={`safe-${sp.id}`} id={sp.id} status={sp.status} />
+        <SafePerson key={`safe-${sp.id}`} id={sp.id} status={sp.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people}/>
       )).sort((a, b) => (a.id - b.id))
   }
 
@@ -124,6 +160,13 @@ export default class App extends Component {
 
         <h3>In Public</h3>
 
+        {/* render all people individually to preserve order
+        {this.state.people.map(person =? {
+          if (person.status == "sick"){
+            <SickPeople />
+          } else if 
+        })} */}
+
         {/* naive people */}
         {this.generateNaivePeople()}
 
@@ -138,6 +181,13 @@ export default class App extends Component {
           .map((sp) => (
             <span key={`sick-${sp.id}`} id={sp.id} onClick={this.sendHome} style={{ cursor: 'pointer' }}>🤢</span>
           )).sort((a, b) => (a.id - b.id))} */}
+
+        {/* saved people */}
+        {this.state.people
+          .filter((p) => p.status === "saved")
+          .map((sp) => (
+            <span key={`saved-${sp.id}`} id={sp.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+          )).sort((a, b) => (a.id - b.id))}
 
         <h3>At Home</h3>
 
