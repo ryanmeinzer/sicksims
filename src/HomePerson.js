@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class HomePeople extends Component {
+export default class HomePerson extends Component {
 
     // Doesn't work...Is state not needed unless you want a timer on the objects?
     // componentDidMount = () => {

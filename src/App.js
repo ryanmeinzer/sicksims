@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './App.css'
 import Header from './Header.js'
-import RiskyPeople from './RiskyPeople.js'
-import HomePeople from './HomePeople.js'
+import RiskyPerson from './RiskyPerson.js'
+import HomePerson from './HomePerson.js'
 
 export default class App extends Component {
 
@@ -87,7 +87,7 @@ export default class App extends Component {
     return this.state.people
       .filter((p) => p.status === "risky")
       .map((rp) => (
-        <RiskyPeople key={`risky-${rp.id}`} id={rp.id} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
+        <RiskyPerson key={`risky-${rp.id}`} id={rp.id} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
       )).sort((a, b) => (a.id - b.id))
   }
 
@@ -95,7 +95,7 @@ export default class App extends Component {
     return this.state.people
       .filter((p) => p.status === "home")
       .map((hp) => (
-        <HomePeople key={`home-${hp.id}`} id={hp.id} status={hp.status} homeToRiskyChanger={this.homeToRiskyChanger} />
+        <HomePerson key={`home-${hp.id}`} id={hp.id} status={hp.status} homeToRiskyChanger={this.homeToRiskyChanger} />
       )).sort((a, b) => (a.id - b.id))
   }
 
@@ -117,9 +117,9 @@ export default class App extends Component {
         <h3>In Public</h3>
         {this.generateRiskyPeople()}
 
-        {/* {let riskyPeople = this.props.people.filter(p => p.status === 'risky')
+        {/* {let RiskyPerson = this.props.people.filter(p => p.status === 'risky')
             .map(rp => (
-              < RiskyPeople people={this.state.people} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
+              < RiskyPerson people={this.state.people} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
         } */}
 
         {/* <h2>Safe</h2> */}
