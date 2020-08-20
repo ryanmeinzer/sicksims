@@ -23,6 +23,39 @@ export default class App extends Component {
     ]
   }
 
+  // Click to make naive person safe
+  makeSafe = (e) => {
+    let id = parseInt(e.target.id);
+    let p = this.state.people.find((p) => p.id === id);
+    let updatedP = { ...p, status: "safe" }
+
+    function changeOnePersonAndReturnAllPeople(prevState) {
+      return {
+        people: prevState.people.map((person) =>
+          person.id === id ? updatedP : person
+        )
+      }
+    }
+    this.setState(changeOnePersonAndReturnAllPeople, this.isEveryoneSafe)
+  }
+
+  // Click to send a sick person home
+  sendHome = (e) => {
+    let id = parseInt(e.target.id);
+    let p = this.state.people.find((p) => p.id === id);
+    let updatedP = { ...p, status: "home" }
+
+    function changeOnPersonAndReturnAllPeople(prevState) {
+      return {
+        people: prevState.people.map((person) =>
+          person.id === id ? updatedP : person
+        )
+      }
+    }
+    this.setState(changeOnPersonAndReturnAllPeople)
+  }
+
+  // Automatically make a naive person sick after set interval
   naiveToSickChanger = sickPersonId => {
     // console.log("In naive to sick¸")
     let p = this.state.people.find((p) => p.id === sickPersonId)
@@ -39,36 +72,7 @@ export default class App extends Component {
     this.setState(changeNaivePersonAndReturnAllPeople)
   }
 
-  makeSafe = (e) => {
-    let id = parseInt(e.target.id);
-    let p = this.state.people.find((p) => p.id === id);
-    let updatedP = { ...p, status: "safe" }
-
-    function changeOnePersonAndReturnAllPeople(prevState) {
-      return {
-        people: prevState.people.map((person) =>
-          person.id === id ? updatedP : person
-        )
-      }
-    }
-    this.setState(changeOnePersonAndReturnAllPeople, this.isEveryoneSafe)
-  }
-
-  sendHome = (e) => {
-    let id = parseInt(e.target.id);
-    let p = this.state.people.find((p) => p.id === id);
-    let updatedP = { ...p, status: "home" }
-
-    function changeOnPersonAndReturnAllPeople(prevState) {
-      return {
-        people: prevState.people.map((person) =>
-          person.id === id ? updatedP : person
-        )
-      }
-    }
-    this.setState(changeOnPersonAndReturnAllPeople)
-  }
-
+  // Automatically return a home person back to naive in public after set interval
   homeToNaiveChanger = homePersonId => {
     // console.log("In naive to sick¸")
     let p = this.state.people.find((p) => p.id === homePersonId)
@@ -85,35 +89,21 @@ export default class App extends Component {
     this.setState(changeHomePersonAndReturnAllPeople)
   }
 
-  // safeToSavedChanger = safePersonId => {
-  //   // console.log("In naive to sick¸")
-  //   let p = this.state.people.find((p) => p.id === safePersonId)
-  //   // .map((np) => np.status       ))
-  //   let updatedP = { ...p, status: 'saved' }
-
-  //   function changeSafePersonAndReturnAllPeople(prevState) {
-  //     return {
-  //       people: prevState.people.map((person) =>
-  //         person.id === safePersonId ? updatedP : person
-  //       )
-  //     }
-  //   }
-  //   this.setState(changeSafePersonAndReturnAllPeople)
-  // }
-
+  // Check to see if everyone is safe
   isEveryoneSafe = () => {
     if (!this.state.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'home')) {
-        this.safeToSavedChanger()
-      }
+      this.safeToSavedChanger()
+    }
   }
 
+  // If everyone is safe, change everyone from safe to saved
   safeToSavedChanger = () => {
     function changeSafePersonAndReturnAllPeople(prevState) {
       return {
-        people: prevState.people.map((person) =>  {
+        people: prevState.people.map((person) => {
           // debugger
           if (person.status === 'safe') {
-            return { ...person, status: 'saved' } 
+            return { ...person, status: 'saved' }
           }
         })
       }
