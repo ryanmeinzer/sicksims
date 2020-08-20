@@ -27,7 +27,7 @@ export default class HomePerson extends Component {
         // console.log("checking time", this.state.time, this.props.id)
     if (this.state.time <= 0) {
         // console.log("woo!")
-        this.props.homeToRiskyChanger(this.props.id)
+        this.props.homeToNaiveChanger(this.props.id)
         // console.log("home to risky changed", this.props.id)
         }
     }

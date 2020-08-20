@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class RiskyPerson extends Component {
+export default class NaivePerson extends Component {
 
     // Doesn't work...Is state not needed unless you want a timer on the objects?
     // componentDidMount = () => {
@@ -27,7 +27,7 @@ export default class RiskyPerson extends Component {
         // console.log("checking time", this.state.time, this.props.id)
     if (this.state.time <= 0) {
         // console.log("woo!")
-        this.props.riskyToSickChanger(this.props.id)
+        this.props.naiveToSickChanger(this.props.id)
         // console.log("risky to sick changed", this.props.id)
         }
     }
@@ -39,7 +39,7 @@ export default class RiskyPerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} onClick={this.props.makeSafe} style={{ cursor: 'pointer' }}>😎</span>
+            <span id={this.props.id} onClick={this.props.makeSafe} style={{ cursor: 'pointer' }}>🥴</span>
         )
     }
 

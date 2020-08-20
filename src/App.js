@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Header from './Header.js'
-import RiskyPerson from './RiskyPerson.js'
+import NaivePerson from './NaivePerson.js'
 import HomePerson from './HomePerson.js'
 import SafePerson from './SafePerson.js'
 import SickPerson from './SickPerson.js'
@@ -10,9 +10,9 @@ export default class App extends Component {
 
   state = {
     people: [
-      { id: 1, status: "risky" },
-      { id: 2, status: "risky" },
-      { id: 3, status: "risky" },
+      { id: 1, status: "naive" },
+      { id: 2, status: "naive" },
+      { id: 3, status: "naive" },
       { id: 4, status: "safe" },
       { id: 5, status: "safe" },
       { id: 6, status: "safe" },
@@ -23,20 +23,20 @@ export default class App extends Component {
     ]
   }
 
-  riskyToSickChanger = sickPersonId => {
-    // console.log("In risky to sick¸")
+  naiveToSickChanger = sickPersonId => {
+    // console.log("In naive to sick¸")
     let p = this.state.people.find((p) => p.id === sickPersonId)
       // .map((np) => np.status       ))
     let updatedP = { ...p, status: 'sick' }
 
-    function changeRiskyPersonAndReturnAllPeople(prevState) {
+    function changeNaivePersonAndReturnAllPeople(prevState) {
       return {
         people: prevState.people.map((person) =>
           person.id === sickPersonId ? updatedP : person
         )
       }
     }
-    this.setState(changeRiskyPersonAndReturnAllPeople)
+    this.setState(changeNaivePersonAndReturnAllPeople)
   }
 
   makeSafe = (e) => {
@@ -69,11 +69,11 @@ export default class App extends Component {
     this.setState(changeOnPersonAndReturnAllPeople)
   }
 
-  homeToRiskyChanger = homePersonId => {
-    // console.log("In risky to sick¸")
+  homeToNaiveChanger = homePersonId => {
+    // console.log("In naive to sick¸")
     let p = this.state.people.find((p) => p.id === homePersonId)
     // .map((np) => np.status       ))
-    let updatedP = { ...p, status: 'risky' }
+    let updatedP = { ...p, status: 'naive' }
 
     function changeHomePersonAndReturnAllPeople(prevState) {
       return {
@@ -85,11 +85,11 @@ export default class App extends Component {
     this.setState(changeHomePersonAndReturnAllPeople)
   }
 
-  generateRiskyPeople = () => {
+  generateNaivePeople = () => {
     return this.state.people
-      .filter((p) => p.status === "risky")
-      .map((rp) => (
-        <RiskyPerson key={`risky-${rp.id}`} id={rp.id} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
+      .filter((p) => p.status === "naive")
+      .map((np) => (
+        <NaivePerson key={`naive-${np.id}`} id={np.id} status={np.status} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
       )).sort((a, b) => (a.id - b.id))
   }
 
@@ -97,7 +97,7 @@ export default class App extends Component {
     return this.state.people
       .filter((p) => p.status === "home")
       .map((hp) => (
-        <HomePerson key={`home-${hp.id}`} id={hp.id} status={hp.status} homeToRiskyChanger={this.homeToRiskyChanger} />
+        <HomePerson key={`home-${hp.id}`} id={hp.id} status={hp.status} homeToNaiveChanger={this.homeToNaiveChanger} />
       )).sort((a, b) => (a.id - b.id))
   }
 
@@ -124,8 +124,8 @@ export default class App extends Component {
 
         <h3>In Public</h3>
 
-        {/* risky people */}
-        {this.generateRiskyPeople()}
+        {/* naive people */}
+        {this.generateNaivePeople()}
 
         {/* safe people */}
         {this.generateSafePeople()}
@@ -152,16 +152,16 @@ export default class App extends Component {
 
 // - - -
 
-{/* <h2>Risky</h2>
+{/* <h2>Naive</h2>
         {this.state.people
-          .filter((p) => p.status === "risky")
+          .filter((p) => p.status === "naive")
           .map((np) => (
             <div id={np.id} onClick={this.makeSafe}>{`${np.name} - 😎`}</div>
           ))} */}
 
-{/* {let RiskyPerson = this.props.people.filter(p => p.status === 'risky')
-            .map(rp => (
-              < RiskyPerson people={this.state.people} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
+{/* {let NaivePerson = this.props.people.filter(p => p.status === 'naive')
+            .map(np => (
+              < NaivePerson people={this.state.people} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
         } */}
 
 {/* {this.state.people
