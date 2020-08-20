@@ -3,6 +3,8 @@ import './App.css'
 import Header from './Header.js'
 import RiskyPerson from './RiskyPerson.js'
 import HomePerson from './HomePerson.js'
+import SafePerson from './SafePerson.js'
+import SickPerson from './SickPerson.js'
 
 export default class App extends Component {
 
@@ -99,6 +101,14 @@ export default class App extends Component {
       )).sort((a, b) => (a.id - b.id))
   }
 
+  generateSafePeople = () => {
+    return this.state.people
+      .filter((p) => p.status === "safe")
+      .map((sp) => (
+        <SafePerson key={`safe-${sp.id}`} id={sp.id} status={sp.status} />
+      )).sort((a, b) => (a.id - b.id))
+  }
+
   render() {
     return (
       <div className="App">
@@ -110,11 +120,7 @@ export default class App extends Component {
         {this.generateRiskyPeople()}
 
         {/* safe people */}
-        {this.state.people
-          .filter((p) => p.status === "safe")
-          .map((sp) => (
-            <span key={`safe-${sp.id}`} id={sp.id} style={{ cursor: 'not-allowed' }}>😷</span>
-          )).sort((a, b) => (a.id - b.id))}
+        {this.generateSafePeople()}
 
         {/* sick people */}
         {this.state.people

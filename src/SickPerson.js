@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class HomePerson extends Component {
+export default class SickPerson extends Component {
 
     // Doesn't work...Is state not needed unless you want a timer on the objects?
     // componentDidMount = () => {
@@ -39,7 +39,7 @@ export default class HomePerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} style={{ cursor: 'not-allowed' }}>🤢</span>
+            <span id={this.props.id} onClick={this.props.sendHome} style={{ cursor: 'pointer' }}>🤢</span>
         )
     }
 
