@@ -86,16 +86,16 @@ export default class App extends Component {
   generateRiskyPeople = () => {
     return this.state.people
       .filter((p) => p.status === "risky")
-      .map((rp, index) => (
-        <RiskyPeople key={`risky-${index}`} id={rp.id} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
+      .map((rp) => (
+        <RiskyPeople key={`risky-${rp.id}`} id={rp.id} status={rp.status} makeSafe={this.makeSafe} riskyToSickChanger={this.riskyToSickChanger} />
       )).sort((a, b) => (a.id - b.id))
   }
 
   generateHomePeople = () => {
     return this.state.people
       .filter((p) => p.status === "home")
-      .map((hp, index) => (
-        <HomePeople key={`home-${index}`} id={hp.id} status={hp.status} homeToRiskyChanger={this.homeToRiskyChanger} />
+      .map((hp) => (
+        <HomePeople key={`home-${hp.id}`} id={hp.id} status={hp.status} homeToRiskyChanger={this.homeToRiskyChanger} />
       )).sort((a, b) => (a.id - b.id))
   }
 
@@ -125,15 +125,15 @@ export default class App extends Component {
         {/* <h2>Safe</h2> */}
         {this.state.people
           .filter((p) => p.status === "safe")
-          .map((np) => (
-            <span id={np.id} style={{ cursor: 'not-allowed' }}>😷</span>
+          .map((sp) => (
+            <span key={`safe-${sp.id}`} id={sp.id} style={{ cursor: 'not-allowed' }}>😷</span>
           )).sort((a, b) => (a.id - b.id))}
 
         {/* <h2>Sick</h2> */}
         {this.state.people
           .filter((p) => p.status === "sick")
-          .map((np) => (
-            <span id={np.id} onClick={this.sendHome} style={{ cursor: 'pointer' }}>🤢</span>
+          .map((sp) => (
+            <span key={`sick-${sp.id}`} id={sp.id} onClick={this.sendHome} style={{ cursor: 'pointer' }}>🤢</span>
           )).sort((a, b) => (a.id - b.id))}
 
         <h3>At Home</h3>

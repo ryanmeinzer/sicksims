@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 
 export default class RiskyPeople extends Component {
 
-  // make a new person component that has a timer on it/each (vs. on the App-level)
-  // pass in the state to the person component
-  // pass in the riskyToSickTick to the person component
-  // once the timer gets to 0, call the riskyToSickTick on the person to update the state
-  // if risky people aren't masked in 3 seconds after being added, they'll be sick, if they are, they'll be safe
+    // Doesn't work...Is state not needed unless you want a timer on the objects?
+    // componentDidMount = () => {
+    //     setTimeout(() => { this.props.riskyToSickChanger(this.props.id) }, 2500)
+    // }
 
     state = {
-        time: 5
+        time: 2.5
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.startInterval()
     }
 
@@ -21,30 +20,26 @@ export default class RiskyPeople extends Component {
     }
 
     startInterval = () => {
-        this.interval = setInterval(this.updateCounter, 100);
+        this.interval = setInterval(this.updateCounter, 1000);
     };
 
     checkTime = () => {
-    console.log("checking time", this.state.time)
+        // console.log("checking time", this.state.time, this.props.id)
     if (this.state.time <= 0) {
         // console.log("woo!")
         this.props.riskyToSickChanger(this.props.id)
-        console.log(this.props.id)
+        // console.log("risky to sick changed", this.props.id)
         }
     }
 
     updateCounter = () => {
-        this.setState((prevState) => ({time: prevState.time - .1 }), this.checkTime)
+        this.setState((prevState) => ({time: prevState.time - 1 }), this.checkTime)
         // console.log(this.props.id)
     }
 
-    // changeRiskytoSick = () => {
-    //     this.state.time === 0
-    // }
-
     render() {
         return(
-            <span id={this.props.id} onClick={this.props.makeSafe} style={{ cursor: 'pointer'}}>😎</span>
+            <span id={this.props.id} onClick={this.props.makeSafe} style={{ cursor: 'pointer' }}>😎</span>
         )
     }
 
