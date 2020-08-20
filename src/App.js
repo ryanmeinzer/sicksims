@@ -109,6 +109,14 @@ export default class App extends Component {
       )).sort((a, b) => (a.id - b.id))
   }
 
+  generateSickPeople = () => {
+    return this.state.people
+      .filter((p) => p.status === "sick")
+      .map((sp) => (
+        <SickPerson key={`sick-${sp.id}`} id={sp.id} status={sp.status} sendHome={this.sendHome}/>
+      )).sort((a, b) => (a.id - b.id))
+  }
+
   render() {
     return (
       <div className="App">
@@ -123,11 +131,13 @@ export default class App extends Component {
         {this.generateSafePeople()}
 
         {/* sick people */}
-        {this.state.people
+        {this.generateSickPeople()}
+
+        {/* {this.state.people
           .filter((p) => p.status === "sick")
           .map((sp) => (
             <span key={`sick-${sp.id}`} id={sp.id} onClick={this.sendHome} style={{ cursor: 'pointer' }}>🤢</span>
-          )).sort((a, b) => (a.id - b.id))}
+          )).sort((a, b) => (a.id - b.id))} */}
 
         <h3>At Home</h3>
 
