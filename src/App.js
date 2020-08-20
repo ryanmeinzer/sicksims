@@ -121,38 +121,6 @@ export default class App extends Component {
     this.setState(changeSafePersonAndReturnAllPeople)
   }
 
-  generateNaivePeople = () => {
-    return this.state.people
-      .filter((p) => p.status === "naive")
-      .map((np) => (
-        <NaivePerson key={`naive-${np.id}`} id={np.id} status={np.status} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
-      )).sort((a, b) => (a.id - b.id))
-  }
-
-  generateHomePeople = () => {
-    return this.state.people
-      .filter((p) => p.status === "home")
-      .map((hp) => (
-        <HomePerson key={`home-${hp.id}`} id={hp.id} status={hp.status} homeToNaiveChanger={this.homeToNaiveChanger} />
-      )).sort((a, b) => (a.id - b.id))
-  }
-
-  generateSafePeople = () => {
-    return this.state.people
-      .filter((p) => p.status === "safe")
-      .map((sp) => (
-        <SafePerson key={`safe-${sp.id}`} id={sp.id} status={sp.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people}/>
-      )).sort((a, b) => (a.id - b.id))
-  }
-
-  generateSickPeople = () => {
-    return this.state.people
-      .filter((p) => p.status === "sick")
-      .map((sp) => (
-        <SickPerson key={`sick-${sp.id}`} id={sp.id} status={sp.status} sendHome={this.sendHome}/>
-      )).sort((a, b) => (a.id - b.id))
-  }
-
   render() {
     return (
       <div className="App">
@@ -160,63 +128,29 @@ export default class App extends Component {
 
         <h3>In Public</h3>
 
-        {/* render all people individually to preserve order
-        {this.state.people.map(person =? {
-          if (person.status == "sick"){
-            <SickPeople />
-          } else if 
-        })} */}
-
-        {/* naive people */}
-        {this.generateNaivePeople()}
-
-        {/* safe people */}
-        {this.generateSafePeople()}
-
-        {/* sick people */}
-        {this.generateSickPeople()}
-
-        {/* {this.state.people
-          .filter((p) => p.status === "sick")
-          .map((sp) => (
-            <span key={`sick-${sp.id}`} id={sp.id} onClick={this.sendHome} style={{ cursor: 'pointer' }}>🤢</span>
-          )).sort((a, b) => (a.id - b.id))} */}
-
-        {/* saved people */}
-        {this.state.people
-          .filter((p) => p.status === "saved")
-          .map((sp) => (
-            <span key={`saved-${sp.id}`} id={sp.id} style={{ cursor: 'not-allowed' }}>🥰</span>
-          )).sort((a, b) => (a.id - b.id))}
+        {this.state.people.map(person => {
+          if (person.status === "naive") {
+            return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
+          } else if (person.status === "safe") {
+            return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people} />
+          } else if (person.status === "sick") {
+            return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} sendHome={this.sendHome} />
+          } else if (person.status === "saved") {
+            return <span key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+            }
+          })
+        }
 
         <h3>At Home</h3>
 
-        {/* home people */}
-        {this.generateHomePeople()}
+        {this.state.people.map(person => {
+            if (person.status === "home") {
+              return <HomePerson key={`home-${person.id}`} id={person.id} status={person.status} homeToNaiveChanger={this.homeToNaiveChanger} />
+            }
+          })
+        }
 
       </div>
     )
   }
-
 }
-
-// - - -
-
-{/* <h2>Naive</h2>
-        {this.state.people
-          .filter((p) => p.status === "naive")
-          .map((np) => (
-            <div id={np.id} onClick={this.makeSafe}>{`${np.name} - 😎`}</div>
-          ))} */}
-
-{/* {let NaivePerson = this.props.people.filter(p => p.status === 'naive')
-            .map(np => (
-              < NaivePerson people={this.state.people} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
-        } */}
-
-{/* {this.state.people
-          .filter((p) => p.status === "home")
-          .map((np) => (
-            <span id={np.id} style={{ cursor: 'not-allowed' }}>🤢</span>
-          )).sort((a, b) => (a.id - b.id))} */}
-
