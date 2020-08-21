@@ -121,6 +121,8 @@ export default class App extends Component {
       <div className="App">
         < Header startGameButton={this.startGame}/>
 
+        <div className="GameContainer">
+          
         <h4>In Public</h4>
 
         {this.state.people.map(person => {
@@ -144,6 +146,8 @@ export default class App extends Component {
           }
         })
         }
+
+        </div>
 
       </div>
     )

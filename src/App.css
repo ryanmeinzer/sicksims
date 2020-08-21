@@ -3,6 +3,13 @@
   font-size: 3rem;
 }
 
+.GameContainer {
+
+  border: solid black;
+  margin: 1rem 20rem;
+  
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
