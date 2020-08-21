@@ -11,14 +11,14 @@ export default class App extends Component {
   state = {
     people: [
       { id: 1, status: "naive" },
-      { id: 2, status: "naive" },
+      { id: 2, status: "sick" },
       { id: 3, status: "naive" },
       { id: 4, status: "naive" },
-      { id: 5, status: "naive" },
+      { id: 5, status: "safe" },
       { id: 6, status: "naive" },
       { id: 7, status: "sick" },
-      { id: 8, status: "sick" },
-      { id: 9, status: "sick" },
+      { id: 8, status: "naive" },
+      { id: 9, status: "safe" },
       { id: 10, status: "sick" }
     ]
   }
@@ -111,10 +111,15 @@ export default class App extends Component {
     this.setState(changeSafePersonAndReturnAllPeople, alert('Congrats - you saved the world!'))
   }
 
+  startGame = () => {
+    // return alert('Hi')
+    this.quarantinedToNaiveChanger()
+  }
+
   render() {
     return (
       <div className="App">
-        < Header />
+        < Header startGameButton={this.startGame}/>
 
         <h4>In Public</h4>
 
