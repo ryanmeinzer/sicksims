@@ -112,7 +112,6 @@ export default class App extends Component {
   }
 
   startGame = () => {
-    // return alert('Hi')
     this.quarantinedToNaiveChanger()
   }
 
