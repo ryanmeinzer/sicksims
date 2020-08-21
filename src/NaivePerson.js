@@ -8,10 +8,10 @@ export default class NaivePerson extends Component {
     // }
 
     state = {
-        time: 2.5
+        time: 3
     }
 
-    componentDidMount = () => {
+    componentDidUpdate = () => {
         this.startInterval()
     }
 

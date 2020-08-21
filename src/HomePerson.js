@@ -8,7 +8,7 @@ export default class HomePerson extends Component {
     // }
 
     state = {
-        time: 5
+        time: 6
     }
 
     componentDidMount = () => {
@@ -20,7 +20,7 @@ export default class HomePerson extends Component {
     }
 
     startInterval = () => {
-        this.interval = setInterval(this.updateCounter, 1000);
+        this.interval = setInterval(this.updateCounter, 1000)
     }
 
     checkTime = () => {
