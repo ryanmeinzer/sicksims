@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class HomePerson extends Component {
+export default class QuarantinedPerson extends Component {
 
     // Doesn't work...Is state not needed unless you want a timer on the objects?
     // componentDidMount = () => {
-    //     setTimeout(() => { this.props.homeToRiskyChanger(this.props.id) }, 5000)
+    //     setTimeout(() => { this.props.quarantinedToRiskyChanger(this.props.id) }, 5000)
     // }
 
     state = {
@@ -27,8 +27,8 @@ export default class HomePerson extends Component {
         // console.log("checking time", this.state.time, this.props.id)
     if (this.state.time <= 0) {
         // console.log("woo!")
-        this.props.homeToNaiveChanger(this.props.id)
-        // console.log("home to risky changed", this.props.id)
+        this.props.quarantinedToNaiveChanger(this.props.id)
+        // console.log("quarantined to risky changed", this.props.id)
         }
     }
 

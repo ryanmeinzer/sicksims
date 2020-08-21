@@ -7,6 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+  margin: 1.5rem;
+}
+
+h4 {
+  margin: 4rem;
+}
+
+h6 {
+  margin: -1rem;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

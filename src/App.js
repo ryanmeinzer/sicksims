@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Header from './Header.js'
 import NaivePerson from './NaivePerson.js'
-import HomePerson from './HomePerson.js'
+import QuarantinedPerson from './QuarantinedPerson.js'
 import SafePerson from './SafePerson.js'
 import SickPerson from './SickPerson.js'
 
@@ -39,11 +39,11 @@ export default class App extends Component {
     this.setState(changeOnePersonAndReturnAllPeople, this.isEveryoneSafe)
   }
 
-  // Click to send a sick person home
-  sendHome = (e) => {
+  // Click to make a sick person quarantined
+  makeQuarantined = (e) => {
     let id = parseInt(e.target.id);
     let p = this.state.people.find((p) => p.id === id);
-    let updatedP = { ...p, status: "home" }
+    let updatedP = { ...p, status: "quarantined" }
 
     function changeOnPersonAndReturnAllPeople(prevState) {
       return {
@@ -72,26 +72,26 @@ export default class App extends Component {
     this.setState(changeNaivePersonAndReturnAllPeople)
   }
 
-  // Automatically return a home person back to naive in public after set interval
-  homeToNaiveChanger = homePersonId => {
+  // Automatically return a quarantined person back to naive in public after set interval
+  quarantinedToNaiveChanger = quarantinedPersonId => {
     // console.log("In naive to sick¸")
-    let p = this.state.people.find((p) => p.id === homePersonId)
+    let p = this.state.people.find((p) => p.id === quarantinedPersonId)
     // .map((np) => np.status       ))
     let updatedP = { ...p, status: 'naive' }
 
-    function changeHomePersonAndReturnAllPeople(prevState) {
+    function changeQuarantinedPersonAndReturnAllPeople(prevState) {
       return {
         people: prevState.people.map((person) =>
-          person.id === homePersonId ? updatedP : person
+          person.id === quarantinedPersonId ? updatedP : person
         )
       }
     }
-    this.setState(changeHomePersonAndReturnAllPeople)
+    this.setState(changeQuarantinedPersonAndReturnAllPeople)
   }
 
   // Check to see if everyone is safe
   isEveryoneSafe = () => {
-    if (!this.state.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'home')) {
+    if (!this.state.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
       this.safeToSavedChanger()
     }
   }
@@ -124,7 +124,7 @@ export default class App extends Component {
           } else if (person.status === "safe") {
             return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people} />
           } else if (person.status === "sick") {
-            return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} sendHome={this.sendHome} />
+            return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} />
           } else if (person.status === "saved") {
             return <span key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
           }
@@ -134,8 +134,8 @@ export default class App extends Component {
         <h4>Quarantined</h4>
 
         {this.state.people.map(person => {
-          if (person.status === "home") {
-            return <HomePerson key={`home-${person.id}`} id={person.id} status={person.status} homeToNaiveChanger={this.homeToNaiveChanger} />
+          if (person.status === "quarantined") {
+            return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} quarantinedToNaiveChanger={this.quarantinedToNaiveChanger} />
           }
         })
         }
