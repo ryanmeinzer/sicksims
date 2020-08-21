@@ -108,7 +108,7 @@ export default class App extends Component {
         })
       }
     }
-    this.setState(changeSafePersonAndReturnAllPeople)
+    this.setState(changeSafePersonAndReturnAllPeople, alert('Congrats - you saved the world!'))
   }
 
   render() {
