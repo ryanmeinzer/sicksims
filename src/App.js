@@ -131,7 +131,7 @@ export default class App extends Component {
           })
         }
 
-        <h4>At Home</h4>
+        <h4>Quarantined</h4>
 
         {this.state.people.map(person => {
           if (person.status === "home") {

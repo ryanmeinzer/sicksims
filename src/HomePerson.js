@@ -39,7 +39,7 @@ export default class HomePerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} style={{ cursor: 'not-allowed' }}>🤢</span>
+            <span id={this.props.id} style={{ cursor: 'not-allowed' }}>🤢 ▽ {this.state.time} </span>
         )
     }
 
