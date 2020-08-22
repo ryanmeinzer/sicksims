@@ -74,15 +74,28 @@
 // });
 // app.listen(process.env.PORT || 3000);
 
-// Take Five:
+// Take Seven:
+// const path = require('path');
+// const express = require('express');
+// const app = express();
+
+// if (process.env.NODE_ENV === 'production') {
+// app.use(express.static('build'));
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join('build', 'index.html'));
+// });
+// }
+// app.listen(process.env.PORT || 3000);
+
+// Take Eight:
 const path = require('path');
 const express = require('express');
 const app = express();
 
 if (process.env.NODE_ENV === 'production') {
-app.use(express.static('build'));
-app.get('*', (req, res) => {
-    res.sendFile(path.join('build', 'index.html'));
-});
+    app.use(express.static('client/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
 }
 app.listen(process.env.PORT || 3000);
