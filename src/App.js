@@ -16,7 +16,7 @@ export default class App extends Component {
       { id: 3, status: "naive" },
       { id: 4, status: "naive" },
       { id: 5, status: "safe" },
-      { id: 6, status: "quarantined" },
+      { id: 6, status: "sick" },
       { id: 7, status: "sick" },
       { id: 8, status: "naive" },
       { id: 9, status: "safe" },
