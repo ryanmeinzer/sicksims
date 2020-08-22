@@ -12,7 +12,7 @@ export default class NaivePerson extends Component {
     }
 
     // with react routes change this to componentDidMount
-    componentDidUpdate = () => {
+    componentDidMount = () => {
         this.startInterval()
     }
 
