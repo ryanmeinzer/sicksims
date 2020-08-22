@@ -113,8 +113,8 @@ export default class App extends Component {
   }
 
   startGame = () => {
-    // this.quarantinedToNaiveChanger()
-    window.location.replace('/play')
+    this.quarantinedToNaiveChanger()
+    // window.location.replace('/play')
   }
 
   render() {
@@ -122,7 +122,7 @@ export default class App extends Component {
       <div className="App">
         <Router>
 
-          <Route exact path='/' render={() => 
+          <Route exact path='/temp' render={() => 
           
           <>
           < Header startGameButton={this.startGame}/>
@@ -135,7 +135,7 @@ export default class App extends Component {
           </>
           } />
 
-          <Route exact path='/play' render={() => 
+          <Route exact path='/' render={() => 
 
             <>
             < Header startGameButton={this.startGame} />
