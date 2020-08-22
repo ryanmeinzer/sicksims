@@ -16,7 +16,7 @@ export default class App extends Component {
       { id: 3, status: "naive" },
       { id: 4, status: "naive" },
       { id: 5, status: "safe" },
-      { id: 6, status: "sick" },
+      { id: 6, status: "quarantined" },
       { id: 7, status: "sick" },
       { id: 8, status: "naive" },
       { id: 9, status: "safe" },
@@ -113,8 +113,8 @@ export default class App extends Component {
   }
 
   startGame = () => {
-    this.quarantinedToNaiveChanger()
-    // window.location.replace('/play')
+    // this.quarantinedToNaiveChanger()
+    window.location.replace('/play')
   }
 
   render() {
@@ -122,7 +122,7 @@ export default class App extends Component {
       <div className="App">
         <Router>
 
-          <Route exact path='/temp' render={() => 
+          <Route exact path='/' render={() => 
           
           <>
           < Header startGameButton={this.startGame}/>
@@ -135,11 +135,11 @@ export default class App extends Component {
           </>
           } />
 
-          <Route exact path='/' render={() => 
+          <Route exact path='/play' render={routerProps => 
 
             <>
-            < Header startGameButton={this.startGame} />
-              <div className="GameContainer">
+            < Header {...routerProps} startGameButton={this.startGame} />
+              <div {...routerProps} className="GameContainer">
 
                 <h4>In Public</h4>
 
