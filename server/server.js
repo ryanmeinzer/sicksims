@@ -96,6 +96,32 @@
 // app.listen(process.env.PORT || 3000);
 
 // Take Nine:
+// const path = require('path');
+// const express = require('express');
+// const app = express();
+
+// app.use(express.static(__dirname + '/'));
+// if (process.env.NODE_ENV === 'production') {
+//     app.get('*', (req, res) => {
+//         res.sendFile(__dirname + '/index.html');
+//     });
+// }
+// app.listen(process.env.PORT || 3000);
+
+// Take Ten:
+// const path = require('path');
+// const express = require('express');
+// const app = express();
+
+// app.use(express.static(__dirname + '/'));
+// if (process.env.NODE_ENV === 'production') {
+//     app.get('*', (req, res) => {
+//         res.sendFile('index.html', { root: __dirname });
+//     });
+// }
+// app.listen(process.env.PORT || 3000);
+
+// Take Eleven:
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -103,7 +129,20 @@ const app = express();
 app.use(express.static(__dirname + '/'));
 if (process.env.NODE_ENV === 'production') {
     app.get('*', (req, res) => {
-        res.sendFile(__dirname + '/index.html');
+        res.sendFile('index.html', { root: '/' });
     });
 }
 app.listen(process.env.PORT || 3000);
+
+// Take Twelve:
+// const path = require('path');
+// const express = require('express');
+// const app = express();
+
+// app.use(express.static(__dirname + '/'));
+// if (process.env.NODE_ENV === 'production') {
+//     app.get('*', (req, res) => {
+//         res.sendFile('index.html', { root: '/' });
+//     });
+// }
+// app.listen(process.env.PORT || 3000);
