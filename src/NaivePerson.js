@@ -11,6 +11,7 @@ export default class NaivePerson extends Component {
         time: 3
     }
 
+    // with react routes change this to componentDidMount
     componentDidUpdate = () => {
         this.startInterval()
     }

@@ -16,7 +16,8 @@ export default class App extends Component {
       { id: 3, status: "naive" },
       { id: 4, status: "naive" },
       { id: 5, status: "safe" },
-      { id: 6, status: "quarantined" },
+      // with react routes change this to quarantined
+      { id: 6, status: "sick" },
       { id: 7, status: "sick" },
       { id: 8, status: "naive" },
       { id: 9, status: "safe" },
@@ -114,6 +115,7 @@ export default class App extends Component {
 
   startGame = () => {
     this.quarantinedToNaiveChanger()
+    // with react routes change this to the below
     // window.location.replace('/play')
   }
 
@@ -121,7 +123,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Router>
-
+          {/* with react routes change this to / */}
           <Route exact path='/temp' render={() => 
           
           <>
@@ -135,6 +137,7 @@ export default class App extends Component {
           </>
           } />
 
+          {/* with react routes change this to /play */}
           <Route exact path='/' render={routerProps => 
 
             <>
