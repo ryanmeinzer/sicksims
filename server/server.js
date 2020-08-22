@@ -162,6 +162,20 @@
 // app.listen(process.env.PORT || 3000);
 
 // Take Fourteen:
+// const path = require('path');
+// const express = require('express');
+// const app = express();
+
+// app.use(express.static(__dirname + '/'));
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('build'));
+//     app.get('*', (req, res) => {
+//         res.sendFile(__dirname + '/index.html');
+//     });
+// }
+// app.listen(process.env.PORT || 3000);
+
+// Take Fifteen:
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -170,7 +184,7 @@ app.use(express.static(__dirname + '/'));
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('build'));
     app.get('*', (req, res) => {
-        res.sendFile(__dirname + '/index.html');
+        res.sendFile('index.html', { root: __dirname });
     });
 }
 app.listen(process.env.PORT || 3000);
