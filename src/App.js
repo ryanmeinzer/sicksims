@@ -5,6 +5,7 @@ import NaivePerson from './NaivePerson.js'
 import QuarantinedPerson from './QuarantinedPerson.js'
 import SafePerson from './SafePerson.js'
 import SickPerson from './SickPerson.js'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 export default class App extends Component {
 
@@ -15,7 +16,7 @@ export default class App extends Component {
       { id: 3, status: "naive" },
       { id: 4, status: "naive" },
       { id: 5, status: "safe" },
-      { id: 6, status: "naive" },
+      { id: 6, status: "quarantined" },
       { id: 7, status: "sick" },
       { id: 8, status: "naive" },
       { id: 9, status: "safe" },
@@ -112,41 +113,63 @@ export default class App extends Component {
   }
 
   startGame = () => {
-    this.quarantinedToNaiveChanger()
+    // this.quarantinedToNaiveChanger()
+    window.location.replace('/play')
   }
 
   render() {
     return (
       <div className="App">
-        < Header startGameButton={this.startGame}/>
+        <Router>
 
-        <div className="GameContainer">
+          <Route exact path='/' render={() => 
           
-        <h4>In Public</h4>
+          <>
+          < Header startGameButton={this.startGame}/>
+            <div className="FakeGameContainer">
+              <h4>In Public</h4>
+              🥴🤢🥴🥴😷🤢🥴😷🤢
+              <h4>Quarantined</h4>
+              🤒 ▽ 5
+            </div>
+          </>
+          } />
 
-        {this.state.people.map(person => {
-          if (person.status === "naive") {
-            return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
-          } else if (person.status === "safe") {
-            return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people} />
-          } else if (person.status === "sick") {
-            return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} />
-          } else if (person.status === "saved") {
-            return <span key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
-          }
-          })
-        }
+          <Route exact path='/play' render={() => 
 
-        <h4>Quarantined</h4>
+            <>
+            < Header startGameButton={this.startGame} />
+              <div className="GameContainer">
 
-        {this.state.people.map(person => {
-          if (person.status === "quarantined") {
-            return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} quarantinedToNaiveChanger={this.quarantinedToNaiveChanger} />
-          }
-        })
-        }
+                <h4>In Public</h4>
 
-        </div>
+                {this.state.people.map(person => {
+                  if (person.status === "naive") {
+                    return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
+                  } else if (person.status === "safe") {
+                    return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people} />
+                  } else if (person.status === "sick") {
+                    return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} />
+                  } else if (person.status === "saved") {
+                    return <span key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+                  }
+                  })
+                }
+
+                <h4>Quarantined</h4>
+
+                {this.state.people.map(person => {
+                  if (person.status === "quarantined") {
+                    return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} quarantinedToNaiveChanger={this.quarantinedToNaiveChanger} />
+                  }
+                })
+                }
+
+              </div> 
+            </>
+          } />
+
+        </Router>
 
       </div>
     )

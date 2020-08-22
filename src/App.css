@@ -3,11 +3,12 @@
   font-size: 3rem;
 }
 
-.GameContainer {
+.GameContainer, .FakeGameContainer {
 
   border: solid black;
   /* margin: 1rem 20rem; */
   margin: 1rem 1rem;
+  padding: 0 0 3rem;
 }
 
 .App-logo {

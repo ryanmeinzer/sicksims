@@ -11,7 +11,7 @@ export default class NaivePerson extends Component {
         time: 3
     }
 
-    componentDidUpdate = () => {
+    componentDidMount = () => {
         this.startInterval()
     }
 
