@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.logo {
+  margin: 1rem;
+}
+
 h1 {
   margin: 1rem;
 }
@@ -16,7 +20,7 @@ h3 {
 }
 
 h4 {
-  margin: 3rem;
+  margin: 2rem;
 }
 
 h6 {
@@ -24,12 +28,12 @@ h6 {
 }
 
 p {
-  margin: 2rem auto auto;
+  margin: 1.5rem auto auto;
 }
 
 button {
   padding: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
