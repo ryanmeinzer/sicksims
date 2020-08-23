@@ -58,16 +58,16 @@ export default class App extends Component {
   }
 
   // Automatically make a naive person sick after set interval
-  naiveToSickChanger = sickPersonId => {
+  naiveToSickChanger = naivePersonId => {
     // console.log("In naive to sick¸")
-    let p = this.state.people.find((p) => p.id === sickPersonId)
+    let p = this.state.people.find((p) => p.id === naivePersonId)
       // .map((np) => np.status       ))
     let updatedP = { ...p, status: 'sick' }
 
     function changeNaivePersonAndReturnAllPeople(prevState) {
       return {
         people: prevState.people.map((person) =>
-          person.id === sickPersonId ? updatedP : person
+          person.id === naivePersonId ? updatedP : person
         )
       }
     }
@@ -91,7 +91,24 @@ export default class App extends Component {
     this.setState(changeQuarantinedPersonAndReturnAllPeople)
   }
 
-  // Check to see if everyone is safe
+  // Automatically make a sick person dead after set interval
+  sickToDeadChanger = sickPersonId => {
+    // console.log("In naive to sick¸")
+    let p = this.state.people.find((p) => p.id === sickPersonId)
+    // .map((np) => np.status       ))
+    let updatedP = { ...p, status: 'dead' }
+
+    function changeSickPersonAndReturnAllPeople(prevState) {
+      return {
+        people: prevState.people.map((person) =>
+          person.id === sickPersonId ? updatedP : person
+        )
+      }
+    }
+    this.setState(changeSickPersonAndReturnAllPeople, this.isEveryoneSafe)
+  }
+
+  // Check to see if all living people are safe
   isEveryoneSafe = () => {
     if (!this.state.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
       this.safeToSavedChanger()
@@ -100,17 +117,19 @@ export default class App extends Component {
 
   // If everyone is safe, change everyone from safe to saved
   safeToSavedChanger = () => {
+    // console.log("In naive to sick¸")
+    let p = this.state.people.find((p) => p.status === 'safe')
+    // .map((np) => np.status       ))
+    let updatedP = { ...p, status: 'saved' }
+
     function changeSafePersonAndReturnAllPeople(prevState) {
       return {
-        people: prevState.people.map((person) => {
-          // debugger
-          if (person.status === 'safe') {
-            return { ...person, status: 'saved' }
-          }
-        })
+        people: prevState.people.map((person) =>
+          person.status === 'safe' ? updatedP : person
+        )
       }
     }
-    this.setState(changeSafePersonAndReturnAllPeople, alert('Congrats - you saved the world!'))
+    this.setState(changeSafePersonAndReturnAllPeople, alert('Congrats - you saved (some of) the world!'))
   }
 
   startGame = () => {
@@ -152,7 +171,9 @@ export default class App extends Component {
                   } else if (person.status === "safe") {
                     return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people} />
                   } else if (person.status === "sick") {
-                    return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} />
+                    return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} sickToDeadChanger={this.sickToDeadChanger}/>
+                  } else if (person.status === "dead") {
+                    return <span key={`dead-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>⚰️</span>
                   } else if (person.status === "saved") {
                     return <span key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
                   }

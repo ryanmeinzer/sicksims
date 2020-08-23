@@ -11,6 +11,13 @@
   padding: 0 0 3rem;
 }
 
+/* @media (max-width: 500px) {
+  .GameContainer, .FakeGameContainer {
+    margin: 0rem 0rem;
+    padding: 0 0 2rem;
+  }
+} */
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
