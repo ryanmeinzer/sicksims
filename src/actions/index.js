@@ -1,0 +1,1 @@
+export const makeSafe = (e) => ({ type: 'MAKE_SAFE', e })

@@ -6,24 +6,9 @@ import QuarantinedPerson from './QuarantinedPerson.js'
 import SafePerson from './SafePerson.js'
 import SickPerson from './SickPerson.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux'
 
-export default class App extends Component {
-
-  state = {
-    people: [
-      { id: 1, status: "naive" },
-      { id: 2, status: "sick" },
-      { id: 3, status: "naive" },
-      { id: 4, status: "naive" },
-      { id: 5, status: "safe" },
-      // with react routes change this to quarantined
-      { id: 6, status: "quarantined" },
-      { id: 7, status: "sick" },
-      { id: 8, status: "naive" },
-      { id: 9, status: "safe" },
-      { id: 10, status: "sick" }
-    ]
-  }
+class App extends Component {
 
   // Click to make naive person safe
   makeSafe = (e) => {
@@ -165,11 +150,11 @@ export default class App extends Component {
 
                 <h4>In Public</h4>
 
-                {this.state.people.map(person => {
+                {this.props.people.map(person => {
                   if (person.status === "naive") {
                     return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
                   } else if (person.status === "safe") {
-                    return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.state.people} />
+                    return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.props.people} />
                   } else if (person.status === "sick") {
                     return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} sickToDeadChanger={this.sickToDeadChanger}/>
                   } else if (person.status === "dead") {
@@ -182,7 +167,7 @@ export default class App extends Component {
 
                 <h4>Quarantined</h4>
 
-                {this.state.people.map(person => {
+                {this.props.people.map(person => {
                   if (person.status === "quarantined") {
                     return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} quarantinedToNaiveChanger={this.quarantinedToNaiveChanger} />
                   }
@@ -199,3 +184,7 @@ export default class App extends Component {
     )
   }
 }
+
+const mapStateToProps = ({ people }) => ({ people })
+
+export default connect(mapStateToProps)(App)
