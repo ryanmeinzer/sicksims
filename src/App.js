@@ -85,11 +85,11 @@ class App extends Component {
 
                 {this.props.people.map(person => {
                   if (person.status === "naive") {
-                    return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} naiveToSickChanger={this.naiveToSickChanger} />
+                    return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} />
                   } else if (person.status === "safe") {
-                    return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} safeToSavedChanger={this.safeToSavedChanger} allPeople={this.props.people} />
+                    return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} />
                   } else if (person.status === "sick") {
-                    return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} sickToDeadChanger={this.sickToDeadChanger} isEveryoneSafe={this.isEveryoneSafe}/>
+                    return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} isEveryoneSafe={this.isEveryoneSafe} />
                   } else if (person.status === "dead") {
                     return <span key={`dead-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>⚰️</span>
                   } else if (person.status === "saved") {
@@ -102,7 +102,7 @@ class App extends Component {
 
                 {this.props.people.map(person => {
                   if (person.status === "quarantined") {
-                    return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} quarantinedToNaiveChanger={this.quarantinedToNaiveChanger} />
+                    return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
                   }
                 })
                 }
