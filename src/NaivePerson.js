@@ -36,6 +36,7 @@ class NaivePerson extends Component {
         // console.log(this.props.id)
     }
 
+    // can I use callback?
     makeSafeThenCheckAll = (e) => {
         this.props.dispatchedMakeSafe(e)
         this.props.isEveryoneSafe()
@@ -50,6 +51,8 @@ class NaivePerson extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
+    // don't pass in e, use e.target.id
+    // dispatchedMakeSafe: (e) => dispatch(makeSafe(e.target.id)),
     dispatchedMakeSafe: (e) => dispatch(makeSafe(e)),
     dispatchedNaiveToSickChanger: (naivePersonId) => dispatch(naiveToSickChanger(naivePersonId))
 })

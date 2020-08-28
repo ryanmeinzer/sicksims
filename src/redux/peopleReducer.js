@@ -34,41 +34,28 @@ export default function peopleReducer(state = {
             }
 
         // Click to make naive person safe
-        case 'MAKE_SAFE': {
-            let p = state.people.find((p) => p.id === parseInt(action.e.target.id))
-            p.status = 'safe'
-            return { people: [...state.people] } }
+        case 'MAKE_SAFE':
+            return { people: state.people.map(person => person.id === parseInt(action.e.target.id) ? { ...person, status: 'safe' } : person) }
 
         // Click to make a sick person quarantined
-        case 'MAKE_QUARANTINED': {
-            let p = state.people.find((p) => p.id === parseInt(action.e.target.id))
-            p.status = 'quarantined'
-            return { people: [...state.people] } }
+        case 'MAKE_QUARANTINED': 
+            return { people: state.people.map(person => person.id === parseInt(action.e.target.id) ? { ...person, status: 'quarantined' } : person) }
 
         // Automatically make a naive person sick after set interval
-        case 'NAIVE_TO_SICK_CHANGER': {
-            let p = state.people.find((p) => p.id === action.naivePersonId)
-            p.status = 'sick'
-            return { people: [...state.people] } }
-            // use this if/once you add leaderboard to state:
-            // return { ...state, people: [...state.people] }
+        case 'NAIVE_TO_SICK_CHANGER': 
+            return { people: state.people.map(person => person.id === action.naivePersonId ? { ...person, status: 'sick' } : person) }
 
         // Automatically return a quarantined person back to naive in public after set interval
-        case 'QUARANTINED_TO_NAIVE_CHANGER': {
-            let p = state.people.find((p) => p.id === action.quarantinedPersonId)
-            p.status = 'naive'
-            return { people: [...state.people] } }
+        case 'QUARANTINED_TO_NAIVE_CHANGER': 
+            return { people: state.people.map(person => person.id === action.quarantinedPersonId ? { ...person, status: 'naive' } : person) }
 
         // Automatically make a sick person dead after set interval
-        case 'SICK_TO_DEAD_CHANGER': {
-            let p = state.people.find((p) => p.id === action.sickPersonId)
-            p.status = 'dead'
-            return { people: [...state.people] } }
+        case 'SICK_TO_DEAD_CHANGER': 
+            return { people: state.people.map(person => person.id === action.sickPersonId ? { ...person, status: 'dead' } : person) }
      
         // If everyone is safe or dead, change every safe person to saved
-        case 'SAFE_TO_SAVED_CHANGER': {
-            state.people.filter((p) => p.status === 'safe').map((p) => p.status = 'saved')
-            return { people: [...state.people] } }
+        case 'SAFE_TO_SAVED_CHANGER': 
+            return { people: state.people.map(person => person.status = 'safe' ? { ...person, status: 'saved' } : person) }
 
     default:
         return state
