@@ -49,7 +49,8 @@ class App extends Component {
     // if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
     if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
       this.props.dispatchedSafeToSavedChanger()
-      alert('Congrats - you saved (some of) the world!')
+      let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
+      alert(`Congrats - you saved (some of) the world! Your score is ${score}`)
       this.componentWillUnmount()
     }
     // console.log('inside after check to see if everyone was safe in app.js')
