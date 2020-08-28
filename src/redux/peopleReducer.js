@@ -25,17 +25,17 @@ export default function peopleReducer(state = {
             // need to figure out how to add isEveryoneSafe callback
 
         // Automatically make a naive person sick after set interval
-        case 'NAIVE_TO_SICK_CHANGER':
+        case 'NAIVE_TO_SICK_CHANGER': {
             let p = state.people.find((p) => p.id === action.naivePersonId)
             p.status = 'sick'
-            return { people: [...state.people] }
+            return { people: [...state.people] } }
             // use this if/once you add leaderboard to state:
             // return { ...state, people: [...state.people] }
 
-        // case 'QUARANTINED_TO_NAIVE_CHANGER':
-        //     let p = state.people.find((p) => p.id === action.quarantinedPersonId)
-        //     p.status = 'quarantined'
-        //     return { people: [...state.people] }
+        case 'QUARANTINED_TO_NAIVE_CHANGER': {
+            let p = state.people.find((p) => p.id === action.quarantinedPersonId)
+            p.status = 'naive'
+            return { people: [...state.people] } }
 
         // case 'SICK_TO_DEAD_CHANGER':
         // return {}

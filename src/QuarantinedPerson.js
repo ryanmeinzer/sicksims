@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { quarantinedToNaiveChanger } from './redux/actions'
 
-export default class QuarantinedPerson extends Component {
+class QuarantinedPerson extends Component {
 
     // Doesn't work...Is state not needed unless you want a timer on the objects?
     // componentDidMount = () => {
@@ -8,7 +10,7 @@ export default class QuarantinedPerson extends Component {
     // }
 
     state = {
-        time: 5000
+        time: 5
     }
 
     componentDidMount = () => {
@@ -27,7 +29,7 @@ export default class QuarantinedPerson extends Component {
         // console.log("checking time", this.state.time, this.props.id)
     if (this.state.time <= 0) {
         // console.log("woo!")
-        this.props.quarantinedToNaiveChanger(this.props.id)
+        this.props.dispatchedQuarantinedToNaiveChanger(this.props.id)
         // console.log("quarantined to risky changed", this.props.id)
         }
     }
@@ -44,3 +46,10 @@ export default class QuarantinedPerson extends Component {
     }
 
 }
+
+const mapDispatchToProps = dispatch => ({
+    // dispatchedMakeSafe: (e) => dispatch(makeSafe(e)),
+    dispatchedQuarantinedToNaiveChanger: (quarantinedPersonId) => dispatch(quarantinedToNaiveChanger(quarantinedPersonId))
+})
+
+export default connect(null, mapDispatchToProps)(QuarantinedPerson)

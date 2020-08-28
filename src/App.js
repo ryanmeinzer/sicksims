@@ -42,23 +42,6 @@ class App extends Component {
     this.setState(changeOnPersonAndReturnAllPeople)
   }
 
-  // Automatically make a naive person sick after set interval
-  // naiveToSickChanger = naivePersonId => {
-  //   // console.log("In naive to sick¸")
-  //   let p = this.state.people.find((p) => p.id === naivePersonId)
-  //     // .map((np) => np.status       ))
-  //   let updatedP = { ...p, status: 'sick' }
-
-  //   function changeNaivePersonAndReturnAllPeople(prevState) {
-  //     return {
-  //       people: prevState.people.map((person) =>
-  //         person.id === naivePersonId ? updatedP : person
-  //       )
-  //     }
-  //   }
-  //   this.setState(changeNaivePersonAndReturnAllPeople)
-  // }
-
   // Automatically return a quarantined person back to naive in public after set interval
   quarantinedToNaiveChanger = quarantinedPersonId => {
     // console.log("In naive to sick¸")
