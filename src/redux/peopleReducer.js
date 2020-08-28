@@ -55,7 +55,7 @@ export default function peopleReducer(state = {
      
         // If everyone is safe or dead, change every safe person to saved
         case 'SAFE_TO_SAVED_CHANGER': 
-            return { people: state.people.map(person => person.status = 'safe' ? { ...person, status: 'saved' } : person) }
+            return { people: state.people.map(person => person.status === 'safe' ? { ...person, status: 'saved' } : person) }
 
     default:
         return state

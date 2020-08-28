@@ -15,10 +15,21 @@ class App extends Component {
 
   // fetch superheros upon app load
   componentDidMount() {
-    // console.log(this.props)
-    // console.log(this.props)
     this.props.dispatchedFetchSuperheros()
+    this.startInterval()
     // debugger
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
+  startInterval = () => {
+    this.interval = setInterval(this.isEveryoneSafe, 1000)
+  }
+
+  startGame = () => {
+    window.location.replace('/play')
   }
 
   // handle fetch of superheros upon app load with loading message if still loading
@@ -33,14 +44,15 @@ class App extends Component {
 
   // Check to see if all living people are safe
   isEveryoneSafe = () => {
+    // console.log('inside checking to see if everyone is safe in app.js')
+    // console.log(this.props)
+    // if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
     if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
       this.props.dispatchedSafeToSavedChanger()
       alert('Congrats - you saved (some of) the world!')
+      this.componentWillUnmount()
     }
-  }
-
-  startGame = () => {
-    window.location.replace('/play')
+    // console.log('inside after check to see if everyone was safe in app.js')
   }
 
   render() {

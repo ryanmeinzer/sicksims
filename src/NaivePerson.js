@@ -36,15 +36,9 @@ class NaivePerson extends Component {
         // console.log(this.props.id)
     }
 
-    // can I use callback?
-    makeSafeThenCheckAll = (e) => {
-        this.props.dispatchedMakeSafe(e)
-        this.props.isEveryoneSafe()
-    }
-
     render() {
         return(
-            <span id={this.props.id} onClick={this.makeSafeThenCheckAll} style={{ cursor: 'pointer' }}>🥴</span>
+            <span id={this.props.id} onClick={this.props.dispatchedMakeSafe} style={{ cursor: 'pointer' }}>🥴</span>
         )
     }
 

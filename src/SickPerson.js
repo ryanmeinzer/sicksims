@@ -27,7 +27,7 @@ class SickPerson extends Component {
             // console.log("woo!")
             this.props.dispatchedSickToDeadChanger(this.props.id)
             // console.log("quarantined to risky changed", this.props.id)
-            this.props.isEveryoneSafe()
+            // this.props.isEveryoneSafe()
         }
     }
 
