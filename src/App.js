@@ -110,6 +110,10 @@ class App extends Component {
                 }
 
               </div> 
+              <div className="SuperherosContainer">
+                <h4>Top Superheros:</h4>
+                {this.handleLoading()}
+              </div>
             </>
           } />
 

@@ -35,27 +35,27 @@ export default function peopleReducer(state = {
 
         // Click to make naive person safe
         case 'MAKE_SAFE':
-            return { people: state.people.map(person => person.id === action.id ? { ...person, status: 'safe' } : person) }
+            return { ...state, people: state.people.map(person => person.id === action.id ? { ...person, status: 'safe' } : person) }
 
         // Click to make a sick person quarantined
         case 'MAKE_QUARANTINED': 
-            return { people: state.people.map(person => person.id === action.id ? { ...person, status: 'quarantined' } : person) }
+            return { ...state, people: state.people.map(person => person.id === action.id ? { ...person, status: 'quarantined' } : person) }
 
         // Automatically make a naive person sick after set interval
         case 'NAIVE_TO_SICK_CHANGER': 
-            return { people: state.people.map(person => person.id === action.naivePersonId ? { ...person, status: 'sick' } : person) }
+            return { ...state, people: state.people.map(person => person.id === action.naivePersonId ? { ...person, status: 'sick' } : person) }
 
         // Automatically return a quarantined person back to naive in public after set interval
         case 'QUARANTINED_TO_NAIVE_CHANGER': 
-            return { people: state.people.map(person => person.id === action.quarantinedPersonId ? { ...person, status: 'naive' } : person) }
+            return { ...state, people: state.people.map(person => person.id === action.quarantinedPersonId ? { ...person, status: 'naive' } : person) }
 
         // Automatically make a sick person dead after set interval
         case 'SICK_TO_DEAD_CHANGER': 
-            return { people: state.people.map(person => person.id === action.sickPersonId ? { ...person, status: 'dead' } : person) }
+            return { ...state, people: state.people.map(person => person.id === action.sickPersonId ? { ...person, status: 'dead' } : person) }
      
         // If everyone is safe or dead, change every safe person to saved
         case 'SAFE_TO_SAVED_CHANGER': 
-            return { people: state.people.map(person => person.status === 'safe' ? { ...person, status: 'saved' } : person) }
+            return { ...state, people: state.people.map(person => person.status === 'safe' ? { ...person, status: 'saved' } : person) }
 
     default:
         return state
