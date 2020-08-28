@@ -11,6 +11,13 @@
   padding: 0 0 3rem;
 }
 
+.SuperherosContainer {
+  border: dotted gray;
+  padding: 1rem 25rem;
+  color: gray;
+  margin: 1rem 1rem;
+}
+
 /* @media (max-width: 500px) {
   .GameContainer, .FakeGameContainer {
     margin: 0rem 0rem;

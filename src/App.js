@@ -69,7 +69,9 @@ class App extends Component {
               🥴🤢🥴🥴😷🤢🥴😷🤢
               <h4>Quarantined</h4>
               🤒 ▽ 5
-              <h2>Superheros:</h2>
+            </div>
+            <div className="SuperherosContainer">
+                <h4>Top Superheros:</h4>
                 {this.handleLoading()}
             </div>
           </>
