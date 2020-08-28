@@ -13,11 +13,17 @@ export default function peopleReducer(state = {
     ]
 }, action) {
     switch (action.type) {
+        // Click to make naive person safe
         case 'MAKE_SAFE': {
             let p = state.people.find((p) => p.id === parseInt(action.e.target.id))
             p.status = 'safe'
             return { people: [...state.people] } }
-            // need to figure out how to add isEveryoneSafe callback
+
+        // Click to make a sick person quarantined
+        case 'MAKE_QUARANTINED': {
+            let p = state.people.find((p) => p.id === parseInt(action.e.target.id))
+            p.status = 'quarantined'
+            return { people: [...state.people] } }
 
         // Automatically make a naive person sick after set interval
         case 'NAIVE_TO_SICK_CHANGER': {
@@ -43,7 +49,6 @@ export default function peopleReducer(state = {
         case 'SAFE_TO_SAVED_CHANGER': {
             state.people.filter((p) => p.status === 'safe').map((p) => p.status = 'saved')
             return { people: [...state.people] } }
-            // alert('Congrats - you saved (some of) the world!'))
 
     default:
         return state

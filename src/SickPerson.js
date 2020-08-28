@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { makeQuarantined } from './redux/actions'
 import { sickToDeadChanger } from './redux/actions'
 
 class SickPerson extends Component {
@@ -37,13 +38,14 @@ class SickPerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} onClick={this.props.makeQuarantined} style={{ cursor: 'pointer' }}>🤢</span>
+            <span id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'pointer' }}>🤢</span>
         )
     }
 
 }
 
 const mapDispatchToProps = dispatch => ({
+    dispatchedMakeQuarantined: (e) => dispatch(makeQuarantined(e)),
     dispatchedSickToDeadChanger: (sickPersonId) => dispatch(sickToDeadChanger(sickPersonId))
 })
 

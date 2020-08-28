@@ -11,26 +11,11 @@ import { safeToSavedChanger } from './redux/actions'
 
 class App extends Component {
 
-  // Click to make a sick person quarantined
-  makeQuarantined = (e) => {
-    let id = parseInt(e.target.id);
-    let p = this.state.people.find((p) => p.id === id);
-    let updatedP = { ...p, status: "quarantined" }
-
-    function changeOnPersonAndReturnAllPeople(prevState) {
-      return {
-        people: prevState.people.map((person) =>
-          person.id === id ? updatedP : person
-        )
-      }
-    }
-    this.setState(changeOnPersonAndReturnAllPeople)
-  }
-
   // Check to see if all living people are safe
   isEveryoneSafe = () => {
     if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
       this.props.dispatchedSafeToSavedChanger()
+      alert('Congrats - you saved (some of) the world!')
     }
   }
 
