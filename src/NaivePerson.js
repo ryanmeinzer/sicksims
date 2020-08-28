@@ -5,11 +5,6 @@ import { naiveToSickChanger } from './redux/actions'
 
 class NaivePerson extends Component {
 
-    // Doesn't work...Is state not needed unless you want a timer on the objects?
-    // componentDidMount = () => {
-    //     setTimeout(() => { this.props.riskyToSickChanger(this.props.id) }, 2500)
-    // }
-
     state = {
         time: 3
     }

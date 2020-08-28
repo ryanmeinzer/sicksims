@@ -4,11 +4,6 @@ import { quarantinedToNaiveChanger } from './redux/actions'
 
 class QuarantinedPerson extends Component {
 
-    // Doesn't work...Is state not needed unless you want a timer on the objects?
-    // componentDidMount = () => {
-    //     setTimeout(() => { this.props.quarantinedToRiskyChanger(this.props.id) }, 5000)
-    // }
-
     state = {
         time: 5
     }

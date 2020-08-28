@@ -20,8 +20,6 @@ class App extends Component {
   }
 
   startGame = () => {
-    // this.quarantinedToNaiveChanger()
-    // with react routes change this to the below
     window.location.replace('/play')
   }
 
@@ -29,7 +27,6 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          {/* with react routes change this to / */}
           <Route exact path='/' render={() => 
           
           <>
@@ -43,7 +40,6 @@ class App extends Component {
           </>
           } />
 
-          {/* with react routes change this to /play */}
           <Route exact path='/play' render={routerProps => 
 
             <>
