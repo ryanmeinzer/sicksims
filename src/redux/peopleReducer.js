@@ -43,10 +43,15 @@ export default function peopleReducer(state = {
             let p = state.people.find((p) => p.id === action.sickPersonId)
             p.status = 'dead'
             return { people: [...state.people] } }
-            
-
-        // case 'MAKE_SAFE':
-        // return {}
+            // need to figure out how to add isEveryoneSafe callback
+     
+        // If everyone is safe or dead, change every safe person to saved
+        case 'SAFE_TO_SAVED_CHANGER': {
+            // let p = state.people.find((p) => p.status === 'safe')
+            // p.status = 'saved'
+            state.people.filter((p) => p.status === 'safe').map((p) => p.status = 'saved')
+            return { people: [...state.people] } }
+            // alert('Congrats - you saved (some of) the world!'))
 
     default:
         return state
