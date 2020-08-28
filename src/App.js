@@ -42,39 +42,22 @@ class App extends Component {
     this.setState(changeOnPersonAndReturnAllPeople)
   }
 
-  // Automatically return a quarantined person back to naive in public after set interval
-  quarantinedToNaiveChanger = quarantinedPersonId => {
-    // console.log("In naive to sick¸")
-    let p = this.state.people.find((p) => p.id === quarantinedPersonId)
-    // .map((np) => np.status       ))
-    let updatedP = { ...p, status: 'naive' }
-
-    function changeQuarantinedPersonAndReturnAllPeople(prevState) {
-      return {
-        people: prevState.people.map((person) =>
-          person.id === quarantinedPersonId ? updatedP : person
-        )
-      }
-    }
-    this.setState(changeQuarantinedPersonAndReturnAllPeople)
-  }
-
   // Automatically make a sick person dead after set interval
-  sickToDeadChanger = sickPersonId => {
-    // console.log("In naive to sick¸")
-    let p = this.state.people.find((p) => p.id === sickPersonId)
-    // .map((np) => np.status       ))
-    let updatedP = { ...p, status: 'dead' }
+  // sickToDeadChanger = sickPersonId => {
+  //   // console.log("In naive to sick¸")
+  //   let p = this.state.people.find((p) => p.id === sickPersonId)
+  //   // .map((np) => np.status       ))
+  //   let updatedP = { ...p, status: 'dead' }
 
-    function changeSickPersonAndReturnAllPeople(prevState) {
-      return {
-        people: prevState.people.map((person) =>
-          person.id === sickPersonId ? updatedP : person
-        )
-      }
-    }
-    this.setState(changeSickPersonAndReturnAllPeople, this.isEveryoneSafe)
-  }
+  //   function changeSickPersonAndReturnAllPeople(prevState) {
+  //     return {
+  //       people: prevState.people.map((person) =>
+  //         person.id === sickPersonId ? updatedP : person
+  //       )
+  //     }
+  //   }
+  //   this.setState(changeSickPersonAndReturnAllPeople, this.isEveryoneSafe)
+  // }
 
   // Check to see if all living people are safe
   isEveryoneSafe = () => {

@@ -32,13 +32,18 @@ export default function peopleReducer(state = {
             // use this if/once you add leaderboard to state:
             // return { ...state, people: [...state.people] }
 
+        // Automatically return a quarantined person back to naive in public after set interval
         case 'QUARANTINED_TO_NAIVE_CHANGER': {
             let p = state.people.find((p) => p.id === action.quarantinedPersonId)
             p.status = 'naive'
             return { people: [...state.people] } }
 
-        // case 'SICK_TO_DEAD_CHANGER':
-        // return {}
+        // Automatically make a sick person dead after set interval
+        case 'SICK_TO_DEAD_CHANGER': {
+            let p = state.people.find((p) => p.id === action.sickPersonId)
+            p.status = 'dead'
+            return { people: [...state.people] } }
+            
 
         // case 'MAKE_SAFE':
         // return {}
