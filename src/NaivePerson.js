@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { makeSafe } from './redux/actions'
+import { makeSafe } from './redux/actions'
 import { naiveToSickChanger } from './redux/actions'
 
 class NaivePerson extends Component {
@@ -41,16 +41,21 @@ class NaivePerson extends Component {
         // console.log(this.props.id)
     }
 
+    makeSafeThenCheckAll = (e) => {
+        this.props.dispatchedMakeSafe(e)
+        this.props.isEveryoneSafe()
+    }
+
     render() {
         return(
-            <span id={this.props.id} onClick={this.props.dispatchedMakeSafe} style={{ cursor: 'pointer' }}>🥴</span>
+            <span id={this.props.id} onClick={this.makeSafeThenCheckAll} style={{ cursor: 'pointer' }}>🥴</span>
         )
     }
 
 }
 
 const mapDispatchToProps = dispatch => ({
-    // dispatchedMakeSafe: (e) => dispatch(makeSafe(e)),
+    dispatchedMakeSafe: (e) => dispatch(makeSafe(e)),
     dispatchedNaiveToSickChanger: (naivePersonId) => dispatch(naiveToSickChanger(naivePersonId))
 })
 

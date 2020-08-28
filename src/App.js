@@ -11,22 +11,6 @@ import { safeToSavedChanger } from './redux/actions'
 
 class App extends Component {
 
-  // Click to make naive person safe
-  makeSafe = (e) => {
-    let id = parseInt(e.target.id);
-    let p = this.state.people.find((p) => p.id === id);
-    let updatedP = { ...p, status: "safe" }
-
-    function changeOnePersonAndReturnAllPeople(prevState) {
-      return {
-        people: prevState.people.map((person) =>
-          person.id === id ? updatedP : person
-        )
-      }
-    }
-    this.setState(changeOnePersonAndReturnAllPeople, this.isEveryoneSafe)
-  }
-
   // Click to make a sick person quarantined
   makeQuarantined = (e) => {
     let id = parseInt(e.target.id);
@@ -85,7 +69,7 @@ class App extends Component {
 
                 {this.props.people.map(person => {
                   if (person.status === "naive") {
-                    return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} />
+                    return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} makeSafe={this.makeSafe} isEveryoneSafe={this.isEveryoneSafe} />
                   } else if (person.status === "safe") {
                     return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} />
                   } else if (person.status === "sick") {

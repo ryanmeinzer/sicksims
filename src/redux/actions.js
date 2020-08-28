@@ -1,4 +1,4 @@
-// export const makeSafe = (e) => ({ type: 'MAKE_SAFE', e })
+export const makeSafe = (e) => ({ type: 'MAKE_SAFE', e })
 // export const makeQuarantined = (e) => ({ type: 'MAKE_QUARANTINED', e })
 export const naiveToSickChanger = (naivePersonId) => ({ type: 'NAIVE_TO_SICK_CHANGER', naivePersonId })
 export const quarantinedToNaiveChanger = (quarantinedPersonId) => ({ type: 'QUARANTINED_TO_NAIVE_CHANGER', quarantinedPersonId })

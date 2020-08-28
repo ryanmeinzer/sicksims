@@ -13,15 +13,10 @@ export default function peopleReducer(state = {
     ]
 }, action) {
     switch (action.type) {
-        // case 'MAKE_SAFE':
-            // just declaring e = e to temporarily resolve the 'e' is not defined error
-            // let e = e
-            // {
-            // let id = parseInt(action.e.target.id);
-            // let p = state.people.find((p) => p.id === id)
-            // let updatedP = { ...p, status: "safe" }
-            // }
-            // return { ...state, people: [...state.people, updatedP] }
+        case 'MAKE_SAFE': {
+            let p = state.people.find((p) => p.id === parseInt(action.e.target.id))
+            p.status = 'safe'
+            return { people: [...state.people] } }
             // need to figure out how to add isEveryoneSafe callback
 
         // Automatically make a naive person sick after set interval
