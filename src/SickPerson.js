@@ -45,7 +45,7 @@ class SickPerson extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    dispatchedMakeQuarantined: (e) => dispatch(makeQuarantined(e)),
+    dispatchedMakeQuarantined: (e) => dispatch(makeQuarantined(parseInt(e.target.id))),
     dispatchedSickToDeadChanger: (sickPersonId) => dispatch(sickToDeadChanger(sickPersonId))
 })
 

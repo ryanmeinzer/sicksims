@@ -47,7 +47,7 @@ class NaivePerson extends Component {
 const mapDispatchToProps = dispatch => ({
     // don't pass in e, use e.target.id
     // dispatchedMakeSafe: (e) => dispatch(makeSafe(e.target.id)),
-    dispatchedMakeSafe: (e) => dispatch(makeSafe(e)),
+    dispatchedMakeSafe: (e) => dispatch(makeSafe(parseInt(e.target.id))),
     dispatchedNaiveToSickChanger: (naivePersonId) => dispatch(naiveToSickChanger(naivePersonId))
 })
 

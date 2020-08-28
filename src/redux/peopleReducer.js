@@ -35,11 +35,11 @@ export default function peopleReducer(state = {
 
         // Click to make naive person safe
         case 'MAKE_SAFE':
-            return { people: state.people.map(person => person.id === parseInt(action.e.target.id) ? { ...person, status: 'safe' } : person) }
+            return { people: state.people.map(person => person.id === action.id ? { ...person, status: 'safe' } : person) }
 
         // Click to make a sick person quarantined
         case 'MAKE_QUARANTINED': 
-            return { people: state.people.map(person => person.id === parseInt(action.e.target.id) ? { ...person, status: 'quarantined' } : person) }
+            return { people: state.people.map(person => person.id === action.id ? { ...person, status: 'quarantined' } : person) }
 
         // Automatically make a naive person sick after set interval
         case 'NAIVE_TO_SICK_CHANGER': 
