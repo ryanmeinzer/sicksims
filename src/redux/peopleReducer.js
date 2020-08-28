@@ -10,9 +10,29 @@ export default function peopleReducer(state = {
         { id: 8, status: "naive" },
         { id: 9, status: "safe" },
         { id: 10, status: "sick" }
-    ]
+    ], 
+    superheros: [], 
+    loading: false
 }, action) {
     switch (action.type) {
+
+        // Loading message upon superheros load
+        case 'LOADING_SUPERHEROS':
+            return {
+                ...state,
+                // is this correct? Cannot figure out how to inspect
+                superheros: [...state.superheros],
+                loading: true
+            }
+
+        // Add superheros to state/store/array
+        case 'ADD_SUPERHEROS':
+            return {
+                ...state,
+                superheros: action.json,
+                loading: false
+            }
+
         // Click to make naive person safe
         case 'MAKE_SAFE': {
             let p = state.people.find((p) => p.id === parseInt(action.e.target.id))

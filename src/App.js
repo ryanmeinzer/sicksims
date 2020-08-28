@@ -8,8 +8,28 @@ import SickPerson from './SickPerson.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { safeToSavedChanger } from './redux/actions'
+import { fetchSuperheros } from './redux/actions'
+import Superheros from './Superheros.js'
 
 class App extends Component {
+
+  // fetch superheros upon app load
+  componentDidMount() {
+    // console.log(this.props)
+    // console.log(this.props)
+    this.props.dispatchedFetchSuperheros()
+    // debugger
+  }
+
+  // handle fetch of superheros upon app load with loading message if still loading
+  handleLoading = () => {
+    // console.log(this.props.loading)
+    if (this.props.loading) {
+      return <div>Loading...</div>
+    } else {
+      return <Superheros mappedSuperheros={this.props.mappedSuperheros} />
+    }
+  }
 
   // Check to see if all living people are safe
   isEveryoneSafe = () => {
@@ -24,6 +44,7 @@ class App extends Component {
   }
 
   render() {
+    // console.log(this.props.mappedSuperheros)
     return (
       <div className="App">
         <Router>
@@ -36,6 +57,8 @@ class App extends Component {
               🥴🤢🥴🥴😷🤢🥴😷🤢
               <h4>Quarantined</h4>
               🤒 ▽ 5
+              <h2>Superheros:</h2>
+                {this.handleLoading()}
             </div>
           </>
           } />
@@ -83,10 +106,19 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ people }) => ({ people })
+// can't just use destructured people anymore with superheros fetch
+// const mapStateToProps = ({ people }) => ({ people })
+const mapStateToProps = state => {
+  return {
+    people: state.people,
+    mappedSuperheros: state.superheros,
+    loading: state.loading
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
-  dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger())
+  dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger()), 
+  dispatchedFetchSuperheros: () => dispatch(fetchSuperheros()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
