@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+// import { makeSafe } from './redux/actions'
+import { naiveToSickChanger } from './redux/actions'
 
-export default class NaivePerson extends Component {
+class NaivePerson extends Component {
 
     // Doesn't work...Is state not needed unless you want a timer on the objects?
     // componentDidMount = () => {
@@ -28,7 +31,7 @@ export default class NaivePerson extends Component {
         // console.log("checking time", this.state.time, this.props.id)
     if (this.state.time <= 0) {
         // console.log("woo!")
-        this.props.naiveToSickChanger(this.props.id)
+        this.props.dispatchedNaiveToSickChanger(this.props.id)
         // console.log("risky to sick changed", this.props.id)
         }
     }
@@ -40,8 +43,15 @@ export default class NaivePerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} onClick={this.props.makeSafe} style={{ cursor: 'pointer' }}>🥴</span>
+            <span id={this.props.id} onClick={this.props.dispatchedMakeSafe} style={{ cursor: 'pointer' }}>🥴</span>
         )
     }
 
 }
+
+const mapDispatchToProps = dispatch => ({
+    // dispatchedMakeSafe: (e) => dispatch(makeSafe(e)),
+    dispatchedNaiveToSickChanger: (naivePersonId) => dispatch(naiveToSickChanger(naivePersonId))
+})
+
+export default connect(null, mapDispatchToProps)(NaivePerson)

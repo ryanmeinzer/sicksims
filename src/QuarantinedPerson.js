@@ -8,7 +8,7 @@ export default class QuarantinedPerson extends Component {
     // }
 
     state = {
-        time: 5
+        time: 5000
     }
 
     componentDidMount = () => {

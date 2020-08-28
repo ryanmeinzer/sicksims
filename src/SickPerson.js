@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class SickPerson extends Component {
 
     state = {
-        time: 3
+        time: 3000
     }
 
     componentDidMount = () => {
