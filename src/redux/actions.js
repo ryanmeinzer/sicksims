@@ -9,8 +9,8 @@ export const safeToSavedChanger = () => ({ type: 'SAFE_TO_SAVED_CHANGER' })
 export const fetchSuperheros = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_SUPERHEROS' })
-        // fetch('https://sicksims-backend.herokuapp.com/superheros')
-        fetch('http://localhost:3000/superheros')
+        fetch('https://sicksims-backend.herokuapp.com/superheros')
+        // fetch('http://localhost:3000/superheros')
             .then(response => {
                 return response.json()
             })
@@ -26,8 +26,8 @@ export const addSuperhero = (superhero) => {
     return (dispatch) => {
         // can't figure out how to get this loading bit to work
         // dispatch({ type: 'ADDING_SUPERHERO' })
-        // fetch('https://sicksims-backend.herokuapp.com/superheros')
-        return fetch('http://localhost:3000/superheros', {
+        return fetch('https://sicksims-backend.herokuapp.com/superheros', {
+        // return fetch('http://localhost:3000/superheros', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

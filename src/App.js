@@ -27,6 +27,10 @@ class App extends Component {
     this.interval = setInterval(this.isEveryoneSafe, 1000)
   }
 
+  startGame = () => {
+    window.location.replace('/play')
+  }
+
   // Check to see if all living people are safe
   isEveryoneSafe = () => {
     if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
@@ -44,7 +48,7 @@ class App extends Component {
           <Route exact path='/' render={() => 
           
           <>
-          < Header />
+          < Header startGameButton={this.startGame} />
             <div className="FakeGameContainer">
               <h4>In Public</h4>
               🥴🤢🥴🥴😷🤢🥴😷🤢
