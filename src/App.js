@@ -27,6 +27,7 @@ class App extends Component {
     this.interval = setInterval(this.isEveryoneSafe, 1000)
   }
 
+  // hard refresh to reset state for game restart
   startGame = () => {
     window.location.replace('/play')
   }
