@@ -30,7 +30,6 @@ class SuperherosContainer extends Component {
             <div className="SuperherosContainer">
                 <h4>Top Superheros:</h4>
                 {this.handleLoading()}
-                < SuperheroInput />
             </div>
         )
     }

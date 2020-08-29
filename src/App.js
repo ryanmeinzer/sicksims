@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { safeToSavedChanger } from './redux/actions'
 import SuperherosContainer from './Superheros/SuperherosContainer.js'
+import SuperheroInput from './Superheros/SuperheroInput.js'
+import { Link } from 'react-router-dom'
 
 class App extends Component {
 
@@ -25,33 +27,24 @@ class App extends Component {
     this.interval = setInterval(this.isEveryoneSafe, 1000)
   }
 
-  startGame = () => {
-    window.location.replace('/play')
-  }
-
   // Check to see if all living people are safe
   isEveryoneSafe = () => {
-    // console.log('inside checking to see if everyone is safe in app.js')
-    // console.log(this.props)
-    // if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
     if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
       this.props.dispatchedSafeToSavedChanger()
       let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
       alert(`Congrats - you saved (some of) the world! Your score is ${score}`)
       this.componentWillUnmount()
     }
-    // console.log('inside after check to see if everyone was safe in app.js')
   }
 
   render() {
-    // console.log(this.props.mappedSuperheros)
     return (
       <div className="App">
         <Router>
           <Route exact path='/' render={() => 
           
           <>
-          < Header startGameButton={this.startGame}/>
+          < Header />
             <div className="FakeGameContainer">
               <h4>In Public</h4>
               🥴🤢🥴🥴😷🤢🥴😷🤢
@@ -103,6 +96,23 @@ class App extends Component {
             </>
           } />
 
+          <Route exact path='/score' render={() =>
+            <>
+              <div>
+                <div className='logo' align='center'>
+                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" class="logo" height="100" background-color="transparent"></img>
+                </div>
+                <div>
+                  < SuperheroInput score={parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)} />
+                </div>
+                <div>
+                  < SuperherosContainer />
+                </div>
+              </div>
+
+            </>
+          } />
+
         </Router>
 
       </div>
@@ -110,8 +120,6 @@ class App extends Component {
   }
 }
 
-// can't just use destructured people anymore with superheros fetch
-// const mapStateToProps = ({ people }) => ({ people })
 const mapStateToProps = state => {
   return {
     people: state.people,

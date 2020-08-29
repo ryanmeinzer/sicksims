@@ -5,12 +5,15 @@ import { addSuperhero } from '../redux/actions'
 class SuperheroInput extends Component {
 
     state = {
-        name: ''
+        name: '',
+        score: this.props.score
+        // score: parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
     }
 
     handleOnChange = event => {
         this.setState({
-            name: event.target.value
+            name: event.target.value, 
+            score: parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
         })
     }
 
@@ -18,23 +21,33 @@ class SuperheroInput extends Component {
         event.preventDefault()
         this.props.dispatchedAddSuperhero(this.state)
         this.setState({
-            superhero: ''
+            name: ''
         });
+        alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
+        window.location.replace('/')
     }
 
     render() {
         return (
-            <div>
+            <div className='SuperheroForm'>
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
                     <input
                         type="text"
                         value={this.state.name}
                         placeholder="Your Superhero Name"
-                        onChange={(event) => this.handleOnChange(event)} />
+                        onChange={(event) => this.handleOnChange(event)} required />
+                    <span>with a score of {this.props.score}</span>
                     <input type="submit" />
                 </form>
             </div>
         )
+    }
+}
+
+// const mapStateToProps = ({ people }) => ({ people })
+const mapStateToProps = state => {
+    return {
+        people: state.people
     }
 }
 
@@ -43,4 +56,4 @@ const mapDispatchToProps = dispatch => ({
 })
 // const mapDispatchToProps = dispatch => ({ addBand: band => dispatch({ type: "ADD_BAND", band }) })
 
-export default connect(null, mapDispatchToProps)(SuperheroInput)
+export default connect(mapStateToProps, mapDispatchToProps)(SuperheroInput)

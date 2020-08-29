@@ -36,7 +36,7 @@ export const addSuperhero = (superhero) => {
             body: JSON.stringify({  
                 superhero: {
                     name: superhero.name,
-                    score: 10
+                    score: superhero.score
                 }
             })
         })

@@ -32,7 +32,7 @@ export default function peopleReducer(state = {
         case 'ADD_SUPERHERO':
             const superhero = {
                 name: action.superhero.name,
-                score: 10
+                score: action.superhero.score
             }
             return { ...state, superheros: [...state.superheros, superhero] }
 

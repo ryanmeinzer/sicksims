@@ -33,8 +33,36 @@ p {
 
 button {
   padding: 1rem;
+  margin: 0 1rem;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.scoreButton {
+  padding: .5rem;
+}
+
+.superherosButton {
+  padding: .5rem;
+}
+
+.SuperheroForm {
+  font-size: 1.5rem;
+  color: gray;
+  /* align-items: center; */
+  /* align-items: bottom; */
+}
+
+.SuperheroForm input[type=text] {
+  padding: 1rem;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+}
+
+.SuperheroForm input[type=submit] {
+  padding: 1rem;
+  margin: 0 1rem;
+  font-size: 1.5rem;
 }
 
 code {
