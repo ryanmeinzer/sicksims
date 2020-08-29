@@ -18,24 +18,23 @@ export default function peopleReducer(state = {
 
         // Loading message upon superheros load
         case 'LOADING_SUPERHEROS':
-            return {
-                ...state,
-                // is this correct? Cannot figure out how to inspect
-                superheros: [...state.superheros],
-                loading: true
-            }
+            return { ...state, superheros: [...state.superheros], loading: true }
 
         // Add superheros from GET fetch to state/store/array
         case 'ADD_SUPERHEROS':
-            return {
-                ...state,
-                superheros: action.json,
-                loading: false
-            }
+            return { ...state, superheros: action.json, loading: false }
+
+        // Loading message for adding superhero
+        // case 'ADDING_SUPERHERO':
+        //     return { ...state, superheros: [...state.superheros], loading: true }
 
         // Add superhero and score from POST input to state/store/array
         case 'ADD_SUPERHERO':
-            return { ...state, superheros: [...state.superheros, action.superhero] }
+            const superhero = {
+                name: action.superhero.name,
+                score: 10
+            }
+            return { ...state, superheros: [...state.superheros, superhero] }
 
         // Click to make naive person safe
         case 'MAKE_SAFE':
