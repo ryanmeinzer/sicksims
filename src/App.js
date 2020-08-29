@@ -8,16 +8,13 @@ import SickPerson from './SickPerson.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { safeToSavedChanger } from './redux/actions'
-import { fetchSuperheros } from './redux/actions'
-import Superheros from './Superheros/Superheros.js'
+import SuperherosContainer from './Superheros/SuperherosContainer.js'
 
 class App extends Component {
 
-  // fetch superheros upon app load
+  // start interval to check if game is finished upon app load
   componentDidMount() {
-    this.props.dispatchedFetchSuperheros()
     this.startInterval()
-    // debugger
   }
 
   componentWillUnmount() {
@@ -30,16 +27,6 @@ class App extends Component {
 
   startGame = () => {
     window.location.replace('/play')
-  }
-
-  // handle fetch of superheros upon app load with loading message if still loading
-  handleLoading = () => {
-    // console.log(this.props.loading)
-    if (this.props.loading) {
-      return <div>Loading...</div>
-    } else {
-      return <Superheros mappedSuperheros={this.props.mappedSuperheros} />
-    }
   }
 
   // Check to see if all living people are safe
@@ -71,9 +58,8 @@ class App extends Component {
               <h4>Quarantined</h4>
               🤒 ▽ 5
             </div>
-            <div className="SuperherosContainer">
-                <h4>Top Superheros:</h4>
-                {this.handleLoading()}
+            <div>
+                < SuperherosContainer />
             </div>
           </>
           } />
@@ -111,9 +97,8 @@ class App extends Component {
                 }
 
               </div> 
-              <div className="SuperherosContainer">
-                <h4>Top Superheros:</h4>
-                {this.handleLoading()}
+              <div>
+                < SuperherosContainer />
               </div>
             </>
           } />
@@ -130,14 +115,12 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     people: state.people,
-    mappedSuperheros: state.superheros,
     loading: state.loading
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger()), 
-  dispatchedFetchSuperheros: () => dispatch(fetchSuperheros()),
+  dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger()) 
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

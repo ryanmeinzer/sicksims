@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchSuperheros } from './redux/actions'
-import Superheros from './Superheros/Superheros.js'
+import { fetchSuperheros } from '../redux/actions'
+import Superheros from './Superheros.js'
 
 class SuperherosContainer extends Component {
 
@@ -26,7 +26,7 @@ class SuperherosContainer extends Component {
 
     render() {
         return (
-            <div className="SuperherosContainer2">
+            <div className="SuperherosContainer">
                 <h4>Top Superheros:</h4>
                 {this.handleLoading()}
             </div>
@@ -38,7 +38,6 @@ class SuperherosContainer extends Component {
 // const mapStateToProps = ({ people }) => ({ people })
 const mapStateToProps = state => {
     return {
-        people: state.people,
         mappedSuperheros: state.superheros,
         loading: state.loading
     }
