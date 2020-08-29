@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { safeToSavedChanger } from './redux/actions'
 import { fetchSuperheros } from './redux/actions'
-import Superheros from './Superheros.js'
+import Superheros from './Superheros/Superheros.js'
 
 class App extends Component {
 

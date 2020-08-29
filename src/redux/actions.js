@@ -8,7 +8,8 @@ export const safeToSavedChanger = () => ({ type: 'SAFE_TO_SAVED_CHANGER' })
 export const fetchSuperheros = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_SUPERHEROS' })
-        fetch('https://sicksims-backend.herokuapp.com/superheros')
+        // fetch('https://sicksims-backend.herokuapp.com/superheros')
+        fetch('http://localhost:3000/superheros')
             .then(response => {
                 return response.json()
             })
