@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addSuperhero } from '../redux/actions'
+import { Link } from 'react-router-dom'
 
 class SuperheroInput extends Component {
 
@@ -24,7 +25,7 @@ class SuperheroInput extends Component {
             name: ''
         });
         alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
-        window.location.replace('/')
+        window.location.replace('/superheros')
     }
 
     render() {
@@ -39,6 +40,9 @@ class SuperheroInput extends Component {
                     <span>with a score of {this.props.score}</span>
                     <input type="submit" />
                 </form>
+                <div className='RestartGame'>
+                    or <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> 🥰</button></Link>
+                </div>
             </div>
         )
     }

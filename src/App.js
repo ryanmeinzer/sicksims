@@ -51,9 +51,6 @@ class App extends Component {
               <h4>Quarantined</h4>
               🤒 ▽ 5
             </div>
-            <div>
-                < SuperherosContainer />
-            </div>
           </>
           } />
 
@@ -90,9 +87,6 @@ class App extends Component {
                 }
 
               </div> 
-              <div>
-                < SuperherosContainer />
-              </div>
             </>
           } />
 
@@ -104,6 +98,23 @@ class App extends Component {
                 </div>
                 <div>
                   < SuperheroInput score={parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)} />
+                </div>
+                <div>
+                  < SuperherosContainer />
+                </div>
+              </div>
+
+            </>
+          } />
+
+          <Route exact path='/superheros' render={() =>
+            <>
+              <div>
+                <div className='logo' align='center'>
+                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" class="logo" height="100" background-color="transparent"></img>
+                </div>
+                <div>
+                  <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> 🥰</button></Link>
                 </div>
                 <div>
                   < SuperherosContainer />
