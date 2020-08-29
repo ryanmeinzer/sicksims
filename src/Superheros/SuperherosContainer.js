@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchSuperheros } from '../redux/actions'
 import Superheros from './Superheros.js'
+import SuperheroInput from './SuperheroInput.js'
 
 class SuperherosContainer extends Component {
 
@@ -29,6 +30,7 @@ class SuperherosContainer extends Component {
             <div className="SuperherosContainer">
                 <h4>Top Superheros:</h4>
                 {this.handleLoading()}
+                < SuperheroInput />
             </div>
         )
     }

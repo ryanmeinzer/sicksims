@@ -25,13 +25,17 @@ export default function peopleReducer(state = {
                 loading: true
             }
 
-        // Add superheros to state/store/array
+        // Add superheros from GET fetch to state/store/array
         case 'ADD_SUPERHEROS':
             return {
                 ...state,
                 superheros: action.json,
                 loading: false
             }
+
+        // Add superhero and score from POST input to state/store/array
+        case 'ADD_SUPERHERO':
+            return { ...state, superheros: [...state.superheros, action.superhero] }
 
         // Click to make naive person safe
         case 'MAKE_SAFE':

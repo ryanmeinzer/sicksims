@@ -4,6 +4,7 @@ export const naiveToSickChanger = (naivePersonId) => ({ type: 'NAIVE_TO_SICK_CHA
 export const quarantinedToNaiveChanger = (quarantinedPersonId) => ({ type: 'QUARANTINED_TO_NAIVE_CHANGER', quarantinedPersonId })
 export const sickToDeadChanger = (sickPersonId) => ({ type: 'SICK_TO_DEAD_CHANGER', sickPersonId })
 export const safeToSavedChanger = () => ({ type: 'SAFE_TO_SAVED_CHANGER' })
+export const addSuperhero = (superhero) => ({ type: 'ADD_SUPERHERO', superhero })
 
 export const fetchSuperheros = () => {
     return (dispatch) => {
