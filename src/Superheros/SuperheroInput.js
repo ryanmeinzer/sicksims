@@ -6,15 +6,13 @@ import { Link } from 'react-router-dom'
 class SuperheroInput extends Component {
 
     state = {
-        name: '',
-        score: this.props.score
-        // score: parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
+        name: ''
     }
 
     handleOnChange = event => {
         this.setState({
-            name: event.target.value, 
-            score: parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
+            name: event.target.value,
+            score: this.props.score
         })
     }
 
@@ -48,16 +46,8 @@ class SuperheroInput extends Component {
     }
 }
 
-// const mapStateToProps = ({ people }) => ({ people })
-const mapStateToProps = state => {
-    return {
-        people: state.people
-    }
-}
-
 const mapDispatchToProps = dispatch => ({
     dispatchedAddSuperhero: (superhero) => dispatch(addSuperhero(superhero))
 })
-// const mapDispatchToProps = dispatch => ({ addBand: band => dispatch({ type: "ADD_BAND", band }) })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SuperheroInput)
+export default connect(null, mapDispatchToProps)(SuperheroInput)
