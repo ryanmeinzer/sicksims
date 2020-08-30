@@ -36,7 +36,9 @@ class QuarantinedPerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} style={{ cursor: 'not-allowed' }}>🤒 ▽ {this.state.time} </span>
+            <>
+            <span className='quarantinedPersonEmoji' id={this.props.id} style={{ cursor: 'not-allowed' }}>🤒</span><span className='quarantinedPersonCountdown'> ▽ {this.state.time} </span>
+            </>
         )
     }
 

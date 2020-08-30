@@ -4,7 +4,7 @@ export default class SafePerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} style={{ cursor: 'not-allowed' }}>😷</span>
+            <span className='safePersonEmoji' id={this.props.id} style={{ cursor: 'not-allowed' }}>😷</span>
         )
     }
 

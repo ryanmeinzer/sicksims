@@ -96,26 +96,43 @@ button {
 
 /* Glow Naive Person */
 .naivePersonEmoji {
-  animation: naiveGlow 10000ms infinite;
+  animation: naiveGlow 4000ms infinite;
 }
 
 @keyframes naiveGlow {
   0% { text-shadow: 0 0 -10px red; }
-  40% { text-shadow: 0 0 20px red; }
-  60% { text-shadow: 0 0 20px red; }
-  100% { text-shadow: 0 0 -10px red; }
+  100% { text-shadow: 0 0 20px red; }
 }
 
 /* Glow Sick Person */
 .sickPersonEmoji {
-  animation: sickGlow 10000ms infinite;
+  animation: sickGlow 4000ms infinite;
 }
 
 @keyframes sickGlow {
   0% { text-shadow: 0 0 -10px green; }
-  40% { text-shadow: 0 0 20px green; }
-  60% { text-shadow: 0 0 20px green; }
-  100% { text-shadow: 0 0 -10px green; }
+  100% { text-shadow: 0 0 20px green; }
+}
+
+/* make safe person opaque */
+.safePersonEmoji {
+  opacity: 75%;
+}
+
+/* Un-Glow Quarantined Person */
+.quarantinedPersonEmoji {
+  animation: quarantinedGlow 15000ms infinite;
+  opacity: 75%;
+}
+
+@keyframes quarantinedGlow {
+  0% { text-shadow: 0 0 20px red; }
+  100% { text-shadow: 0 0 -10px red; }
+}
+
+.quarantinedPersonCountdown {
+  opacity: 25%;
+  color: red;
 }
 
 /* Mobile Responsiveness */
