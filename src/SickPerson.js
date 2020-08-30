@@ -38,7 +38,7 @@ class SickPerson extends Component {
 
     render() {
         return(
-            <span id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'pointer' }}>🤢</span>
+            <span className='sickPersonEmoji' id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'pointer' }}>🤢</span>
         )
     }
 

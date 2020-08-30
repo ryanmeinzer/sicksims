@@ -7,6 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 .App {
   text-align: center;
   font-size: 3rem;
@@ -25,12 +30,6 @@ body {
   padding: 1rem 25rem;
   color: gray;
   margin: 1rem 1rem;
-}
-
-@media (max-width: 500px) {
-  .SuperherosContainer {
-    padding: 1rem 1rem;
-  }
 }
 
 .logo {
@@ -95,10 +94,31 @@ button {
   padding: 1rem 0 0 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Glow Naive Person */
+.naivePersonEmoji {
+  animation: naiveGlow 10000ms infinite;
 }
+
+@keyframes naiveGlow {
+  0% { text-shadow: 0 0 -10px red; }
+  40% { text-shadow: 0 0 20px red; }
+  60% { text-shadow: 0 0 20px red; }
+  100% { text-shadow: 0 0 -10px red; }
+}
+
+/* Glow Sick Person */
+.sickPersonEmoji {
+  animation: sickGlow 10000ms infinite;
+}
+
+@keyframes sickGlow {
+  0% { text-shadow: 0 0 -10px green; }
+  40% { text-shadow: 0 0 20px green; }
+  60% { text-shadow: 0 0 20px green; }
+  100% { text-shadow: 0 0 -10px green; }
+}
+
+/* Mobile Responsiveness */
 
 @media (max-width: 500px) {
 
@@ -111,4 +131,10 @@ code {
     cursor: pointer;
   }
 
+}
+
+@media (max-width: 500px) {
+  .SuperherosContainer {
+    padding: 1rem 1rem;
+  }
 }
