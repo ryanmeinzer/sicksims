@@ -116,13 +116,13 @@ button {
 
 /* make safe person opaque */
 .safePersonEmoji {
-  opacity: 75%;
+  opacity: .75;
 }
 
 /* Un-Glow Quarantined Person */
 .quarantinedPersonEmoji {
   animation: quarantinedGlow 15000ms infinite;
-  opacity: 75%;
+  opacity: .75;
 }
 
 @keyframes quarantinedGlow {
@@ -131,7 +131,7 @@ button {
 }
 
 .quarantinedPersonCountdown {
-  opacity: 25%;
+  opacity: .25;
   color: red;
 }
 
