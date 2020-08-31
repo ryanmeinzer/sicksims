@@ -74,7 +74,7 @@ class App extends Component {
                   } else if (person.status === "sick") {
                     return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} makeQuarantined={this.makeQuarantined} isEveryoneSafe={this.isEveryoneSafe} />
                   } else if (person.status === "dead") {
-                    return <span key={`dead-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>⚰️</span>
+                    return <span key={`dead-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
                   } else if (person.status === "saved") {
                     return <span key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
                   }
