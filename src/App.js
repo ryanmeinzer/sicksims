@@ -52,7 +52,7 @@ class App extends Component {
           < Header startGameButton={this.startGame} />
             <div className="FakeGameContainer">
               <h4>In Public</h4>
-              🥴🤢🥴🥴😷🤢🥴😷🤢
+              🥴 🤢 🥴 🥴 😷 🤢 🥴 😷 🤢
               <h4>Quarantined</h4>
               🤒 ▽ 5
             </div>
