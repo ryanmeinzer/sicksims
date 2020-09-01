@@ -217,14 +217,22 @@ button {
     display: inline-block;
   } */
 
+  h4 {
+  margin: 2rem .5rem;
+  }
+
+  .GameContainer {
+    width: 95%;
+  }
+
   .InPublicContainer {
-  min-height: 30rem;
-  /* border: solid red; */
+    min-height: 20rem;
+    /* border: solid red; */
   }
 
   .QuarantinedContainer {
-  min-height: 30rem;
-  /* border: solid red; */
+    min-height: 20rem;
+    /* border: solid red; */
   }
 
   .SuperherosContainer {
