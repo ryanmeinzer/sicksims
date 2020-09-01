@@ -158,6 +158,10 @@ button {
     padding: 1rem 1rem;
   }
 
+  .fakeGameEmojis {
+    padding: .25rem;
+  }
+
   .savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .quarantinedPersonEmoji, .terminalPersonEmoji {
     padding: .25rem;
   }
