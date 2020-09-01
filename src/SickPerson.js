@@ -38,7 +38,7 @@ class SickPerson extends Component {
 
     render() {
         return(
-            <span className='sickPersonEmoji' role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'pointer' }}>🤢</span>
+            <span className='sickPersonEmoji' draggable='true' role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'pointer' }}>🤢</span>
         )
     }
 
