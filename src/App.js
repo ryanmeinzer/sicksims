@@ -65,7 +65,7 @@ class App extends Component {
                 <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
             <div className="FakeDiv"></div>
               <h4>Quarantined</h4>
-                <span className='quarantinedFakeGameEmojis' role='img' aria-label='quarantined person emoji'>🤒</span><span className='quarantinedFakePersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 5 </span> 
+                <span className='quarantinedFakeGameEmojis' role='img' aria-label='quarantined person emoji'>🤒 </span><span className='quarantinedFakePersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 5 </span> 
             </div>
           </>
           } />
