@@ -38,7 +38,7 @@ class NaivePerson extends Component {
 
     render() {
         return(
-            <span className='naivePersonEmoji' role='img' aria-label='naive person emoji' id={this.props.id} onClick={this.props.dispatchedMakeSafe} style={{ cursor: 'pointer' }}>🥴</span>
+            <span className='naivePersonEmoji' role='img' aria-label='naive person emoji' id={this.props.id} onClick={this.props.dispatchedMakeSafe} style={{ cursor: 'default' }}>🥴</span>
         )
     }
 

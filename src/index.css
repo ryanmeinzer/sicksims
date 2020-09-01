@@ -89,6 +89,7 @@ button {
   border: .5rem dotted #96AC35;
   width: 45%;
   color: #96AC35;
+  cursor: not-allowed;
 }
 
 .FakeGameContainer {

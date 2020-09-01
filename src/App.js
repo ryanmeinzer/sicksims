@@ -11,6 +11,7 @@ import SuperherosContainer from './Superheros/SuperherosContainer.js'
 import SuperheroInput from './Superheros/SuperheroInput.js'
 import { Link } from 'react-router-dom'
 import logo from './SickSims-Logo.png'
+import { makeQuarantined } from './redux/actions'
 
 class App extends Component {
 
@@ -40,6 +41,16 @@ class App extends Component {
       setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 1000)
       this.componentWillUnmount()
     }
+  }
+
+  allowDrop = (e) => {
+    e.preventDefault()
+  }
+
+  drop = (e) => {
+    e.preventDefault()
+    let id = e.dataTransfer.getData("text")
+    this.props.dispatchedMakeQuarantined(id)
   }
 
   render() {
@@ -101,7 +112,7 @@ class App extends Component {
                   }
                 </div>
 
-                <div className='QuarantinedContainer'>
+                <div className='QuarantinedContainer' onDrop={this.drop} onDragOver={this.allowDrop}>
                   <h4>Quarantined</h4>
                   {this.props.people.map(person => {
                     if (person.status === "quarantined") {
@@ -167,7 +178,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger()) 
+  dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger()),
+  dispatchedMakeQuarantined: (id) => dispatch(makeQuarantined(parseInt(id)))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

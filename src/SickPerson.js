@@ -36,9 +36,15 @@ class SickPerson extends Component {
         // console.log(this.props.id)
     }
 
+    drag = (e) => {
+        let id = e.target.id
+        e.dataTransfer.setData("text", id)
+        console.log('in SickPerson.js drag', id)
+    }
+
     render() {
         return(
-            <span className='sickPersonEmoji' draggable='true' role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'pointer' }}>🤢</span>
+            <span className='sickPersonEmoji' draggable='true' onDragStart={this.drag} role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'grab' }}>🤢</span>
         )
     }
 
