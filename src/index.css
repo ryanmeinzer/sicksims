@@ -204,8 +204,8 @@ button {
 
   body {
     margin: 0 1rem;
-    font-size: 16px;
   }
+
   button {
     padding: .5rem;
     font-size: 1rem;
@@ -269,10 +269,15 @@ button {
   .GameContainer, .FakeGameContainer {
     border: solid black;
     width: 95%;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .InPublicContainer {
     height: 15rem;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* flex-direction: column; */
     /* width: 95%; */
     /* border: solid red; */
   }
