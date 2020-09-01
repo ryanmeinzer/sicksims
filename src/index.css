@@ -15,23 +15,29 @@ code {
 .App {
   text-align: center;
   font-size: 3rem;
-}
-
-.App {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 0 1rem;
+  margin: 0 1rem 1rem;
 }
 
-.Header, .GameContainer {
+.Header {
   
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 75%;
   /* border: solid red; */
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
+}
+
+.GameContainer {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+  /* border: solid red; */
 }
 
 .FakeGameContainer {
@@ -41,6 +47,10 @@ code {
   border: solid red;
   /* margin: 0 0 1rem; */
   height: 30rem;
+}
+
+.FakeDiv {
+  margin: 5.5rem;
 }
 
 .GameContainer, .FakeGameContainer {
@@ -149,9 +159,18 @@ button {
   opacity: .75;
 }
 
+.safeFakePersonEmoji {
+  opacity: .75;
+  padding: .5rem;
+}
+
 /* Un-Glow Quarantined Person */
 .quarantinedPersonEmoji {
   animation: quarantinedGlow 15000ms infinite;
+  opacity: .75;
+}
+
+.quarantinedFakeGameEmojis {
   opacity: .75;
 }
 
@@ -165,7 +184,12 @@ button {
   color: red;
 }
 
-.savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .quarantinedPersonEmoji, .terminalPersonEmoji {
+.quarantinedFakePersonCountdown {
+  opacity: .25;
+  color: red;
+}
+
+.savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .terminalPersonEmoji {
   padding: .5rem;
 }
 
@@ -194,8 +218,63 @@ button {
     padding: .25rem;
   }
 
-  .savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .quarantinedPersonEmoji, .terminalPersonEmoji {
+  .savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .terminalPersonEmoji {
     padding: .25rem;
+  }
+
+  .App {
+    text-align: center;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 .05rem .5rem;
+  }
+
+  .Header {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    /* border: solid red; */
+    margin: 0 0 1.75rem;
+  }
+
+  .GameContainer {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    /* border: solid red; */
+  }
+
+  .FakeGameContainer {
+    
+    align-items: center;
+    width: 95%;
+    border: solid red;
+    /* margin: 0 0 1rem; */
+    height: 30rem;
+  }
+
+  .FakeDiv {
+    margin: 5.5rem;
+  }
+
+  .GameContainer, .FakeGameContainer {
+    border: solid black;
+  }
+
+  .InPublicContainer {
+    height: 15rem;
+    /* border: solid red; */
+  }
+
+  .QuarantinedContainer {
+    height: 15rem;
+    /* border: solid red; */
   }
 
 }
