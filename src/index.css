@@ -232,6 +232,7 @@ button {
     flex-direction: column;
     margin: 0 .05rem .5rem;
     width: 95%;
+    overflow-wrap: break-word;
   }
 
   .Header {
@@ -269,12 +270,13 @@ button {
   .GameContainer, .FakeGameContainer {
     border: solid black;
     width: 95%;
-    display: flex;
-    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    /* display: flex; */
+    /* flex-wrap: wrap; */
   }
 
   .InPublicContainer {
-    /* height: 15rem; */
+    height: 15rem;
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* flex-direction: column; */
@@ -283,7 +285,7 @@ button {
   }
 
   .QuarantinedContainer {
-    /* height: 15rem; */
+    height: 15rem;
     /* width: 95%; */
     /* border: solid red; */
   }
