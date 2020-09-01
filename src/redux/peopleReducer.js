@@ -52,11 +52,11 @@ export default function peopleReducer(state = {
         case 'QUARANTINED_TO_NAIVE_CHANGER': 
             return { ...state, people: state.people.map(person => person.id === action.quarantinedPersonId ? { ...person, status: 'naive' } : person) }
 
-        // Automatically make a sick person dead after set interval
-        case 'SICK_TO_DEAD_CHANGER': 
-            return { ...state, people: state.people.map(person => person.id === action.sickPersonId ? { ...person, status: 'dead' } : person) }
+        // Automatically make a sick person terminal after set interval
+        case 'SICK_TO_TERMINAL_CHANGER': 
+            return { ...state, people: state.people.map(person => person.id === action.sickPersonId ? { ...person, status: 'terminal' } : person) }
      
-        // If everyone is safe or dead, change every safe person to saved
+        // If everyone is safe or terminal, change every safe person to saved
         case 'SAFE_TO_SAVED_CHANGER': 
             return { ...state, people: state.people.map(person => person.status === 'safe' ? { ...person, status: 'saved' } : person) }
 

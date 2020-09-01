@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { makeQuarantined } from './redux/actions'
-import { sickToDeadChanger } from './redux/actions'
+import { sickToTerminalChanger } from './redux/actions'
 
 class SickPerson extends Component {
 
@@ -25,7 +25,7 @@ class SickPerson extends Component {
         // console.log("checking time", this.state.time, this.props.id)
         if (this.state.time <= 0) {
             // console.log("woo!")
-            this.props.dispatchedSickToDeadChanger(this.props.id)
+            this.props.dispatchedSickToTerminalChanger(this.props.id)
             // console.log("quarantined to risky changed", this.props.id)
             // this.props.isEveryoneSafe()
         }
@@ -46,7 +46,7 @@ class SickPerson extends Component {
 
 const mapDispatchToProps = dispatch => ({
     dispatchedMakeQuarantined: (e) => dispatch(makeQuarantined(parseInt(e.target.id))),
-    dispatchedSickToDeadChanger: (sickPersonId) => dispatch(sickToDeadChanger(sickPersonId))
+    dispatchedSickToTerminalChanger: (sickPersonId) => dispatch(sickToTerminalChanger(sickPersonId))
 })
 
 export default connect(null, mapDispatchToProps)(SickPerson)
