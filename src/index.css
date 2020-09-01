@@ -229,7 +229,16 @@ button {
   .GameContainer {
     width: 95%;
     flex-direction: column;
-    /* justify-content: space-between; */
+    align-items: center;
+  }
+
+  .InPublicContainer {
+    width: 95%;
+    margin: 0 0 1rem;
+  }
+
+  .QuarantinedContainer {
+    width: 95%;
   }
 
   .SuperherosContainer {
