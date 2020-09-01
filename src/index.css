@@ -224,7 +224,7 @@ button {
     padding: .25rem;
   }
 
-  .App {
+  /* .App {
     text-align: center;
     font-size: 3rem;
     display: flex;
@@ -234,7 +234,7 @@ button {
     width: 95%;
     overflow-wrap: break-word;
     word-wrap: break-word;
-  }
+  } */
 
   .Header {
     
