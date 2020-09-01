@@ -74,8 +74,6 @@ button {
 .SuperheroForm {
   font-size: 1.5rem;
   color: gray;
-  /* align-items: center; */
-  /* align-items: bottom; */
 }
 
 .SuperheroForm input[type=text] {
@@ -136,6 +134,10 @@ button {
 }
 
 .savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .quarantinedPersonEmoji, .terminalPersonEmoji {
+  padding: .5rem;
+}
+
+.fakeGameEmojis {
   padding: .5rem;
 }
 
