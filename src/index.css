@@ -221,6 +221,10 @@ button {
   margin: 2rem .5rem;
   }
 
+  .App {
+    margin: 0 .25rem 1rem;
+  }
+
   .GameContainer {
     width: 95%;
   }
