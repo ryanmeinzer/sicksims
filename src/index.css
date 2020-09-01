@@ -229,16 +229,6 @@ button {
     width: 95%;
   }
 
-  .InPublicContainer {
-    min-height: 20rem;
-    /* border: solid red; */
-  }
-
-  .QuarantinedContainer {
-    min-height: 20rem;
-    /* border: solid red; */
-  }
-
   .SuperherosContainer {
     padding: 1rem 1rem;
   }
