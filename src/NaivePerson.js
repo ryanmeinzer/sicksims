@@ -6,7 +6,7 @@ import { naiveToSickChanger } from './redux/actions'
 class NaivePerson extends Component {
 
     state = {
-        time: 3
+        time: 4
     }
 
     // with react routes change this to componentDidMount

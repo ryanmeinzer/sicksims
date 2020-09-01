@@ -5,7 +5,7 @@ import { quarantinedToNaiveChanger } from './redux/actions'
 class QuarantinedPerson extends Component {
 
     state = {
-        time: 5
+        time: 8
     }
 
     componentDidMount = () => {
@@ -37,7 +37,8 @@ class QuarantinedPerson extends Component {
     render() {
         return(
             <>
-                <span className='quarantinedPersonEmoji' role='img' aria-label='quarantined person emoji' id={this.props.id} style={{ cursor: 'not-allowed' }}>🤒</span><span className='quarantinedPersonCountdown'> ▽ {this.state.time} </span>
+                <span className='quarantinedPersonEmoji' role='img' aria-label='quarantined person emoji' id={this.props.id} style={{ cursor: 'not-allowed' }}>🤒</span>
+                <span className='quarantinedPersonCountdown'> ▽ {this.state.time} </span>
             </>
         )
     }

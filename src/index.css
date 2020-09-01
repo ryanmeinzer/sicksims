@@ -92,18 +92,9 @@ button {
   width: 45%;
   color: #96AC35;
   cursor: not-allowed;
+  display: block;
+  /* word-wrap:break-word; */
 }
-
-/* .FakeGameContainer {
-  align-items: center;
-  width: 75%;
-  border: .5rem solid black;
-  height: 30rem;
-} */
-
-/* .FakeDiv {
-  margin: 5.5rem;
-} */
 
 .scoreButton {
   padding: .5rem;
@@ -188,6 +179,7 @@ button {
 .quarantinedPersonCountdown {
   opacity: .25;
   color: red;
+  padding: 0 .5rem 0 0; 
 }
 
 .FakeQuarantinedPersonCountdown {

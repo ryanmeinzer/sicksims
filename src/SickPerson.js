@@ -6,7 +6,7 @@ import { sickToTerminalChanger } from './redux/actions'
 class SickPerson extends Component {
 
     state = {
-        time: 3
+        time: 4
     }
 
     componentDidMount = () => {
