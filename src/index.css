@@ -233,6 +233,7 @@ button {
     margin: 0 .05rem .5rem;
     width: 95%;
     overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
   .Header {
@@ -252,6 +253,7 @@ button {
     align-items: center;
     width: 90%;
     overflow-wrap: break-word;
+    word-wrap: break-word;
     /* border: solid red; */
   }
 
@@ -272,6 +274,7 @@ button {
     border: solid black;
     width: 95%;
     overflow-wrap: break-word;
+    word-wrap: break-word;
     /* display: flex; */
     /* flex-wrap: wrap; */
   }
@@ -279,6 +282,7 @@ button {
   .InPublicContainer {
     height: 15rem;
     overflow-wrap: break-word;
+    word-wrap: break-word;
     /* display: flex; */
     /* flex-wrap: wrap; */
     /* flex-direction: column; */
@@ -289,6 +293,7 @@ button {
   .QuarantinedContainer {
     height: 15rem;
     overflow-wrap: break-word;
+    word-wrap: break-word;
     /* width: 95%; */
     /* border: solid red; */
   }
