@@ -62,7 +62,7 @@ class App extends Component {
 
             <>
             < Header {...routerProps} startGameButton={this.startGame} />
-              <div {...routerProps} className="GameContainer">
+              <div className="GameContainer">
 
                 <h4>In Public</h4>
 
@@ -74,9 +74,9 @@ class App extends Component {
                   } else if (person.status === "sick") {
                     return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
                   } else if (person.status === "terminal") {
-                    return <span key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
+                    return <span className='terminalPersonEmoji' key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
                   } else if (person.status === "saved") {
-                    return <span key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+                    return <span className='savedPersonEmoji' key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
                   }
                   })
                 }

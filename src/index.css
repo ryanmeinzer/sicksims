@@ -135,6 +135,10 @@ button {
   color: red;
 }
 
+.savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .quarantinedPersonEmoji, .terminalPersonEmoji {
+  padding: .5rem;
+}
+
 /* Mobile Responsiveness */
 
 @media (max-width: 500px) {
@@ -148,10 +152,12 @@ button {
     cursor: pointer;
   }
 
-}
-
-@media (max-width: 500px) {
   .SuperherosContainer {
     padding: 1rem 1rem;
   }
+
+  .savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .quarantinedPersonEmoji, .terminalPersonEmoji {
+    padding: .25rem;
+  }
+
 }
