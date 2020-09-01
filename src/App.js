@@ -74,9 +74,12 @@ class App extends Component {
                   } else if (person.status === "sick") {
                     return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
                   } else if (person.status === "terminal") {
-                    return <span className='terminalPersonEmoji' key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
+                    return <span className='terminalPersonEmoji' role='img' aria-label='terminal person emoji' key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
                   } else if (person.status === "saved") {
-                    return <span className='savedPersonEmoji' key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+                    return <span className='savedPersonEmoji' role='img' aria-label='saved person emoji' key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+                  }
+                  else {
+                    return ''
                   }
                   })
                 }
@@ -86,6 +89,9 @@ class App extends Component {
                 {this.props.people.map(person => {
                   if (person.status === "quarantined") {
                     return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
+                  }
+                  else {
+                    return ''
                   }
                 })
                 }
@@ -98,7 +104,7 @@ class App extends Component {
             <>
               <div>
                 <div className='logo' align='center'>
-                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" class="logo" height="100" background-color="transparent"></img>
+                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
                 </div>
                 <div>
                   < SuperheroInput score={parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)} />
@@ -115,10 +121,10 @@ class App extends Component {
             <>
               <div>
                 <div className='logo' align='center'>
-                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" class="logo" height="100" background-color="transparent"></img>
+                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
                 </div>
                 <div>
-                  <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> 🥰</button></Link>
+                  <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button></Link>
                 </div>
                 <div>
                   < SuperherosContainer />

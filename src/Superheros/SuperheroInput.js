@@ -39,7 +39,7 @@ class SuperheroInput extends Component {
                     <input type="submit" />
                 </form>
                 <div className='RestartGame'>
-                    or <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> 🥰</button></Link>
+                    or <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button></Link>
                 </div>
             </div>
         )
