@@ -52,15 +52,15 @@ class App extends Component {
           < Header startGameButton={this.startGame} />
             <div className="FakeGameContainer">
               <h4>In Public</h4>
-                <span className='fakeGameEmojis'>🥴</span>
-                <span className='fakeGameEmojis'>🤢</span>
-                <span className='fakeGameEmojis'>🥴</span>
-                <span className='fakeGameEmojis'>🥴</span>
-                <span className='fakeGameEmojis'>😷</span>
-                <span className='fakeGameEmojis'>🤢</span>
-                <span className='fakeGameEmojis'>🥴</span>
-                <span className='fakeGameEmojis'>😷</span>
-                <span className='fakeGameEmojis'>🤢</span>
+                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
+                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                <span className='fakeGameEmojis' role='img' aria-label='safe person emoji'>😷</span>
+                <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
+                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                <span className='fakeGameEmojis' role='img' aria-label='safe person emoji'>😷</span>
+                <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
               <h4>Quarantined</h4>
               🤒 ▽ 5
             </div>
