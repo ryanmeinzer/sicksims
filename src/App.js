@@ -37,7 +37,7 @@ class App extends Component {
     if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
       this.props.dispatchedSafeToSavedChanger()
       let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
-      // setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 1000)
+      setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 1000)
       this.componentWillUnmount()
     }
   }
