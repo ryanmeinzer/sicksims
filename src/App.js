@@ -64,19 +64,23 @@ class App extends Component {
               < Header startGameButton={this.startGame} />
             </div>
             <div className="FakeGameContainer">
-              <h4>In Public</h4>
-                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
-                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                <span className='safeFakePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
-                <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
-                <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                <span className='safeFakePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
-                <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
-            <div className="FakeDiv"></div>
-              <h4>Quarantined</h4>
-                <span className='quarantinedFakeGameEmojis' role='img' aria-label='quarantined person emoji'>🤒</span><span className='quarantinedFakePersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 5 </span> 
+              <div className='FakeInPublicContainer'>
+                <h4>In Public</h4>
+                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                  <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
+                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                  <span className='FakeSafePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
+                  <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
+                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
+                  <span className='FakeSafePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
+                  <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
+              </div>
+            {/* <div className="FakeDiv"></div> */}
+              <div className='FakeQuarantinedContainer'>
+                <h4>Quarantined</h4>
+                  <span className='FakeQuarantinedPersonEmoji' role='img' aria-label='quarantined person emoji'>🤒</span><span className='FakeQuarantinedPersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 5 </span> 
+              </div>
             </div>
           </>
           } />

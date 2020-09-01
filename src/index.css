@@ -26,7 +26,7 @@ h3 {
 }
 
 h4 {
-  margin: 2rem;
+  margin: 1.5rem;
 }
 
 h6 {
@@ -39,20 +39,20 @@ p {
 
 button {
   padding: 1rem;
-  margin: 0 1rem;
+  margin: 1rem 1rem 0;
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.logo {
-  margin: 1rem;
+.logo img {
+  margin: -1rem 0 2rem;
+  height: 10rem;
 }
 
 .App {
   display: flex;
   flex-direction: column;
   text-align: center;
-  font-size: 3rem;
   align-items: center;
   margin: 0 1rem 1rem;
 }
@@ -63,46 +63,47 @@ button {
   align-items: center;
   width: 75%;
   /* border: solid red; */
-  margin: 0 0 1.25rem;
+  margin: 0 0 2rem;
+  font-size: 2.5rem;
 }
 
 .RestartGame {
   padding: 1rem 0 0 0;
 }
 
-.GameContainer {
+.GameContainer, .FakeGameContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 85%;
+  font-size: 5rem;
   /* border: solid black; */
 }
 
-.InPublicContainer {
-  min-height: 15rem;
+.InPublicContainer, .FakeInPublicContainer {
+  min-height: 20rem;
   border: .25rem inset lightgray;
   width: 45%;
 }
 
-.QuarantinedContainer {
-  min-height: 15rem;
+.QuarantinedContainer, .FakeQuarantinedContainer {
+  min-height: 20rem;
   border: .5rem dotted #96AC35;
   width: 45%;
   color: #96AC35;
   cursor: not-allowed;
 }
 
-.FakeGameContainer {
+/* .FakeGameContainer {
   align-items: center;
   width: 75%;
   border: .5rem solid black;
-  /* margin: 0 0 1rem; */
   height: 30rem;
-}
+} */
 
-.FakeDiv {
+/* .FakeDiv {
   margin: 5.5rem;
-}
+} */
 
 .scoreButton {
   padding: .5rem;
@@ -143,7 +144,7 @@ button {
 
 @keyframes naiveGlow {
   0% { text-shadow: 0 0 -10px red; }
-  100% { text-shadow: 0 0 20px red; }
+  100% { text-shadow: 0 0 40px red; }
 }
 
 /* Glow Sick Person */
@@ -153,7 +154,7 @@ button {
 
 @keyframes sickGlow {
   0% { text-shadow: 0 0 -10px green; }
-  100% { text-shadow: 0 0 20px green; }
+  100% { text-shadow: 0 0 40px green; }
 }
 
 /* make safe person opaque */
@@ -161,7 +162,7 @@ button {
   opacity: .75;
 }
 
-.safeFakePersonEmoji {
+.FakeSafePersonEmoji {
   opacity: .75;
   padding: .5rem;
 }
@@ -173,13 +174,14 @@ button {
   padding: .5rem;
 }
 
-.quarantinedFakeGameEmojis {
+.FakeQuarantinedPersonEmoji {
   opacity: .75;
-  text-shadow: 0 0 20px red;
+  text-shadow: 0 0 40px red;
+  padding: .5rem;
 }
 
 @keyframes quarantinedGlow {
-  0% { text-shadow: 0 0 20px red; }
+  0% { text-shadow: 0 0 40px red; }
   100% { text-shadow: 0 0 -10px red; }
 }
 
@@ -188,7 +190,7 @@ button {
   color: red;
 }
 
-.quarantinedFakePersonCountdown {
+.FakeQuarantinedPersonCountdown {
   opacity: .25;
   color: red;
 }
