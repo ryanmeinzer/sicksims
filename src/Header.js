@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from './SickSims-Logo.png'
 
 const Header = props => 
 <div>
     <div className='logo' align='center'>
-        <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
+            <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
     </div>
         <h6>Click naive people <span role="img" aria-label="naive person emoji">🥴</span> before they become sick <span role="img" aria-label="sick person emoji">🤢</span> to make them safe <span role="img" aria-label="safe person emoji">😷</span>. <br></br> Click sick people <span role="img" aria-label="sick person emoji">🤢</span> before they become terminal <span role="img" aria-label="terminal person emoji">😵</span> to quarantine them <span role="img" aria-label="quarantined person emoji">🤒</span> for recovery.</h6>
     <p><Link to="/superheros"><button className='superherosButton'><i>See Top Superheros</i></button></Link>

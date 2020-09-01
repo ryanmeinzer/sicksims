@@ -10,6 +10,7 @@ import { safeToSavedChanger } from './redux/actions'
 import SuperherosContainer from './Superheros/SuperherosContainer.js'
 import SuperheroInput from './Superheros/SuperheroInput.js'
 import { Link } from 'react-router-dom'
+import logo from './SickSims-Logo.png'
 
 class App extends Component {
 
@@ -104,7 +105,7 @@ class App extends Component {
             <>
               <div>
                 <div className='logo' align='center'>
-                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
+                  <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
                 </div>
                 <div>
                   < SuperheroInput score={parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)} />
@@ -121,7 +122,7 @@ class App extends Component {
             <>
               <div>
                 <div className='logo' align='center'>
-                  <img src="http://ryanmeinzer.com/s/SickSims-Logo.png" alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
+                  <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
                 </div>
                 <div>
                   <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button></Link>
