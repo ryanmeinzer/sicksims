@@ -172,6 +172,7 @@ button {
 
 .quarantinedFakeGameEmojis {
   opacity: .75;
+  text-shadow: 0 0 20px red;
 }
 
 @keyframes quarantinedGlow {
