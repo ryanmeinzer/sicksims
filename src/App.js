@@ -49,20 +49,22 @@ class App extends Component {
           <Route exact path='/' render={() => 
           
           <>
-          < Header startGameButton={this.startGame} />
+            <div className='Header'>
+              < Header startGameButton={this.startGame} />
+            </div>
             <div className="FakeGameContainer">
               <h4>In Public</h4>
                 <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
                 <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
                 <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
                 <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                <span className='fakeGameEmojis' role='img' aria-label='safe person emoji'>😷</span>
+                <span className='safePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
                 <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
                 <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                <span className='fakeGameEmojis' role='img' aria-label='safe person emoji'>😷</span>
+                <span className='safePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
                 <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
               <h4>Quarantined</h4>
-              🤒 ▽ 5
+                <span className='fakeGameEmojis' role='img' aria-label='quarantined person emoji'>🤒</span><span className='quarantinedPersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 5 </span> 
             </div>
           </>
           } />
@@ -70,40 +72,46 @@ class App extends Component {
           <Route exact path='/play' render={routerProps => 
 
             <>
-            < Header {...routerProps} startGameButton={this.startGame} />
+              <div className='Header'>
+                < Header {...routerProps} startGameButton={this.startGame} />
+              </div>
+
               <div className="GameContainer">
 
-                <h4>In Public</h4>
+                <div className='InPublicContainer'>
+                  <h4>In Public</h4>
 
-                {this.props.people.map(person => {
-                  if (person.status === "naive") {
-                    return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
-                  } else if (person.status === "safe") {
-                    return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} />
-                  } else if (person.status === "sick") {
-                    return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
-                  } else if (person.status === "terminal") {
-                    return <span className='terminalPersonEmoji' role='img' aria-label='terminal person emoji' key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
-                  } else if (person.status === "saved") {
-                    return <span className='savedPersonEmoji' role='img' aria-label='saved person emoji' key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+                  {this.props.people.map(person => {
+                    if (person.status === "naive") {
+                      return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
+                    } else if (person.status === "safe") {
+                      return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} />
+                    } else if (person.status === "sick") {
+                      return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
+                    } else if (person.status === "terminal") {
+                      return <span className='terminalPersonEmoji' role='img' aria-label='terminal person emoji' key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
+                    } else if (person.status === "saved") {
+                      return <span className='savedPersonEmoji' role='img' aria-label='saved person emoji' key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
+                    }
+                    else {
+                      return ''
+                    }
+                    })
                   }
-                  else {
-                    return ''
-                  }
+                </div>
+
+                <div className='QuarantinedContainer'>
+                  <h4>Quarantined</h4>
+                  {this.props.people.map(person => {
+                    if (person.status === "quarantined") {
+                      return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
+                    }
+                    else {
+                      return ''
+                    }
                   })
-                }
-
-                <h4>Quarantined</h4>
-
-                {this.props.people.map(person => {
-                  if (person.status === "quarantined") {
-                    return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
                   }
-                  else {
-                    return ''
-                  }
-                })
-                }
+                </div>
 
               </div> 
             </>
