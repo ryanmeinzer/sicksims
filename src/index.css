@@ -275,7 +275,8 @@ button {
 
   .SuperheroForm input[type=submit] {
     padding: .5rem;
-    font-size: 1rem;
+    /* font-size: 1rem; */
+    font-size: 16px;
     cursor: pointer;
   }
 
