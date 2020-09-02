@@ -49,6 +49,7 @@ button {
   cursor: pointer;
   border: 2px solid #733934;
   border-radius: 5px;
+  outline: none;
 }
 
 .playButton {
@@ -83,6 +84,12 @@ button {
   text-align: center;
   align-items: center;
   margin: 0 1rem 1rem;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .Header {
@@ -125,7 +132,6 @@ button {
   color: #96AC35;
   cursor: not-allowed;
   display: block;
-  /* word-wrap:break-word; */
 }
 
 .SuperherosContainer {
