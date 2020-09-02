@@ -260,18 +260,18 @@ button {
     margin: 0 .25rem 1rem;
   }
 
-  .GameContainer {
+  .GameContainer, .FakeGameContainer {
     width: 95%;
     flex-direction: column;
     align-items: center;
   }
 
-  .InPublicContainer {
+  .InPublicContainer, .FakeInPublicContainer {
     width: 95%;
     margin: 0 0 1rem;
   }
 
-  .QuarantinedContainer {
+  .QuarantinedContainer, .FakeQuarantinedContainer {
     width: 95%;
   }
 
