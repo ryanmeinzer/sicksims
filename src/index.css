@@ -261,7 +261,7 @@ button {
 
   button {
     padding: .5rem;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     cursor: pointer;
   }
 
@@ -291,6 +291,7 @@ button {
     width: 95%;
     flex-direction: column;
     align-items: center;
+    font-size: 3.25rem;
   }
 
   .InPublicContainer, .FakeInPublicContainer {
