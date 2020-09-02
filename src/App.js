@@ -12,6 +12,7 @@ import SuperheroInput from './Superheros/SuperheroInput.js'
 import { Link } from 'react-router-dom'
 import logo from './SickSims-Logo.png'
 import { makeQuarantined } from './redux/actions'
+import Navigation from './Navigation.js'
 
 class App extends Component {
 
@@ -61,7 +62,10 @@ class App extends Component {
           
           <>
             <div className='Header'>
-              < Header startGameButton={this.startGame} />
+              < Header />
+            </div>
+            <div className='Navigation'>
+              < Navigation startGameButton={this.startGame} />
             </div>
             <div className="FakeGameContainer">
               <div className='FakeInPublicContainer'>
@@ -85,11 +89,14 @@ class App extends Component {
           </>
           } />
 
-          <Route exact path='/play' render={routerProps => 
+          <Route exact path='/play' render={() => 
 
             <>
               <div className='Header'>
-                < Header {...routerProps} startGameButton={this.startGame} />
+                < Header />
+              </div>
+              <div className='Navigation'>
+                < Navigation startGameButton={this.startGame} />
               </div>
 
               <div className="GameContainer">

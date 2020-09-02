@@ -39,7 +39,7 @@ p {
 
 button {
   padding: 1rem;
-  margin: 1rem 1rem 0;
+  margin: .5rem 1rem 0;
   font-size: 1.5rem;
   cursor: pointer;
   background-color: #9DA65B;
@@ -63,8 +63,12 @@ button {
   padding: .5rem;
 }
 
-.RestartGame {
+/* .RestartGame {
   padding: 1rem 0 0 0;
+} */
+
+.gameCompleteNavigation, .gameIncompleteNavigation {
+  padding: 0 0 2rem 0;
 }
 
 .logo img {
