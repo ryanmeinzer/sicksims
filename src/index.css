@@ -218,7 +218,7 @@ button {
 .quarantinedPersonEmoji {
   animation: quarantinedGlow 18000ms infinite;
   opacity: .75;
-  padding: .5rem;
+  padding: .5rem 2rem .5rem .5rem;
 }
 
 .FakeQuarantinedPersonEmoji {
@@ -235,7 +235,7 @@ button {
 .quarantinedPersonCountdown {
   opacity: .25;
   color: red;
-  padding: 0 .5rem 0 0; 
+  padding: 0 .5rem 0 0;
 }
 
 .FakeQuarantinedPersonCountdown {
@@ -313,6 +313,14 @@ button {
 
   .savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .terminalPersonEmoji {
     padding: .25rem;
+  }
+
+  .quarantinedPersonEmoji {
+    padding: 0 .5rem 0 3rem; 
+  }
+
+  .quarantinedPersonCountdown {
+    padding: 0 3rem 0 0; 
   }
 
 }
