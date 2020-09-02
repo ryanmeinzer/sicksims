@@ -227,7 +227,7 @@ button {
   padding: .5rem;
 }
 
-@keyframes quarantinedGlow {
+@keyframes quarantinedGlow { 
   0% { text-shadow: 0 0 40px red; }
   100% { text-shadow: 0 0 -10px red; }
 }
