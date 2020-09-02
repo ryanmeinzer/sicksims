@@ -42,10 +42,34 @@ button {
   margin: 1rem 1rem 0;
   font-size: 1.5rem;
   cursor: pointer;
+  background-color: #9DA65B;
+  border: none;
+  color: #F2EBDF;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #733934;
+  border-radius: 5px;
+}
+
+.playButton {
+  padding: 1rem;
+}
+
+.scoreButton {
+  padding: .5rem;
+}
+
+.superherosButton {
+  padding: .5rem;
+}
+
+.RestartGame {
+  padding: 1rem 0 0 0;
 }
 
 .logo img {
-  margin: -1rem 0 2rem;
+  /* margin: -1rem 0 2rem; */
+  margin: -1rem 0 2rem 2rem;
   height: 10rem;
 }
 
@@ -65,10 +89,7 @@ button {
   /* border: solid red; */
   margin: 0 0 2rem;
   font-size: 2.5rem;
-}
-
-.RestartGame {
-  padding: 1rem 0 0 0;
+  color: #8C6432;
 }
 
 .GameContainer, .FakeGameContainer {
@@ -82,7 +103,7 @@ button {
 
 .InPublicContainer, .FakeInPublicContainer {
   min-height: 20rem;
-  border: .25rem inset lightgray;
+  border: .25rem inset #F2EBDF;
   width: 45%;
 }
 
@@ -96,41 +117,59 @@ button {
   /* word-wrap:break-word; */
 }
 
-.scoreButton {
-  padding: .5rem;
-}
-
 .SuperherosContainer {
-  border: dotted gray;
-  padding: 1rem 25rem;
-  color: gray;
+  border: .25rem double #F2EBDF;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  color: #8C6432;
   margin: 1rem 1rem;
-}
-
-.superherosButton {
-  padding: .5rem;
+  font-size: 2.5rem;
 }
 
 .SuperheroForm {
   font-size: 1.5rem;
-  color: gray;
+  color: #8C6432;
 }
 
 .SuperheroForm input[type=text] {
   padding: 1rem;
   margin: 0 1rem;
   font-size: 1.5rem;
+  color: #8C6432;
+  border: 2px solid #733934;
+  border-radius: 4px;
+  outline: none;
+  transition: width 0.4s ease-in-out;
+}
+
+.SuperheroForm input[type=text]:focus {
+  background-color: #F2EBDF;
+}
+
+::placeholder {
+  color: #8C6432;
+  opacity: 1; 
 }
 
 .SuperheroForm input[type=submit] {
   padding: 1rem;
   margin: 0 1rem;
   font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #9DA65B;
+  border: none;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #733934;
+  border-radius: 5px;
 }
 
 /* Glow Naive Person */
 .naivePersonEmoji {
-  animation: naiveGlow 4000ms infinite;
+  animation: naiveGlow 5000ms infinite;
 }
 
 @keyframes naiveGlow {
@@ -140,7 +179,7 @@ button {
 
 /* Glow Sick Person */
 .sickPersonEmoji {
-  animation: sickGlow 4000ms infinite;
+  animation: sickGlow 5000ms infinite;
 }
 
 @keyframes sickGlow {
@@ -160,7 +199,7 @@ button {
 
 /* Un-Glow Quarantined Person */
 .quarantinedPersonEmoji {
-  animation: quarantinedGlow 15000ms infinite;
+  animation: quarantinedGlow 18000ms infinite;
   opacity: .75;
   padding: .5rem;
 }
