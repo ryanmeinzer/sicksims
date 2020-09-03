@@ -99,7 +99,7 @@ button {
   width: 75%;
   /* border: solid red; */
   margin: 0 0 2rem;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   color: #8C6432;
 }
 
@@ -218,7 +218,7 @@ button {
 .quarantinedPersonEmoji {
   animation: quarantinedGlow 18000ms infinite;
   opacity: .75;
-  padding: .5rem .5rem .5rem .5rem;
+  padding: .5rem .5rem .5rem 1.5rem;
 }
 
 .FakeQuarantinedPersonEmoji {
@@ -235,7 +235,7 @@ button {
 .quarantinedPersonCountdown {
   opacity: .25;
   color: red;
-  padding: 0 2.5rem 0 0;
+  padding: 0 1.5rem 0 0;
 }
 
 .FakeQuarantinedPersonCountdown {
