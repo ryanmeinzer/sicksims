@@ -299,8 +299,12 @@ button {
     width: 95%;
   }
 
+  .SuperheroForm, .SuperheroForm input[type=text], .restartGame {
+    font-size: 1rem;
+  }
+
   .SuperheroForm input[type=submit] {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 1rem 0rem 1rem 1rem;
   }
 
