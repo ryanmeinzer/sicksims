@@ -251,6 +251,22 @@ button {
   padding: .5rem;
 }
 
+/* Conditional Directions based on Mobile Responsiveness */
+
+@media (min-width: 501px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .desktop-only {
+    display: none;
+  }
+
+}
+
 /* Mobile Responsiveness */
 
 @media (max-width: 500px) {
