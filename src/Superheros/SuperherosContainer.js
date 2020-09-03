@@ -9,6 +9,7 @@ class SuperherosContainer extends Component {
     // fetch superheros upon app load
     componentDidMount() {
         this.props.dispatchedFetchSuperheros()
+        this.props.dispatchedFetchStats()
     }
 
     componentWillUnmount() {
