@@ -31,7 +31,7 @@ class App extends Component {
 
   // hard refresh to reset state for game restart
   startGame = () => {
-    window.location.replace('/play')
+    window.location.replace('/play#InPublicContainer')
   }
 
   // Check to see if all living people are safe
@@ -101,7 +101,7 @@ class App extends Component {
 
               <div className="GameContainer">
 
-                <div className='InPublicContainer'>
+                <div className='InPublicContainer' id='InPublicContainer'>
                   <h4>In Public</h4>
 
                   {this.props.people.map(person => {
