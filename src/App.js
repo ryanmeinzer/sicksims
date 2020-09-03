@@ -12,6 +12,7 @@ import SuperheroInput from './Superheros/SuperheroInput.js'
 import logo from './SickSims-Logo.png'
 import { makeQuarantined } from './redux/actions'
 import Navigation from './Navigation.js'
+import StatsContainer from './Stats/StatsContainer.js'
 
 class App extends Component {
 
@@ -82,7 +83,7 @@ class App extends Component {
             {/* <div className="FakeDiv"></div> */}
               <div className='FakeQuarantinedContainer'>
                 <h4>Quarantined</h4>
-                  <span className='FakeQuarantinedPersonEmoji' role='img' aria-label='quarantined person emoji'>🤒</span><span className='FakeQuarantinedPersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 5 </span> 
+                  <span className='FakeQuarantinedPersonEmoji' role='img' aria-label='quarantined person emoji'>🤒</span><span className='FakeQuarantinedPersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 8 </span> 
               </div>
             </div>
           </>
@@ -171,6 +172,20 @@ class App extends Component {
               </div>
 
             </>
+          } />
+
+          <Route exact path='/stats' render={() =>
+              <div>
+                <div className='logo' align='center'>
+                  <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
+                </div>
+                <div>
+                  <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
+                </div>
+                <div>
+                  < StatsContainer />
+                </div>
+              </div>
           } />
 
         </Router>

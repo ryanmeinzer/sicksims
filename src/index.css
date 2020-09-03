@@ -136,7 +136,7 @@ button {
   display: block;
 }
 
-.SuperherosContainer {
+.SuperherosContainer, .StatsContainer {
   border: .25rem double #F2EBDF;
   padding: 2rem;
   display: flex;

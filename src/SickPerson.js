@@ -39,7 +39,7 @@ class SickPerson extends Component {
     drag = (e) => {
         let id = e.target.id
         e.dataTransfer.setData("text", id)
-        console.log('in SickPerson.js drag', id)
+        // console.log('in SickPerson.js drag', id)
     }
 
     render() {

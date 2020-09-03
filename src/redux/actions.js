@@ -48,3 +48,18 @@ export const addSuperhero = (superhero) => {
             })
     }
 }
+
+// Take one:
+export const fetchStats = () => {
+    return (dispatch) => {
+        // can't figure out how to get this loading bit to work
+        // dispatch({ type: 'LOADING_STATS' })
+        return fetch('https://api.covid19api.com/summary')
+            .then(response => {
+                return response.json()
+            })
+            .then(json => {
+                dispatch({ type: 'ADD_STATS', stats: json })
+            })
+    }
+}

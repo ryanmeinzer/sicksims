@@ -12,7 +12,8 @@ export default function peopleReducer(state = {
         { id: 10, status: "sick" }
     ], 
     superheros: [], 
-    loading: false
+    loading: false, 
+    stats: {}
 }, action) {
     switch (action.type) {
 
@@ -24,10 +25,6 @@ export default function peopleReducer(state = {
         case 'ADD_SUPERHEROS':
             return { ...state, superheros: action.json, loading: false }
 
-        // Loading message for adding superhero
-        // case 'ADDING_SUPERHERO':
-        //     return { ...state, superheros: [...state.superheros], loading: true }
-
         // Add superhero and score from POST input to state/store/array
         case 'ADD_SUPERHERO':
             const superhero = {
@@ -35,6 +32,18 @@ export default function peopleReducer(state = {
                 score: action.superhero.score
             }
             return { ...state, superheros: [...state.superheros, superhero] }
+
+        // Add covid stats from GET fetch to state/store/array
+        case 'ADD_STATS':
+        
+            return { 
+                ...state, 
+                stats: { 
+                    NewConfirmed: action.stats.Global.NewConfirmed, 
+                    NewDeaths: action.stats.Global.NewDeaths
+                }, 
+                loading: false 
+            }
 
         // Click to make naive person safe
         case 'MAKE_SAFE':
