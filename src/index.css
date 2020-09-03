@@ -54,19 +54,16 @@ button {
 
 .playButton {
   padding: 1rem;
+  /* margin: 1rem 0 0; */
 }
 
 .scoreButton {
-  padding: .5rem;
+  padding: .5rem 1rem;
 }
 
 .superherosButton {
-  padding: .5rem;
+  padding: .5rem 1rem;
 }
-
-/* .RestartGame {
-  padding: 1rem 0 0 0;
-} */
 
 .gameCompleteNavigation, .gameIncompleteNavigation {
   padding: 0 0 2rem 0;
@@ -139,9 +136,9 @@ button {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  width: 85%;
+  /* width: 85%; */
   color: #8C6432;
-  margin: 1rem 1rem;
+  margin: 2.5rem 0 0;
   font-size: 2.5rem;
 }
 
@@ -172,13 +169,12 @@ button {
 
 .SuperheroForm input[type=submit] {
   padding: 1rem;
-  margin: 0 1rem;
+  margin: 0 3rem 1.5rem 1rem;
   font-size: 1.5rem;
   cursor: pointer;
   background-color: #9DA65B;
   border: none;
   color: #F2EBDF;
-  text-decoration: none;
   cursor: pointer;
   border: 2px solid #733934;
   border-radius: 5px;
@@ -303,8 +299,25 @@ button {
     width: 95%;
   }
 
+  .SuperheroForm input[type=submit] {
+    font-size: 1.1rem;
+    margin: 1rem 0rem 1rem 1rem;
+  }
+
+  .playButton {
+    margin: 0;
+  }
+
   .SuperherosContainer {
     padding: 1rem 1rem;
+  }
+
+  .SuperherosContainer h4 {
+    font-size: 2.5rem;
+  }
+
+  .SuperherosContainer li {
+    font-size: 1.75rem;
   }
 
   .fakeGameEmojis {
