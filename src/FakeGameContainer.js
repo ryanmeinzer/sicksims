@@ -38,6 +38,9 @@ class FakeGameContainer extends Component {
                 <div className="PSAOverlay">
                     <div className="PSAOverlayText">
                         <p>
+                            ☝️ Start the Game Above ☝️
+                        </p>
+                        <p>
                             Unfortunately, this is just a game to create awareness and public safety. COVID-19 has devastated our world.
                         </p>
                         <p>

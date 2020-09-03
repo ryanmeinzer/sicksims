@@ -36,6 +36,9 @@ class SuperherosContainer extends Component {
                 <div class="PSAOverlay">
                     <div class="PSAOverlayText">
                         <p>
+                            ☝️ Save Your Superhero Score Above ☝️
+                        </p>
+                        <p>
                             Unfortunately, this is just a game to create awareness and public safety. COVID-19 has devastated our world.
                         </p>
                         <p>
