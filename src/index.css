@@ -299,6 +299,19 @@ button {
     width: 95%;
   }
 
+  .gameCompleteNavigation {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .superherosButton {
+    margin: 0 1rem 1rem 1rem;
+  }
+
+  .scoreButton {
+    margin: 1rem 1rem 0 1rem;
+  }
+
   .SuperheroForm, .SuperheroForm input[type=text], .restartGame {
     font-size: 1rem;
   }
