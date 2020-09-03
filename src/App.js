@@ -31,7 +31,8 @@ class App extends Component {
 
   // hard refresh to reset state for game restart
   startGame = () => {
-    window.location.replace('/play#InPublicContainer')
+    // window.location.replace('/play#InPublicContainer')
+    window.location.replace('/play)
   }
 
   // Check to see if all living people are safe
