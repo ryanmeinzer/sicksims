@@ -299,6 +299,10 @@ button {
     height: 6rem;
   }
 
+  .Header {
+    text-align: justify;
+  }
+
   .App {
     margin: 0 .25rem 1rem;
   }
