@@ -31,7 +31,7 @@ class App extends Component {
 
   // hard refresh to reset state for game restart
   startGame = () => {
-    window.location.reload('/play#InPublicContainer')
+    window.location.replace('/play#InPublicContainer')
   }
 
   // Check to see if all living people are safe
@@ -164,7 +164,7 @@ class App extends Component {
                   <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
                 </div>
                 <div>
-                  <Link to="/"><button className='playButton'><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button></Link>
+                  <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
                 </div>
                 <div>
                   < SuperherosContainer />

@@ -10,7 +10,9 @@ class HomeNav extends Component {
         if (gameComplete) {
             return (
                 <div className='gameCompleteNavigation'>
-                    <Link to="/superheros"><button className='superherosButton'><i>See Top Superheros</i></button></Link><button className='playButton' onClick={this.props.startGameButton}><i>Start Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button><Link to="/score"><button className='scoreButton'><i>Save Your Score</i></button></Link>
+                    {/* <Link to="/superheros"><button className='superherosButton'><i>See Top Superheros</i></button></Link> */}
+                    {/* <button className='playButton' onClick={this.props.startGameButton}><i>Start Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button> */}
+                    <Link to="/score"><button className='scoreButton'><i>Save Your Superhero Score</i> 🦸</button></Link>
                 </div>
             )
         } else {
