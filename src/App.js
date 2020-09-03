@@ -9,10 +9,10 @@ import { connect } from 'react-redux'
 import { safeToSavedChanger } from './redux/actions'
 import SuperherosContainer from './Superheros/SuperherosContainer.js'
 import SuperheroInput from './Superheros/SuperheroInput.js'
-import logo from './SickSims-Logo.png'
 import { makeQuarantined } from './redux/actions'
 import Navigation from './Navigation.js'
 import StatsContainer from './Stats/StatsContainer.js'
+import Logo from './Logo.js'
 
 class App extends Component {
 
@@ -143,9 +143,10 @@ class App extends Component {
           <Route exact path='/score' render={() =>
             <>
               <div>
-                <div className='logo' align='center'>
+                {/* <div className='logo' align='center'>
                   <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
-                </div>
+                </div> */}
+                < Logo />
                 <div>
                   < SuperheroInput score={parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)} />
                 </div>
@@ -160,9 +161,10 @@ class App extends Component {
           <Route exact path='/superheros' render={() =>
             <>
               <div>
-                <div className='logo' align='center'>
+                {/* <div className='logo' align='center'>
                   <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
-                </div>
+                </div> */}
+                < Logo />
                 <div>
                   <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
                 </div>
@@ -176,9 +178,10 @@ class App extends Component {
 
           <Route exact path='/stats' render={() =>
               <div>
-                <div className='logo' align='center'>
+                {/* <div className='logo' align='center'>
                   <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
-                </div>
+                </div> */}
+                < Logo />
                 <div>
                   <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
                 </div>

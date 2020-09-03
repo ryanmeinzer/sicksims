@@ -26,7 +26,7 @@ h3 {
 }
 
 h4 {
-  margin: 1.5rem;
+  margin: 1.25rem;
 }
 
 h6 {
@@ -50,6 +50,49 @@ button {
   border: 2px solid #733934;
   border-radius: 5px;
   outline: none;
+}
+
+/* Logo Overlay Public Service Announcement */
+.LogoContainer {
+  position: relative;
+}
+
+.LogoImage {
+  margin: -1rem 0 2rem 2rem;
+  height: 10rem;
+}
+
+.LogoOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 85%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #F2EBDF;
+}
+
+.LogoContainer:hover .LogoOverlay {
+  opacity: .9;
+  border: 2px solid #733934;
+  border-radius: 5px;
+  margin: .25rem 0 0 0;
+}
+
+.LogoOverlayText {
+  color: #733934;
+  font-size: 1.25rem;
+  padding: .5rem;
+  position: relative;
+  top: 43%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .playButton {
@@ -291,7 +334,7 @@ button {
   } */
 
   h4 {
-    margin: 1.5rem 1rem;
+    margin: 1.25rem 1rem;
     font-size: 3rem;
   }
 
