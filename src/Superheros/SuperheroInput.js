@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addSuperhero } from '../redux/actions'
-import { Link } from 'react-router-dom'
 
 class SuperheroInput extends Component {
 

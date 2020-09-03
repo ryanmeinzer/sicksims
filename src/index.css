@@ -61,11 +61,16 @@ button {
   padding: .5rem 1rem;
 } */
 
-.superherosButton {
-  padding: .5rem 1rem;
+.inProgressButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
-.gameCompleteNavigation, .gameIncompleteNavigation {
+/* .superherosButton {
+  padding: .5rem 1rem;
+} */
+
+.gameCompleteNavigation, .gameInProgressNavigation, .gameIncompleteNavigation {
   padding: 0 0 2rem 0;
 }
 
