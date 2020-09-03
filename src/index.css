@@ -55,6 +55,7 @@ button {
 /* PSA Overlay Public Service Announcement */
 .PSAContainer {
   position: relative;
+  /* width: 85%; */
 }
 
 .PSAOverlay {
@@ -63,7 +64,7 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 85%;
+  height: 100%;
   width: 100%;
   opacity: 0;
   transition: .5s ease;
@@ -74,15 +75,15 @@ button {
   opacity: .9;
   border: 2px solid #733934;
   border-radius: 5px;
-  margin: .25rem 0 0 0;
+  /* margin: .25rem 0 0 0; */
 }
 
 .PSAOverlayText {
   color: #733934;
-  font-size: 1.25rem;
-  padding: .5rem;
+  font-size: 1.5rem;
+  padding: 1.5rem;
   position: relative;
-  top: 43%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -142,21 +143,43 @@ button {
   font-style: italic;
 }
 
-.GameContainer, .FakeGameContainer {
+.GameContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 85%;
+  /* width: 85%; */
   font-size: 5rem;
 }
 
-.InPublicContainer, .FakeInPublicContainer {
+.FakeGameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 5rem;
+}
+
+.InPublicContainer {
   min-height: 20rem;
   border: .25rem inset #F2EBDF;
   width: 45%;
 }
 
-.QuarantinedContainer, .FakeQuarantinedContainer {
+.FakeInPublicContainer {
+  min-height: 20rem;
+  border: .25rem inset #F2EBDF;
+  width: 45%;
+}
+
+.QuarantinedContainer {
+  min-height: 20rem;
+  border: .5rem dotted #96AC35;
+  width: 45%;
+  color: #96AC35;
+  cursor: not-allowed;
+  display: block;
+}
+
+.FakeQuarantinedContainer {
   min-height: 20rem;
   border: .5rem dotted #96AC35;
   width: 45%;

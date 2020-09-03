@@ -13,6 +13,7 @@ import { makeQuarantined } from './redux/actions'
 import Navigation from './Navigation.js'
 import StatsContainer from './Stats/StatsContainer.js'
 import Logo from './Logo.js'
+import FakeGameContainer from './FakeGameContainer.js'
 
 class App extends Component {
 
@@ -67,25 +68,7 @@ class App extends Component {
             <div className='Navigation'>
               < Navigation startGameButton={this.startGame} />
             </div>
-            <div className="FakeGameContainer">
-              <div className='FakeInPublicContainer'>
-                <h4>In Public</h4>
-                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                  <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
-                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                  <span className='FakeSafePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
-                  <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
-                  <span className='fakeGameEmojis' role='img' aria-label='naive person emoji'>🥴</span>
-                  <span className='FakeSafePersonEmoji' role='img' aria-label='safe person emoji'>😷</span>
-                  <span className='fakeGameEmojis' role='img' aria-label='sick person emoji'>🤢</span>
-              </div>
-            {/* <div className="FakeDiv"></div> */}
-              <div className='FakeQuarantinedContainer'>
-                <h4>Quarantined</h4>
-                  <span className='FakeQuarantinedPersonEmoji' role='img' aria-label='quarantined person emoji'>🤒</span><span className='FakeQuarantinedPersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 8 </span> 
-              </div>
-            </div>
+            <FakeGameContainer />
           </>
           } />
 
