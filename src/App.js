@@ -143,9 +143,6 @@ class App extends Component {
           <Route exact path='/score' render={() =>
             <>
               <div>
-                {/* <div className='logo' align='center'>
-                  <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
-                </div> */}
                 < Logo />
                 <div>
                   < SuperheroInput score={parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)} />
@@ -161,9 +158,6 @@ class App extends Component {
           <Route exact path='/superheros' render={() =>
             <>
               <div>
-                {/* <div className='logo' align='center'>
-                  <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
-                </div> */}
                 < Logo />
                 <div>
                   <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
@@ -178,9 +172,6 @@ class App extends Component {
 
           <Route exact path='/stats' render={() =>
               <div>
-                {/* <div className='logo' align='center'>
-                  <img src={logo} alt="SickSims Logo" className="logo" height="100" background-color="transparent"></img>
-                </div> */}
                 < Logo />
                 <div>
                   <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>

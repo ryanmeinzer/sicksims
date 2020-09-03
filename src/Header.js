@@ -1,12 +1,8 @@
 import React from 'react'
-import logo from './SickSims-Logo.png'
 import Logo from './Logo.js'
 
 const Header = () => 
 <div>
-    {/* <div className='logo' align='center'>
-        <img src={logo} alt="SickSims Logo" className="logo" background-color="transparent"></img>
-    </div> */}
     < Logo />
     <div className='gameDirections'>
 

@@ -52,8 +52,8 @@ button {
   outline: none;
 }
 
-/* Logo Overlay Public Service Announcement */
-.LogoContainer {
+/* PSA Overlay Public Service Announcement */
+.PSAContainer {
   position: relative;
 }
 
@@ -62,7 +62,7 @@ button {
   height: 10rem;
 }
 
-.LogoOverlay {
+.PSAOverlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -75,14 +75,14 @@ button {
   background-color: #F2EBDF;
 }
 
-.LogoContainer:hover .LogoOverlay {
+.PSAContainer:hover .PSAOverlay {
   opacity: .9;
   border: 2px solid #733934;
   border-radius: 5px;
   margin: .25rem 0 0 0;
 }
 
-.LogoOverlayText {
+.PSAOverlayText {
   color: #733934;
   font-size: 1.25rem;
   padding: .5rem;

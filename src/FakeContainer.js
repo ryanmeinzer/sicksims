@@ -1,37 +1,23 @@
 import React, { Component } from 'react'
+import logo from './SickSims-Logo.png'
 import { connect } from 'react-redux'
-import { fetchSuperheros } from '../redux/actions'
-import Superheros from './Superheros.js'
-import { fetchStats } from '../redux/actions'
+import { fetchStats } from './redux/actions'
 
-class SuperherosContainer extends Component {
+class Logo extends Component {
 
-    // fetch superheros upon app load
+    // fetch stats upon stats page load
     componentDidMount() {
-        this.props.dispatchedFetchSuperheros()
+        this.props.dispatchedFetchStats()
     }
 
     componentWillUnmount() {
         clearInterval(this.interval)
     }
 
-    // handle fetch of superheros upon app load with loading message if still loading
-    handleLoading = () => {
-        // console.log(this.props.loading)
-        if (this.props.loading) {
-            return <div>Loading...</div>
-        } else {
-            return <Superheros mappedSuperheros={this.props.mappedSuperheros} />
-        }
-    }
-
     render() {
         return (
             <div class="PSAContainer">
-                <div className="SuperherosContainer">
-                    <h4>Top Superheros:</h4>
-                    {this.handleLoading()}
-                </div>
+                <img src={logo} alt="SickSims Logo" className="LogoImage" background-color="transparent"></img>
                 <div class="PSAOverlay">
                     <div class="PSAOverlayText">
                         <p>
@@ -50,19 +36,14 @@ class SuperherosContainer extends Component {
     }
 }
 
-// can't just use destructured people anymore with superheros fetch
-// const mapStateToProps = ({ people }) => ({ people })
 const mapStateToProps = state => {
     return {
-        mappedSuperheros: state.superheros,
-        loading: state.loading, 
         mappedStats: state.stats
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    dispatchedFetchSuperheros: () => dispatch(fetchSuperheros()), 
     dispatchedFetchStats: () => dispatch(fetchStats())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(SuperherosContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(Logo)
