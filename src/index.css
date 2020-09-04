@@ -274,13 +274,13 @@ button {
 .quarantinedPersonEmoji {
   animation: quarantinedGlow 18000ms infinite;
   opacity: .75;
-  padding: .5rem .5rem .5rem 1.5rem;
+  padding: .5rem .5rem .5rem 2rem;
 }
 
 .FakeQuarantinedPersonEmoji {
   opacity: .75;
   text-shadow: 0 0 40px red;
-  padding: .5rem;
+  padding: .5rem 0rem .5rem 2rem;
 }
 
 @keyframes quarantinedGlow { 
@@ -291,7 +291,7 @@ button {
 .quarantinedPersonCountdown {
   opacity: .25;
   color: red;
-  padding: 0 1.5rem 0 0;
+  padding: .5rem 2rem .5rem .5rem;
 }
 
 .FakeQuarantinedPersonCountdown {

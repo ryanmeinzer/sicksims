@@ -38,7 +38,7 @@ class QuarantinedPerson extends Component {
         return(
             <>
                 <span className='quarantinedPersonEmoji' role='img' aria-label='quarantined person emoji' id={this.props.id} style={{ cursor: 'not-allowed' }}>🤒</span>
-                <span className='quarantinedPersonCountdown'> ▽ {this.state.time} </span>
+                <span className='quarantinedPersonCountdown'> ▽ {this.state.time}</span>
             </>
         )
     }
