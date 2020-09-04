@@ -59,7 +59,7 @@ button {
 /* PSA Overlay Public Service Announcement */
 .PSAContainer {
   position: relative;
-  /* width: 90%; */
+  width: 90%;
 }
 
 .PSAOverlay {
@@ -147,7 +147,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* width: 90%; */
+  width: 90%;
   font-size: 5rem;
 }
 
@@ -155,6 +155,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  /* width: 100%; */
   font-size: 5rem;
 }
 
@@ -260,25 +261,25 @@ button {
   100% { text-shadow: 0 0 40px green; }
 }
 
-/* make safe person opaque */
-.safePersonEmoji {
-  opacity: .75;
+/* make safe person and terminal person opaque */
+.safePersonEmoji, .terminalPersonEmoji {
+  opacity: .5;
 }
 
 .FakeSafePersonEmoji {
-  opacity: .75;
+  opacity: .5;
   padding: .5rem;
 }
 
 /* Un-Glow Quarantined Person */
 .quarantinedPersonEmoji {
   animation: quarantinedGlow 18000ms infinite;
-  opacity: .75;
+  opacity: .5;
   padding: .5rem .5rem .5rem 1.5rem;
 }
 
 .FakeQuarantinedPersonEmoji {
-  opacity: .75;
+  opacity: .5;
   text-shadow: 0 0 40px red;
   padding: .5rem .5rem .5rem 1.5rem;
 }
@@ -373,20 +374,27 @@ button {
     margin: 0 .25rem 1rem;
   }
 
-  .GameContainer, .FakeGameContainer {
-    /* width: 95%; */
+  .GameContainer {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+    font-size: 3.75rem;
+  }
+
+  .FakeGameContainer {
+    /* width: 90%; */
     flex-direction: column;
     align-items: center;
     font-size: 3.75rem;
   }
 
   .InPublicContainer, .FakeInPublicContainer {
-    width: 95%;
+    width: 100%;
     margin: 0 0 1rem;
   }
 
   .QuarantinedContainer, .FakeQuarantinedContainer {
-    width: 95%;
+    width: 100%;
   }
 
   .gameCompleteNavigation {

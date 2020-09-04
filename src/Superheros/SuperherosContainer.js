@@ -36,7 +36,7 @@ class SuperherosContainer extends Component {
                 <div class="PSAOverlay">
                     <div class="PSAOverlayText">
                         <p>
-                            ☝️ Save Your Superhero Score Above ☝️
+                            <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span> Save Your Superhero Score Above <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span>
                         </p>
                         <p>
                             Unfortunately, this is just a game to create awareness and public safety. COVID-19 has devastated our world.

@@ -38,7 +38,7 @@ class FakeGameContainer extends Component {
                 <div className="PSAOverlay">
                     <div className="PSAOverlayText">
                         <p>
-                            ☝️ Start the Game Above ☝️
+                            <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span> Start the Game Above <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span>
                         </p>
                         <p>
                             Unfortunately, this is just a game to create awareness and public safety. COVID-19 has devastated our world.
