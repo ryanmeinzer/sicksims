@@ -41,8 +41,8 @@ class App extends Component {
       this.props.dispatchedSafeToSavedChanger()
       let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
       setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 1000)
-      window.location.replace('/play#Header')
       this.componentWillUnmount()
+      window.location.replace('/play#Header')
     }
   }
 
