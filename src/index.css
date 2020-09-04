@@ -59,7 +59,7 @@ button {
 /* PSA Overlay Public Service Announcement */
 .PSAContainer {
   position: relative;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .PSAOverlay {
@@ -147,7 +147,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  /* width: 90%; */
   font-size: 5rem;
 }
 
@@ -374,7 +374,7 @@ button {
   }
 
   .GameContainer, .FakeGameContainer {
-    width: 95%;
+    /* width: 95%; */
     flex-direction: column;
     align-items: center;
     font-size: 3.75rem;
