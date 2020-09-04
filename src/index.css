@@ -56,13 +56,13 @@ button {
   padding: .85rem 1rem;
 }
 
-/* PSA Overlay Public Service Announcement */
-.PSAContainer {
+/* Home Page PSA Overlay Public Service Announcement */
+.HomePSAContainer {
   position: relative;
   width: 90%;
 }
 
-.PSAOverlay {
+.HomePSAOverlay {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -75,14 +75,53 @@ button {
   background-color: #F2EBDF;
 }
 
-.PSAContainer:hover .PSAOverlay {
+.HomePSAContainer:hover .HomePSAOverlay {
   opacity: .9;
   border: 2px solid #733934;
   border-radius: 5px;
   /* margin: .25rem 0 0 0; */
 }
 
-.PSAOverlayText {
+.HomePSAOverlayText {
+  color: #733934;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Superheros Page PSA Overlay Public Service Announcement */
+.SuperherosPSAContainer {
+  position: relative;
+  /* width: 90%; */
+}
+
+.SuperherosPSAOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #F2EBDF;
+}
+
+.SuperherosPSAContainer:hover .SuperherosPSAOverlay {
+  opacity: .9;
+  border: 2px solid #733934;
+  border-radius: 5px;
+  /* margin: .25rem 0 0 0; */
+}
+
+.SuperherosPSAOverlayText {
   color: #733934;
   font-size: 1.5rem;
   padding: 1.5rem;

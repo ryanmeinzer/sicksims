@@ -15,7 +15,7 @@ class FakeGameContainer extends Component {
 
     render() {
         return (
-            <div className="PSAContainer">
+            <div className="HomePSAContainer">
                 <div className="FakeGameContainer">
                     <div className='FakeInPublicContainer'>
                         <h4>In Public</h4>
@@ -35,8 +35,8 @@ class FakeGameContainer extends Component {
                         <span className='FakeQuarantinedPersonEmoji' role='img' aria-label='quarantined person emoji'>🤒</span><span className='FakeQuarantinedPersonCountdown' role='img' aria-label='quarantined person countdown'> ▽ 8 </span>
                     </div>
                 </div>
-                <div className="PSAOverlay">
-                    <div className="PSAOverlayText">
+                <div className="HomePSAOverlay">
+                    <div className="HomePSAOverlayText">
                         <p>
                             <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span> Start the Game Above <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span>
                         </p>
