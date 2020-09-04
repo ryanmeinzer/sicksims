@@ -52,6 +52,10 @@ button {
   outline: none;
 }
 
+.inProgressButton {
+  padding: .85rem 1rem;
+}
+
 /* PSA Overlay Public Service Announcement */
 .PSAContainer {
   position: relative;
@@ -96,9 +100,9 @@ button {
   height: 10rem;
 }
 
-.playButton {
+/* .playButton {
   padding: 1rem;
-}
+} */
 
 .inProgressButton:disabled {
     opacity: 0.5;
@@ -335,6 +339,10 @@ button {
     padding: .5rem;
     font-size: 1.1rem;
     cursor: pointer;
+  }
+
+  .inProgressButton {
+    padding: .35rem .5rem;
   }
 
   /* span { 
