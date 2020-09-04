@@ -43,7 +43,6 @@ class App extends Component {
       setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 1000)
       this.componentWillUnmount()
     }
-    window.location.replace('/play#Header')
   }
 
   allowDrop = (e) => {
