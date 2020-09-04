@@ -42,8 +42,8 @@ class App extends Component {
       let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
       setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 1000)
       this.componentWillUnmount()
-      setTimeout(() => window.location.replace('/play#Header'), 1000)
     }
+    window.location.replace('/play#Header')
   }
 
   allowDrop = (e) => {
