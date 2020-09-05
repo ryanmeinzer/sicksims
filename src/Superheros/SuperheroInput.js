@@ -21,7 +21,7 @@ class SuperheroInput extends Component {
         this.setState({
             name: ''
         });
-        // alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
+        alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
         window.location.replace('/superheros')
     }
 
