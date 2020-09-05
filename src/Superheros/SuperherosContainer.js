@@ -28,13 +28,13 @@ class SuperherosContainer extends Component {
 
     render() {
         return (
-            <div class="SuperherosPSAContainer">
+            <div className="SuperherosPSAContainer">
                 <div className="SuperherosContainer">
                     <h4>Top Superheros:</h4>
                     {this.handleLoading()}
                 </div>
-                <div class="SuperherosPSAOverlay">
-                    <div class="SuperherosPSAOverlayText">
+                <div className="SuperherosPSAOverlay">
+                    <div className="SuperherosPSAOverlayText">
                         <p>
                             <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span> Save Your Superhero Score Above <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span>
                         </p>
