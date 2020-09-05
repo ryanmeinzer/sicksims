@@ -41,7 +41,7 @@ class FakeGameContainer extends Component {
                             <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span> Start Game Above <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span>
                         </p>
                         <p>
-                            Unfortunately, this is just a game to create awareness and public safety. COVID-19 has devastated our world.
+                            Unfortunately, this is just a game to create awareness and public safety. COVID-19 is real.
                         </p>
                         <p>
                             In fact, in the last 24 hours there have been <b>{parseInt(this.props.mappedStats.NewConfirmed).toLocaleString()}</b> new cases and <b>{parseInt(this.props.mappedStats.NewDeaths).toLocaleString()}</b> new deaths of COVID-19.
