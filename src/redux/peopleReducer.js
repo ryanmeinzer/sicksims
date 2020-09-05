@@ -54,7 +54,7 @@ export default function peopleReducer(state = {
             return { ...state, people: state.people.map(person => person.id === action.id ? { ...person, status: 'quarantined' } : person) }
 
         // Automatically make a naive person sick after set interval
-        case 'NAIVE_TO_SICK_CHANGER': 
+        case 'NAIVE_TO_SICK_CHANGER':  
             return { ...state, people: state.people.map(person => person.id === action.naivePersonId ? { ...person, status: 'sick' } : person) }
 
         // Automatically return a quarantined person back to naive in public after set interval

@@ -14,6 +14,10 @@ import Navigation from './Navigation.js'
 import StatsContainer from './Stats/StatsContainer.js'
 import Logo from './Logo.js'
 import FakeGameContainer from './FakeGameContainer.js'
+import UIfx from 'uifx'
+import superheroSound from './sounds/superhero.wav'
+
+const playSuperheroSound = new UIfx(superheroSound)
 
 class App extends Component {
 
@@ -41,6 +45,7 @@ class App extends Component {
       this.props.dispatchedSafeToSavedChanger()
       // let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
       // setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 5000)
+      playSuperheroSound.play()
       this.componentWillUnmount()
     }
   }

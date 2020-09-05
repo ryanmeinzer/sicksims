@@ -49,7 +49,6 @@ export const addSuperhero = (superhero) => {
     }
 }
 
-// Take one:
 export const fetchStats = () => {
     return (dispatch) => {
         // can't figure out how to get this loading bit to work

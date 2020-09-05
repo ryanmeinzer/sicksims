@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { makeSafe } from './redux/actions'
 import { naiveToSickChanger } from './redux/actions'
+import UIfx from 'uifx'
+import sickSound from './sounds/sick.wav'
+import safeSound from './sounds/safe.wav'
+
+const playSickSound = new UIfx(sickSound)
+const playSafeSound = new UIfx(safeSound)
 
 class NaivePerson extends Component {
 
@@ -28,6 +34,7 @@ class NaivePerson extends Component {
         // console.log("woo!")
         this.props.dispatchedNaiveToSickChanger(this.props.id)
         // console.log("risky to sick changed", this.props.id)
+        playSickSound.play()
         }
     }
 
@@ -36,12 +43,16 @@ class NaivePerson extends Component {
         // console.log(this.props.id)
     }
 
-    render() {
-        return(
-            <span className='naivePersonEmoji' role='img' aria-label='naive person emoji' id={this.props.id} onClick={this.props.dispatchedMakeSafe} style={{ cursor: 'default' }}>🥴</span>
-        )
+    makeSafeThenPlaySound = (e) => {
+        this.props.dispatchedMakeSafe(e)
+        playSafeSound.play()
     }
 
+    render() {
+        return (
+            <span className='naivePersonEmoji' role='img' aria-label='naive person emoji' id={this.props.id} onClick={this.makeSafeThenPlaySound} style={{ cursor: 'default' }}>🥴</span>
+        )
+    }
 }
 
 const mapDispatchToProps = dispatch => ({

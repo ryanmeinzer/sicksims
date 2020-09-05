@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { quarantinedToNaiveChanger } from './redux/actions'
+import UIfx from 'uifx'
+import sound from './sounds/naive.wav'
+
+const naiveSound = new UIfx(sound)
 
 class QuarantinedPerson extends Component {
 
@@ -26,6 +30,7 @@ class QuarantinedPerson extends Component {
         // console.log("woo!")
         this.props.dispatchedQuarantinedToNaiveChanger(this.props.id)
         // console.log("quarantined to risky changed", this.props.id)
+        naiveSound.play()
         }
     }
 

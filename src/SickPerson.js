@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { makeQuarantined } from './redux/actions'
 import { sickToTerminalChanger } from './redux/actions'
+import UIfx from 'uifx'
+import terminalSound from './sounds/terminal.wav'
+import quarantinedSound from './sounds/quarantined.wav'
+
+const playTerminalSound = new UIfx(terminalSound)
+const playQuarantinedSound = new UIfx(quarantinedSound)
 
 class SickPerson extends Component {
 
@@ -28,6 +34,7 @@ class SickPerson extends Component {
             this.props.dispatchedSickToTerminalChanger(this.props.id)
             // console.log("quarantined to risky changed", this.props.id)
             // this.props.isEveryoneSafe()
+            playTerminalSound.play()
         }
     }
 
@@ -40,11 +47,17 @@ class SickPerson extends Component {
         let id = e.target.id
         e.dataTransfer.setData("text", id)
         // console.log('in SickPerson.js drag', id)
+        playQuarantinedSound.play()
+    }
+
+    makeQuarantinedThenPlaySound = (e) => {
+        this.props.dispatchedMakeQuarantined(e)
+        playQuarantinedSound.play()
     }
 
     render() {
         return(
-            <span className='sickPersonEmoji' draggable='true' onDragStart={this.drag} role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.props.dispatchedMakeQuarantined} style={{ cursor: 'grab' }}>🤢</span>
+            <span className='sickPersonEmoji' draggable='true' onDragStart={this.drag} role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.makeQuarantinedThenPlaySound} style={{ cursor: 'grab' }}>🤢</span>
         )
     }
 
