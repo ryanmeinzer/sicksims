@@ -22,7 +22,7 @@ class SuperheroInput extends Component {
             name: ''
         });
         alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
-        window.location.replace('/superheros'
+        window.location.replace('/superheros')
     }
 
     render() {
