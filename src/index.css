@@ -395,7 +395,7 @@ button {
     font-size: 1.25rem;
   }
 
-  .PSAOverlayText {
+  .HomePSAOverlayText, .SuperherosPSAOverlayText {
     font-size: 1rem;
     padding: 1rem;
   }
