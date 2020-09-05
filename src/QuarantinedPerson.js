@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { quarantinedToNaiveChanger } from './redux/actions'
 import UIfx from 'uifx'
-import sound from './sounds/naive.wav'
+import sound from './sounds/naive.mp3'
 
 const naiveSound = new UIfx(sound)
 

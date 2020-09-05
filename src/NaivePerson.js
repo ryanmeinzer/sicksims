@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { makeSafe } from './redux/actions'
 import { naiveToSickChanger } from './redux/actions'
 import UIfx from 'uifx'
-import sickSound from './sounds/sick.wav'
-import safeSound from './sounds/safe.wav'
+import sickSound from './sounds/sick.mp3'
+import safeSound from './sounds/safe.mp3'
 
 const playSickSound = new UIfx(sickSound)
 const playSafeSound = new UIfx(safeSound)

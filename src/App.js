@@ -15,15 +15,18 @@ import StatsContainer from './Stats/StatsContainer.js'
 import Logo from './Logo.js'
 import FakeGameContainer from './FakeGameContainer.js'
 import UIfx from 'uifx'
-import superheroSound from './sounds/superhero.wav'
+import superheroSound from './sounds/superhero.mp3'
+import startSound from './sounds/start.mp3'
 
 const playSuperheroSound = new UIfx(superheroSound)
+const playStartSound = new UIfx(startSound)
 
 class App extends Component {
 
   // start interval to check if game is finished upon app load
   componentDidMount() {
     this.startInterval()
+    window.location.pathname === '/play' && playStartSound.play()
   }
 
   componentWillUnmount() {
@@ -86,7 +89,6 @@ class App extends Component {
               <div className='Navigation'>
                 < Navigation startGameButton={this.startGame} />
               </div>
-
               <div className="GameContainer">
 
                 <div className='InPublicContainer' id='InPublicContainer'>

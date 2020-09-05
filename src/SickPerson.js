@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { makeQuarantined } from './redux/actions'
 import { sickToTerminalChanger } from './redux/actions'
 import UIfx from 'uifx'
-import terminalSound from './sounds/terminal.wav'
-import quarantinedSound from './sounds/quarantined.wav'
+import terminalSound from './sounds/terminal.mp3'
+import quarantinedSound from './sounds/quarantined.mp3'
 
 const playTerminalSound = new UIfx(terminalSound)
 const playQuarantinedSound = new UIfx(quarantinedSound)
