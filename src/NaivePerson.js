@@ -34,7 +34,7 @@ class NaivePerson extends Component {
         // console.log("woo!")
         this.props.dispatchedNaiveToSickChanger(this.props.id)
         // console.log("risky to sick changed", this.props.id)
-        playSickSound.play()
+        playSickSound.play(0.05)
         }
     }
 
@@ -45,7 +45,7 @@ class NaivePerson extends Component {
 
     makeSafeThenPlaySound = (e) => {
         this.props.dispatchedMakeSafe(e)
-        playSafeSound.play()
+        playSafeSound.play(0.05)
     }
 
     render() {

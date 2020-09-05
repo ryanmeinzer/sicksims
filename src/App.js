@@ -26,7 +26,7 @@ class App extends Component {
   // start interval to check if game is finished upon app load
   componentDidMount() {
     this.startInterval()
-    window.location.pathname === '/play' && playStartSound.play()
+    window.location.pathname === '/play' && playStartSound.play(0.05)
   }
 
   componentWillUnmount() {
@@ -48,7 +48,7 @@ class App extends Component {
       this.props.dispatchedSafeToSavedChanger()
       // let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
       // setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 5000)
-      playSuperheroSound.play()
+      playSuperheroSound.play(0.05)
       this.componentWillUnmount()
     }
   }

@@ -30,7 +30,7 @@ class QuarantinedPerson extends Component {
         // console.log("woo!")
         this.props.dispatchedQuarantinedToNaiveChanger(this.props.id)
         // console.log("quarantined to risky changed", this.props.id)
-        naiveSound.play()
+        naiveSound.play(0.05)
         }
     }
 

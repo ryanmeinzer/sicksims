@@ -34,7 +34,7 @@ class SickPerson extends Component {
             this.props.dispatchedSickToTerminalChanger(this.props.id)
             // console.log("quarantined to risky changed", this.props.id)
             // this.props.isEveryoneSafe()
-            playTerminalSound.play()
+            playTerminalSound.play(0.05)
         }
     }
 
@@ -47,12 +47,12 @@ class SickPerson extends Component {
         let id = e.target.id
         e.dataTransfer.setData("text", id)
         // console.log('in SickPerson.js drag', id)
-        playQuarantinedSound.play()
+        playQuarantinedSound.play(0.05)
     }
 
     makeQuarantinedThenPlaySound = (e) => {
         this.props.dispatchedMakeQuarantined(e)
-        playQuarantinedSound.play()
+        playQuarantinedSound.play(0.05)
     }
 
     render() {
