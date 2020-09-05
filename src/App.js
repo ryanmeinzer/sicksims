@@ -23,9 +23,9 @@ const playStartSound = new UIfx(startSound)
 
 class App extends Component {
 
-  // state = {
-  //   time: 0
-  // }
+  state = {
+    time: 0
+  }
 
   // start interval to check if game is finished upon app load
   componentDidMount() {
@@ -49,7 +49,7 @@ class App extends Component {
 
   gameStatusAndUpdateCounter = () => {
     this.isEveryoneSafe()
-    // window.location.pathname === '/play' && this.setState((prevState) => ({ time: prevState.time + 1 }))
+    window.location.pathname === '/play' && this.setState((prevState) => ({ time: prevState.time + 1 }))
     // console.log(this.state.time)
   }
 
@@ -151,7 +151,7 @@ class App extends Component {
               <div>
                 < Logo />
                 <div>
-                  < SuperheroInput score={parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10) } />
+                  < SuperheroInput score={Math.round(parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10) - (parseInt(this.state.time) / 2))} />
                 </div>
                 <div>
                   < SuperherosContainer />
