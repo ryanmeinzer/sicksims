@@ -4,7 +4,7 @@ I built www.SickSims.com to help create awareness and safety. My hope is that 
 
 ## Use
 
-Go to www.SickSims. It's mobile-friendly!
+Go to www.SickSims.com It's mobile-friendly!
 
 Frontend Code Repository - https://github.com/ryanmeinzer/sicksims
 
