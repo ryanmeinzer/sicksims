@@ -4,7 +4,6 @@ import QuarantinedPerson from './QuarantinedPerson.js'
 import SafePerson from './SafePerson.js'
 import SickPerson from './SickPerson.js'
 import { connect } from 'react-redux'
-import { safeToSavedChanger } from './redux/actions'
 import { makeQuarantined } from './redux/actions'
 
 class GameContainer extends Component {
@@ -66,13 +65,11 @@ class GameContainer extends Component {
 const mapStateToProps = state => {
     return {
         people: state.people,
-        loading: state.loading,
-        mappedStats: state.stats
+        loading: state.loading
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger()),
     dispatchedMakeQuarantined: (id) => dispatch(makeQuarantined(parseInt(id)))
 })
 
