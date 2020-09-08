@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Header from './Header.js'
-import NaivePerson from './NaivePerson.js'
-import QuarantinedPerson from './QuarantinedPerson.js'
-import SafePerson from './SafePerson.js'
-import SickPerson from './SickPerson.js'
+// import NaivePerson from './NaivePerson.js'
+// import QuarantinedPerson from './QuarantinedPerson.js'
+// import SafePerson from './SafePerson.js'
+// import SickPerson from './SickPerson.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { safeToSavedChanger } from './redux/actions'
@@ -84,111 +84,44 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        <div className='Header'>
+          < Header />
+        </div>
+        <div className='Navigation'>
+          < Navigation startGameButton={this.startGame} />
+        </div>
+
         <Router>
+
           <Route exact path='/' render={() => 
-          
-          <>
-            <div className='Header'>
-              < Header />
-            </div>
-            <div className='Navigation'>
-              < Navigation startGameButton={this.startGame} />
-            </div>
             <FakeGameContainer />
-          </>
           } />
 
           <Route exact path='/play' render={() => 
-
-            <>
-              <div className='Header' id='Header'>
-                < Header />
-              </div>
-              <div className='Navigation'>
-                < Navigation startGameButton={this.startGame} />
-              </div>
-              < GameContainer />
-              {/* <div className="GameContainer">
-
-                <div className='InPublicContainer' id='InPublicContainer'>
-                  <h4>In Public</h4>
-
-                  {this.props.people.map(person => {
-                    if (person.status === "naive") {
-                      return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
-                    } else if (person.status === "safe") {
-                      return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} />
-                    } else if (person.status === "sick") {
-                      return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
-                    } else if (person.status === "terminal") {
-                      return <span className='terminalPersonEmoji' role='img' aria-label='terminal person emoji' key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
-                    } else if (person.status === "saved") {
-                      return <span className='savedPersonEmoji' role='img' aria-label='saved person emoji' key={`saved-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>🥰</span>
-                    }
-                    else {
-                      return ''
-                    }
-                    })
-                  }
-                </div>
-
-                <div className='QuarantinedContainer' onDrop={this.drop} onDragOver={this.allowDrop}>
-                  <h4>Quarantined</h4>
-                  {this.props.people.map(person => {
-                    if (person.status === "quarantined") {
-                      return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
-                    }
-                    else {
-                      return ''
-                    }
-                  })
-                  }
-                </div>
-
-              </div>  */}
-            </>
+            < GameContainer />
           } />
 
           <Route exact path='/score' render={() =>
             <>
-              <div>
-                < Logo />
-                <div>
-                  < SuperheroInput score={Math.round(parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10) - (parseInt(this.state.time) / 2))} />
-                </div>
-                <div>
-                  < SuperherosContainer />
-                </div>
-              </div>
+              < SuperheroInput score={Math.round(parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10) - (parseInt(this.state.time) / 2))} />
 
+              < SuperherosContainer />
             </>
           } />
 
           <Route exact path='/superheros' render={() =>
             <>
-              <div>
-                < Logo />
-                <div>
-                  <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
-                </div>
-                <div>
-                  < SuperherosContainer />
-                </div>
-              </div>
-
+              <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
+              < SuperherosContainer />
             </>
           } />
 
           <Route exact path='/stats' render={() =>
-              <div>
-                < Logo />
-                <div>
-                  <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
-                </div>
-                <div>
+              <>
+                <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
                   < StatsContainer />
-                </div>
-              </div>
+              </>
           } />
 
         </Router>
