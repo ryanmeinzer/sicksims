@@ -17,6 +17,7 @@ import FakeGameContainer from './FakeGameContainer.js'
 import UIfx from 'uifx'
 import superheroSound from './sounds/superhero.mp3'
 import startSound from './sounds/start.mp3'
+import GameContainer from './GameContainer.js'
 
 const playSuperheroSound = new UIfx(superheroSound)
 const playStartSound = new UIfx(startSound)
@@ -69,15 +70,15 @@ class App extends Component {
     }
   }
 
-  allowDrop = (e) => {
-    e.preventDefault()
-  }
+  // allowDrop = (e) => {
+  //   e.preventDefault()
+  // }
 
-  drop = (e) => {
-    e.preventDefault()
-    let id = e.dataTransfer.getData("text")
-    this.props.dispatchedMakeQuarantined(id)
-  }
+  // drop = (e) => {
+  //   e.preventDefault()
+  //   let id = e.dataTransfer.getData("text")
+  //   this.props.dispatchedMakeQuarantined(id)
+  // }
 
   // need to refactor to have game board component
   render() {
@@ -106,7 +107,8 @@ class App extends Component {
               <div className='Navigation'>
                 < Navigation startGameButton={this.startGame} />
               </div>
-              <div className="GameContainer">
+              < GameContainer />
+              {/* <div className="GameContainer">
 
                 <div className='InPublicContainer' id='InPublicContainer'>
                   <h4>In Public</h4>
@@ -143,7 +145,7 @@ class App extends Component {
                   }
                 </div>
 
-              </div> 
+              </div>  */}
             </>
           } />
 
