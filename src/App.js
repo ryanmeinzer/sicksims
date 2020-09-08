@@ -79,6 +79,7 @@ class App extends Component {
     this.props.dispatchedMakeQuarantined(id)
   }
 
+  // need to refactor to have game board component
   render() {
     return (
       <div className="App">
