@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Confetti from 'react-confetti'
 
-class HomeNav extends Component {
+class Navigation extends Component {
 
     render() {
         let gameComplete = this.props.people.find(person => person.status === 'saved')
@@ -40,4 +40,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(HomeNav)
+export default connect(mapStateToProps)(Navigation)

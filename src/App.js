@@ -38,11 +38,6 @@ class App extends Component {
     this.interval = setInterval(this.gameStatusAndUpdateCounter, 1000)
   }
 
-  // updateCounter = () => {
-  //   this.setState((prevState) => ({ time: prevState.time + 1 }), this.isEveryoneSafe)
-  //   console.log(this.state.time)
-  // }
-
   gameStatusAndUpdateCounter = () => {
     this.isEveryoneSafe()
     window.location.pathname === '/play' && this.setState((prevState) => ({ time: prevState.time + 1 }))
@@ -65,17 +60,6 @@ class App extends Component {
     }
   }
 
-  // allowDrop = (e) => {
-  //   e.preventDefault()
-  // }
-
-  // drop = (e) => {
-  //   e.preventDefault()
-  //   let id = e.dataTransfer.getData("text")
-  //   this.props.dispatchedMakeQuarantined(id)
-  // }
-
-  // need to refactor to have game board component
   render() {
     return (
       <div className="App">
@@ -83,18 +67,23 @@ class App extends Component {
         <div className='Header'>
           < Header />
         </div>
-        <div className='Navigation'>
-          < Navigation startGameButton={this.startGame} />
-        </div>
 
         <Router>
 
           <Route exact path='/' render={() => 
+            <>
+            <div className='Navigation'>
+              < Navigation startGameButton={this.startGame} />
+            </div>
             <FakeGameContainer />
+            </>
           } />
 
           <Route exact path='/play' render={() => 
-            < GameContainer />
+            <>
+              < Navigation className='Navigation' startGameButton={this.startGame} />
+              < GameContainer />
+            </>
           } />
 
           <Route exact path='/score' render={() =>
