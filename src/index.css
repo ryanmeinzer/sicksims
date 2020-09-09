@@ -173,13 +173,17 @@ button {
   align-items: center;
   /* width: 75%; */
   /* border: solid red; */
-  margin: 0 0 2rem;
+  /* margin: 0 0 2rem; */
   font-size: 2.25rem;
   color: #8C6432;
 }
 
 .emphasizedText {
   font-style: italic;
+}
+
+.playButton, .inProgressButton {
+  margin: 2rem 0 0 0;
 }
 
 .GameContainer {
@@ -445,14 +449,6 @@ button {
     flex-direction: column;
   }
 
-  .superherosButton {
-    margin: 0 1rem 1rem 1rem;
-  }
-
-  .scoreButton {
-    margin: 1rem 1rem 0 1rem;
-  }
-
   .SuperheroForm, .SuperheroForm input[type=text], .restartGame {
     font-size: 1rem;
   }
@@ -460,10 +456,6 @@ button {
   .SuperheroForm input[type=submit] {
     font-size: 1rem;
     margin: 1rem 0rem 1rem 1rem;
-  }
-
-  .playButton {
-    margin: 0;
   }
 
   .SuperherosContainer {

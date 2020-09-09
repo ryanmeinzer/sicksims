@@ -89,22 +89,21 @@ class App extends Component {
           <Route exact path='/score' render={() =>
             <>
               < SuperheroInput score={Math.round(parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10) - (parseInt(this.state.time) / 2))} />
-
               < SuperherosContainer />
             </>
           } />
 
           <Route exact path='/superheros' render={() =>
             <>
-              <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
+              <button className='rePlayButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
               < SuperherosContainer />
             </>
           } />
 
           <Route exact path='/stats' render={() =>
               <>
-                <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
-                  < StatsContainer />
+                <button className='rePlayButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
+                < StatsContainer />
               </>
           } />
 

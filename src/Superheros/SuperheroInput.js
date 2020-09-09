@@ -42,9 +42,9 @@ class SuperheroInput extends Component {
                     <span>with a score of {this.props.score}</span>
                     <input type="submit" />
                 </form>
-                {/* <div className='RestartGame'>
-                    or <button className='playButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
-                </div> */}
+                <div className='RestartGame'>
+                    or <button className='rePlayButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
+                </div>
             </div>
         )
     }
