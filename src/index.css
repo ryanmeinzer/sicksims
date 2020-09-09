@@ -409,6 +409,11 @@ button {
     padding: 1rem;
   }
 
+  .SuperherosPSAOverlay {
+    margin: 2.5rem 0 0 0;
+    height: 93%;
+  }
+
   .LogoImage {
     margin: -1rem 0 2rem 2rem;
     height: 6rem;
