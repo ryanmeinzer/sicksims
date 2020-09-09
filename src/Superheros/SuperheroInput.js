@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addSuperhero } from '../redux/actions'
 import RePlayButton from '../RePlayButton.js'
+import Filter from 'bad-words-plus'
+
+const filter = new Filter({ firstLetter: true, lastLetter: true })
 
 class SuperheroInput extends Component {
 
@@ -11,7 +14,7 @@ class SuperheroInput extends Component {
 
     handleOnChange = event => {
         this.setState({
-            name: event.target.value,
+            name: event.target.value !== '' ? filter.clean(event.target.value) : event.target.value,
             score: this.props.score
         })
     }
