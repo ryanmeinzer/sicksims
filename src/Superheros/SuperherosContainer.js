@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchSuperheros } from '../redux/actions'
 import Superheros from './Superheros.js'
 import { fetchStats } from '../redux/actions'
+import RePlayButton from './RePlayButton.js'
 
 class SuperherosContainer extends Component {
 
@@ -28,6 +29,8 @@ class SuperherosContainer extends Component {
 
     render() {
         return (
+            <>
+            < RePlayButton />
             <div className="SuperherosPSAContainer">
                 <div className="SuperherosContainer">
                     <h4>Top Superheros:</h4>
@@ -50,6 +53,7 @@ class SuperherosContainer extends Component {
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }
