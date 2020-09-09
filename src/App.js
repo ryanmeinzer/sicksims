@@ -26,8 +26,6 @@ class App extends Component {
   // start interval to check if game is finished upon app load
   componentDidMount() {
     this.startInterval()
-    // console.log('component did mount')
-    window.location.pathname === '/play' && playStartSound.play(0.05)
   }
 
   componentWillUnmount() {
@@ -39,25 +37,12 @@ class App extends Component {
   }
 
   gameStatusAndUpdateCounter = () => {
-    this.isEveryoneSafe()
     window.location.pathname === '/play' && this.setState((prevState) => ({ time: prevState.time + 1 }))
-    // console.log(this.state.time)
   }
 
   // hard refresh to reset state for game restart
   startGame = () => {
     window.location.replace('/play#InPublicContainer')
-  }
-
-  // Check to see if all living people are safe
-  isEveryoneSafe = () => {
-    if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
-      this.props.dispatchedSafeToSavedChanger()
-      // let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
-      // setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 5000)
-      playSuperheroSound.play(0.05)
-      this.componentWillUnmount()
-    }
   }
 
   render() {
