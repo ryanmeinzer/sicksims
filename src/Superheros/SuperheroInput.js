@@ -16,23 +16,18 @@ class SuperheroInput extends Component {
     handleOnChange = event => {
         this.setState({
             name: event.target.value !== '' ? filter.clean(event.target.value) : event.target.value,
-            score: this.state.score
+            score: this.props.score
         })
     }
 
     handleOnSubmit = event => {
         event.preventDefault()
         this.props.dispatchedAddSuperhero(this.state)
-        this.setState({
-            name: '', 
-            score: 0
-        });
-        alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
+        alert(`Your Superhero score of ${this.props.score} has been saved, ${this.state.name}!`)
         this.showSuperheros()
     }
 
     showSuperheros = () => {
-        // window.location.replace('/superheros')
         window.location.replace('/superheros')
     }
 
