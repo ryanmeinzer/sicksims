@@ -13,18 +13,10 @@ class App extends Component {
       <div className="App">
         < Header />
         <Router>
-          <Route exact path='/' render={() => 
-            <FakeGameContainer />
-          } />
-          <Route exact path='/play' render={() => 
-            < GameContainer />
-          } />
-          <Route exact path='/superheros' render={() =>
-            < SuperherosContainer />
-          } />
-          <Route exact path='/stats' render={() =>
-            < StatsContainer />
-          } />
+          <Route exact path='/' component={ FakeGameContainer } />
+          <Route exact path='/play' component={ GameContainer } />
+          <Route exact path='/superheros' component={ SuperherosContainer } />
+          <Route exact path='/stats' component={ StatsContainer }/>
         </Router>
       </div>
     )
