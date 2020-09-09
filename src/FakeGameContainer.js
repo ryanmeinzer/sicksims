@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchStats } from './redux/actions'
+import Navigation from './Navigation.js'
 
 class FakeGameContainer extends Component {
 
@@ -15,6 +16,8 @@ class FakeGameContainer extends Component {
 
     render() {
         return (
+            <>
+            < Navigation />
             <div className="HomePSAContainer">
                 <div className="FakeGameContainer">
                     <div className='FakeInPublicContainer'>
@@ -52,6 +55,7 @@ class FakeGameContainer extends Component {
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }

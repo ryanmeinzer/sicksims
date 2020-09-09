@@ -188,7 +188,7 @@ button {
 }
 
 .scoreButton {
-  margin: 0 0 1rem 1rem;
+  margin: 0 0 .5rem 1rem;
 }
 
 .GameContainer {
@@ -463,13 +463,17 @@ button {
     font-size: 1rem;
   }
 
+  .SuperheroForm input[type=text] {
+    margin: 0 0 1rem 0;
+  }
+
   .SuperheroForm input[type=submit] {
     font-size: 1rem;
     margin: 1rem 0rem 1rem 1rem;
   }
 
   .scoreButton {
-    margin: 1.75rem 0 1.25rem 0;
+    margin: 1.75rem 0 1rem 0;
   }
 
   .SuperherosContainer {
