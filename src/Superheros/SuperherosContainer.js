@@ -39,7 +39,7 @@ class SuperherosContainer extends Component {
                 <div className="SuperherosPSAOverlay">
                     <div className="SuperherosPSAOverlayText">
                         <p>
-                            <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span> Save Your Superhero Score Above <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span>
+                            <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span> Restart Game Above <span className='PointUpEmoji' role='img' aria-label='point up emoji'>☝️</span>
                         </p>
                         <p>
                             Unfortunately, this is just a game to create awareness and public safety. COVID-19 is real.
