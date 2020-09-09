@@ -14,37 +14,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <div className='Header'>
-          < Header />
-        </div>
-
+        < Header />
         <Router>
-
           <Route exact path='/' render={() => 
             <>
-            <div className='Navigation'>
-              < Navigation />
-            </div>
+            < Navigation />
             <FakeGameContainer />
             </>
           } />
-
           <Route exact path='/play' render={() => 
             < GameContainer />
           } />
-
           <Route exact path='/superheros' render={() =>
             <>
             < RePlayButton />
             < SuperherosContainer />
             </>
           } />
-
           <Route exact path='/stats' render={() =>
             < StatsContainer />
           } />
-
         </Router>
 
       </div>
