@@ -27,13 +27,13 @@ class SuperheroInput extends Component {
             name: '', 
             score: 0
         });
-        // alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
+        alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
         this.showSuperheros()
     }
 
     showSuperheros = () => {
         // window.location.replace('/superheros')
-        setTimeout(window.location.replace('/superheros'), 2000)
+        window.location.replace('/superheros')
     }
 
     render() {
