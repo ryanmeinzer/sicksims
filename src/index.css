@@ -473,7 +473,11 @@ button {
   }
 
   .scoreButton {
-    margin: 1.75rem 0 1rem 0;
+    margin: 1.25rem 0 1rem 0;
+  }
+
+  .rePlayButton {
+    margin: 1.25rem 0 0 0;
   }
 
   .SuperherosContainer {
