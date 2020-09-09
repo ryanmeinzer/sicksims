@@ -33,7 +33,7 @@ class SuperheroInput extends Component {
 
     showSuperheros = () => {
         // window.location.replace('/superheros')
-        setTimeout(window.location.replace('/superheros'), 1000)
+        setTimeout(window.location.replace('/superheros'), 2000)
     }
 
     render() {
