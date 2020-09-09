@@ -7,6 +7,7 @@ import Navigation from './Navigation.js'
 import StatsContainer from './Stats/StatsContainer.js'
 import FakeGameContainer from './FakeGameContainer.js'
 import GameContainer from './GameContainer.js'
+import RePlayButton from './RePlayButton.js'
 
 class App extends Component {
 
@@ -34,7 +35,10 @@ class App extends Component {
           } />
 
           <Route exact path='/superheros' render={() =>
+            <>
+            < RePlayButton />
             < SuperherosContainer />
+            </>
           } />
 
           <Route exact path='/stats' render={() =>

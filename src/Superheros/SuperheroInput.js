@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addSuperhero } from '../redux/actions'
+import RePlayButton from '../RePlayButton.js'
 
 class SuperheroInput extends Component {
 
@@ -42,9 +43,7 @@ class SuperheroInput extends Component {
                     <span>with a score of {this.props.score}</span>
                     <button type= "submit" className='scoreButton'><i>Save Your Superhero Score </i><span className='superheroGameEmoji' role='img' aria-label='superhero person emoji'> 🦸 </span></button>
                 </form>
-                <div className='RestartGame'>
-                    or <button className='rePlayButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>
-                </div>
+                or < RePlayButton />
             </div>
         )
     }
