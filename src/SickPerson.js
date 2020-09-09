@@ -57,7 +57,11 @@ class SickPerson extends Component {
 
     render() {
         return(
-            <span className='sickPersonEmoji' draggable='true' onDragStart={this.drag} role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.makeQuarantinedThenPlaySound} style={{ cursor: 'grab' }}>🤢</span>
+            <>
+                <span className='sickPersonEmoji desktop-only' draggable='true' onDragStart={this.drag} role='img' aria-label='sick person emoji' id={this.props.id} style={{ cursor: 'grab' }}>🤢</span>
+
+                <span className='sickPersonEmoji mobile-only' role='img' aria-label='sick person emoji' id={this.props.id} onClick={this.makeQuarantinedThenPlaySound} style={{ cursor: 'default' }}>🤢</span>
+            </>
         )
     }
 

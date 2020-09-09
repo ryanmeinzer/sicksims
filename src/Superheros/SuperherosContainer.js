@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchSuperheros } from '../redux/actions'
 import Superheros from './Superheros.js'
 import { fetchStats } from '../redux/actions'
-import RePlayButton from './RePlayButton.js'
+import RePlayButton from '../RePlayButton.js'
 
 class SuperherosContainer extends Component {
 
