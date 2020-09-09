@@ -34,11 +34,6 @@ class App extends Component {
     window.location.pathname === '/play' && this.setState((prevState) => ({ time: prevState.time + 1 }))
   }
 
-  // hard refresh to reset state for game restart
-  startGame = () => {
-    window.location.replace('/play#InPublicContainer')
-  }
-
   render() {
     return (
       <div className="App">
@@ -52,7 +47,7 @@ class App extends Component {
           <Route exact path='/' render={() => 
             <>
             <div className='Navigation'>
-              < Navigation startGameButton={this.startGame} />
+              < Navigation />
             </div>
             <FakeGameContainer />
             </>
