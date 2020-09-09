@@ -40,7 +40,7 @@ class SuperheroInput extends Component {
                         placeholder="Your Superhero Name"
                         onChange={(event) => this.handleOnChange(event)} required />
                     <span>with a score of {this.props.score}</span>
-                    <input type="submit" />
+                    <button type= "submit" className='scoreButton'><i>Save Your Superhero Score </i><span className='superheroGameEmoji' role='img' aria-label='superhero person emoji'> 🦸 </span></button>
                 </form>
                 <div className='RestartGame'>
                     or <button className='rePlayButton' onClick={() => window.location.replace('/')}><i>Restart Game - Save the world!</i> <span role="img" aria-label="saved person emoji">🥰</span></button>

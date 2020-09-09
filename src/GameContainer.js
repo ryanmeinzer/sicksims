@@ -9,8 +9,8 @@ import UIfx from 'uifx'
 import superheroSound from './sounds/superhero.mp3'
 import startSound from './sounds/start.mp3'
 import { safeToSavedChanger } from './redux/actions'
-import { Link } from 'react-router-dom'
 import Confetti from 'react-confetti'
+import SuperheroInput from './Superheros/SuperheroInput.js'
 
 const playSuperheroSound = new UIfx(superheroSound)
 const playStartSound = new UIfx(startSound)
@@ -124,7 +124,7 @@ class GameContainer extends Component {
             return (
                 <>
                 <div className='gameCompleteNavigation'>
-                    <Link to="/score"><button className='scoreButton'><i>Save Your Superhero Score </i><span className='superheroGameEmoji' role='img' aria-label='superhero person emoji'> 🦸 </span></button></Link>
+                    < SuperheroInput score={Math.round(parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10) - (parseInt(this.state.time) / 2))} />
                     < Confetti
                         tweenDuration={1000}
                     />
