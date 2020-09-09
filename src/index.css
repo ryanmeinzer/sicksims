@@ -30,7 +30,7 @@ h4 {
 }
 
 h6 {
-  margin: -1rem;
+  margin: -.5rem;
 }
 
 p {
@@ -185,6 +185,10 @@ button {
 
 .playButton, .inProgressButton {
   margin: 2rem 0 0 0;
+}
+
+.scoreButton {
+  margin: 0 0 1rem 1rem;
 }
 
 .GameContainer {
@@ -462,6 +466,10 @@ button {
   .SuperheroForm input[type=submit] {
     font-size: 1rem;
     margin: 1rem 0rem 1rem 1rem;
+  }
+
+  .scoreButton {
+    margin: 1.75rem 0 1.25rem 0;
   }
 
   .SuperherosContainer {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Header from './Header.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { connect } from 'react-redux'
 import SuperherosContainer from './Superheros/SuperherosContainer.js'
 import Navigation from './Navigation.js'
 import StatsContainer from './Stats/StatsContainer.js'
@@ -41,11 +40,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    people: state.people,
-    loading: state.loading
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App
