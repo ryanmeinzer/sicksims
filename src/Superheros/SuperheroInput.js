@@ -9,13 +9,14 @@ const filter = new Filter({ firstLetter: true, lastLetter: true })
 class SuperheroInput extends Component {
 
     state = {
-        name: ''
+        name: '',
+        score: this.props.score
     }
 
     handleOnChange = event => {
         this.setState({
             name: event.target.value !== '' ? filter.clean(event.target.value) : event.target.value,
-            score: this.props.score
+            score: this.state.score
         })
     }
 
@@ -23,15 +24,16 @@ class SuperheroInput extends Component {
         event.preventDefault()
         this.props.dispatchedAddSuperhero(this.state)
         this.setState({
-            name: ''
+            name: '', 
+            score: 0
         });
-        alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
-        // window.location.replace('/superheros')
+        // alert(`Your Superhero score of ${this.state.score} has been saved, ${this.state.name}!`)
         this.showSuperheros()
     }
 
     showSuperheros = () => {
-        window.location.replace('/superheros')
+        // window.location.replace('/superheros')
+        setTimeout(window.location.replace('/superheros'), 1000)
     }
 
     render() {
