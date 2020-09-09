@@ -9,6 +9,8 @@ import UIfx from 'uifx'
 import superheroSound from './sounds/superhero.mp3'
 import startSound from './sounds/start.mp3'
 import { safeToSavedChanger } from './redux/actions'
+import { Link } from 'react-router-dom'
+import Confetti from 'react-confetti'
 
 const playSuperheroSound = new UIfx(superheroSound)
 const playStartSound = new UIfx(startSound)
@@ -56,7 +58,6 @@ class GameContainer extends Component {
         }
     }
 
-
     allowDrop = (e) => {
         e.preventDefault()
     }
@@ -86,35 +87,63 @@ class GameContainer extends Component {
     }
 
     render() {
-        return (
-            <div className="GameContainer">
-
-                <div className='InPublicContainer' id='InPublicContainer'>
-                    <h4>In Public</h4>
-
-                    {/* hold position for all people to keep all in-place */}
-                    {this.props.people.map(person => {
-                        return <span key={person.id}>{this.personRenderer(person)}</span>
-                    })
-                    }
-
+        let gameComplete = this.props.people.find(person => person.status === 'saved')
+        
+        if (!gameComplete) {
+            return (
+                <>
+                <div className='gameInProgressNavigation'>
+                    <button className='inProgressButton' disabled> ☟ <i>Game in Progress</i> ☟ </button>
                 </div>
+                <div className="GameContainer">
+                    <div className='InPublicContainer' id='InPublicContainer'>
+                        <h4>In Public</h4>
+                        {this.props.people.map(person => {
+                            return <span key={person.id}>{this.personRenderer(person)}</span>
+                        })
+                        }
+                    </div>
 
-                <div className='QuarantinedContainer' onDrop={this.drop} onDragOver={this.allowDrop}>
-                    <h4>Quarantined</h4>
-                    {this.props.people.map(person => {
-                        if (person.status === "quarantined") {
-                            return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
+                    <div className='QuarantinedContainer' onDrop={this.drop} onDragOver={this.allowDrop}>
+                        <h4>Quarantined</h4>
+                        {this.props.people.map(person => {
+                            if (person.status === "quarantined") {
+                                return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
+                            }
+                            else {
+                                return ''
+                            }
+                        })
                         }
-                        else {
-                            return ''
-                        }
-                    })
-                    }
+                    </div>
+
+                </div> 
+                </>
+            )
+        } else {
+            return (
+                <>
+                <div className='gameCompleteNavigation'>
+                    <Link to="/score"><button className='scoreButton'><i>Save Your Superhero Score </i><span className='superheroGameEmoji' role='img' aria-label='superhero person emoji'> 🦸 </span></button></Link>
+                    < Confetti
+                        tweenDuration={1000}
+                    />
                 </div>
-
-            </div> 
-        )
+                <div className="GameContainer">
+                    <div className='InPublicContainer' id='InPublicContainer'>
+                        <h4>In Public</h4>
+                        {this.props.people.map(person => {
+                            return <span key={person.id}>{this.personRenderer(person)}</span>
+                        })
+                        }
+                    </div>
+                    <div className='QuarantinedContainer'>
+                        <h4>Quarantined</h4>
+                    </div>
+                </div>
+                </>
+            )
+        }
     }
 }
 

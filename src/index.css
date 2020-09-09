@@ -346,7 +346,7 @@ button {
 }
 
 .quarantinedPersonPlaceholderEmoji {
-  opacity: .1;
+  opacity: 0;
 }
 
 .savedPersonEmoji, .safePersonEmoji, .naivePersonEmoji, .sickPersonEmoji, .terminalPersonEmoji, .quarantinedPersonPlaceholderEmoji {

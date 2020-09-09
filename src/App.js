@@ -60,7 +60,6 @@ class App extends Component {
 
           <Route exact path='/play' render={() => 
             <>
-              < Navigation className='Navigation' startGameButton={this.startGame} />
               < GameContainer />
             </>
           } />
