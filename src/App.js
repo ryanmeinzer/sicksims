@@ -9,13 +9,7 @@ import { makeQuarantined } from './redux/actions'
 import Navigation from './Navigation.js'
 import StatsContainer from './Stats/StatsContainer.js'
 import FakeGameContainer from './FakeGameContainer.js'
-import UIfx from 'uifx'
-import superheroSound from './sounds/superhero.mp3'
-import startSound from './sounds/start.mp3'
 import GameContainer from './GameContainer.js'
-
-const playSuperheroSound = new UIfx(superheroSound)
-const playStartSound = new UIfx(startSound)
 
 class App extends Component {
 
