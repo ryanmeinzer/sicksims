@@ -3,8 +3,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import { fetchStats } from './redux/actions'
 import Navigation from './Navigation.js'
 
-const FakeGameContainer = ({interval}) => {
-    
+const FakeGameContainer = (interval) => {
+
     const mappedStats = useSelector(state => state.stats)
     const dispatch = useDispatch()
 
