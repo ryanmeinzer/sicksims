@@ -1,15 +1,19 @@
 import React, {useEffect} from 'react'
-import { connect } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { fetchStats } from './redux/actions'
 import Navigation from './Navigation.js'
 
-const FakeGameContainer = ({mappedStats, dispatchedFetchStats, interval}) => {
+const FakeGameContainer = ({interval}) => {
+    
+    const mappedStats = useSelector(state => state.stats)
+    const dispatch = useDispatch()
+
     useEffect(() => {
-        dispatchedFetchStats()
+        dispatch(fetchStats())
         return () => {
             clearInterval(interval)
         }
-    }, [])
+    }, [dispatch, interval])
 
     return (
         <>
@@ -55,14 +59,4 @@ const FakeGameContainer = ({mappedStats, dispatchedFetchStats, interval}) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        mappedStats: state.stats
-    }
-}
-
-const mapDispatchToProps = dispatch => ({
-    dispatchedFetchStats: () => dispatch(fetchStats())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(FakeGameContainer)
+export default FakeGameContainer
