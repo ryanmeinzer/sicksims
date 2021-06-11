@@ -5,7 +5,7 @@ import Superheros from './Superheros.js'
 import { fetchStats } from '../redux/actions'
 import RePlayButton from '../RePlayButton.js'
 
-const SuperherosContainer = (interval) => {
+const SuperherosContainer = () => {
 
     const mappedSuperheros = useSelector(state => state.superheros)
     const loading = useSelector(state => state.loading)
@@ -15,10 +15,7 @@ const SuperherosContainer = (interval) => {
     useEffect(() => {
         dispatch(fetchSuperheros())
         dispatch(fetchStats())
-        return () => {
-            clearInterval(interval)
-        }
-    }, [dispatch, interval])
+    }, [dispatch])
 
     // handle fetch of superheros upon app load with loading message if still loading
     const handleLoading = () => {

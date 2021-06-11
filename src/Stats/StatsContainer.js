@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {fetchStats} from '../redux/actions'
 import Stats from './Stats.js'
 
-const StatsContainer = (interval) => {
+const StatsContainer = () => {
 
     const mappedStats = useSelector(state => state.stats)
     const loading = useSelector(state => state.loading)
@@ -11,10 +11,7 @@ const StatsContainer = (interval) => {
 
     useEffect(() => {
         dispatch(fetchStats())
-        return () => {
-            clearInterval(interval)
-        }
-    }, [dispatch, interval])
+    }, [dispatch])
 
     // handle fetch of stats upon app load with loading message if still loading
     const handleLoading = () => {
