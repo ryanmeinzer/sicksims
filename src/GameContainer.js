@@ -15,11 +15,13 @@ import SuperheroInput from './Superheros/SuperheroInput.js'
 const playSuperheroSound = new UIfx(superheroSound)
 const playStartSound = new UIfx(startSound)
 
-const GameContainer = (interval) => {
+const GameContainer = () => {
 
     const [time, setTime] = useState(0)
     const people = useSelector(state => state.people)
     const dispatch = useDispatch()
+
+    let interval
 
     useEffect(() => {
         interval = setInterval(updateCounter, 1000)
