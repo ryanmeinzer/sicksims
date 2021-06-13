@@ -34,7 +34,6 @@ const GameContainer = () => {
 
     useEffect(() => {
         isEveryoneSafe()
-        console.log(time)
         return () => {
             clearInterval(interval)
         }
