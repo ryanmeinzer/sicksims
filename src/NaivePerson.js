@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react'
-import {useDispatch} from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { makeSafe } from './redux/actions'
 import { naiveToSickChanger } from './redux/actions'
 import UIfx from 'uifx'
