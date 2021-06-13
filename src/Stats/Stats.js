@@ -1,21 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Stats extends Component {
-    // allStats = () => {
+const Stats = (props) => {
 
-    //     return this.props.mappedStats.map(stats => <p>{stats.NewConfirmed}</p>)
+    return (
+        <div>
+            <p>{parseInt(props.mappedStats.NewConfirmed).toLocaleString()} new cases in the last 24 hours</p>
+            <p>{parseInt(props.mappedStats.NewDeaths).toLocaleString()} new deaths in the last 24 hours</p>
+        </div>
+    )
 
-    // }
-
-    render() {
-        return (
-            <div>
-                {/* <p>{this.allStats()}</p> */}
-                <p>{parseInt(this.props.mappedStats.NewConfirmed).toLocaleString()} new cases in the last 24 hours</p>
-                <p>{parseInt(this.props.mappedStats.NewDeaths).toLocaleString()} new deaths in the last 24 hours</p>
-            </div>
-        )
-    }
 }
 
 export default Stats

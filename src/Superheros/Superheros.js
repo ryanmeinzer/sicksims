@@ -1,21 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Superheros extends Component {
-    allSuperheros = () => {
+const Superheros = (props) => {
+    const allSuperheros = () => {
 
-        let sortedSuperheros = this.props.mappedSuperheros.sort((a, b) => b.score - a.score)
+        let sortedSuperheros = props.mappedSuperheros.sort((a, b) => b.score - a.score)
 
         return sortedSuperheros.map(superhero => <li key={superhero.id}>{superhero.name} with a score of {superhero.score}</li>)
 
     }
 
-    render() {
-        return (
-            <div>
-                <ol>{this.allSuperheros()}</ol>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <ol>{allSuperheros()}</ol>
+        </div>
+    )
 }
 
 export default Superheros
