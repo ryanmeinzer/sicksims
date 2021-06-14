@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class SafePerson extends Component {
+const SafePerson = (props) => {
 
-    render() {
-        return(
-            <span className='safePersonEmoji' role='img' aria-label='safe person emoji' id={this.props.id} style={{ cursor: 'not-allowed' }}>😷</span>
-        )
-    }
+    return(
+        <span className='safePersonEmoji' role='img' aria-label='safe person emoji' id={props.id} style={{ cursor: 'not-allowed' }}>😷</span>
+    )
 
 }
+
+export default SafePerson

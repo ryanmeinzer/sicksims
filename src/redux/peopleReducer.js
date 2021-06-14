@@ -12,7 +12,7 @@ export default function peopleReducer(state = {
         { id: 10, status: "sick" }
     ], 
     superheros: [], 
-    loading: false, 
+    loading: true, 
     stats: {}
 }, action) {
     switch (action.type) {

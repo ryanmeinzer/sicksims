@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, {useEffect, useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import NaivePerson from './NaivePerson.js'
 import QuarantinedPerson from './QuarantinedPerson.js'
 import SafePerson from './SafePerson.js'
 import SickPerson from './SickPerson.js'
-import { connect } from 'react-redux'
 import { makeQuarantined } from './redux/actions'
 import UIfx from 'uifx'
 import superheroSound from './sounds/superhero.mp3'
@@ -15,67 +15,59 @@ import SuperheroInput from './Superheros/SuperheroInput.js'
 const playSuperheroSound = new UIfx(superheroSound)
 const playStartSound = new UIfx(startSound)
 
-class GameContainer extends Component {
+const GameContainer = () => {
 
-    state = {
-        time: 0
+    const [time, setTime] = useState(0)
+    const people = useSelector(state => state.people)
+    const dispatch = useDispatch()
+
+    let interval
+
+    // start timer for score only upon mount
+    useEffect(() => {
+        interval = setInterval(updateCounter, 1000)
+        playStartSound.play(0.05)
+    }, [])
+
+    // increment counter
+    const updateCounter = () => {
+        setTime(prevState => prevState + 1)
     }
 
-    // start interval to check if game is finished upon app load
-    componentDidMount() {
-        this.startInterval()
-        // console.log('component did mount')
-        window.location.pathname === '/play' && playStartSound.play(0.05)
-    }
+    // once game is over, finalize game board and cleanup by clearing interval
+    useEffect(() => {
+        isEveryoneSafe()
+        return () => {
+            clearInterval(interval)
+        }
+    }, [!people.find(({status}) => status === 'naive' || status === 'sick' || status === 'quarantined')])
 
-    componentWillUnmount() {
-        clearInterval(this.interval)
-    }
-
-    startInterval = () => {
-        this.interval = setInterval(this.gameStatusAndUpdateCounter, 1000)
-    }
-
-    // updateCounter = () => {
-    //   this.setState((prevState) => ({ time: prevState.time + 1 }), this.isEveryoneSafe)
-    //   console.log(this.state.time)
-    // }
-
-    gameStatusAndUpdateCounter = () => {
-        this.isEveryoneSafe()
-        window.location.pathname === '/play' && this.setState((prevState) => ({ time: prevState.time + 1 }))
-        // console.log(this.state.time)
-    }
-
-    // Check to see if all living people are safe
-    isEveryoneSafe = () => {
-        if (!this.props.people.find(({ status }) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
-            this.props.dispatchedSafeToSavedChanger()
-            // let score = parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10)
-            // setTimeout(() => alert(`Congrats - you saved (some of) the world! Your score is ${score}`), 5000)
+    // once game is over, make all safe people saved
+    const isEveryoneSafe = () => {
+        if (!people.find(({status}) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
+            dispatch(safeToSavedChanger())
             playSuperheroSound.play(0.05)
-            this.componentWillUnmount()
         }
     }
 
-    allowDrop = (e) => {
+    const allowDrop = (e) => {
         e.preventDefault()
     }
 
-    drop = (e) => {
+    const drop = (e) => {
         e.preventDefault()
         let id = e.dataTransfer.getData("text")
-        this.props.dispatchedMakeQuarantined(id)
+        dispatch(makeQuarantined(parseInt(id)))
     }
 
     // hold position for all people to keep all in-place
-    personRenderer = (person) => {
+    const personRenderer = (person) => {
         if (person.status === "naive") {
-            return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
+            return <NaivePerson key={`naive-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={isEveryoneSafe} />
         } else if (person.status === "safe") {
             return <SafePerson key={`safe-${person.id}`} id={person.id} status={person.status} />
         } else if (person.status === "sick") {
-            return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={this.isEveryoneSafe} />
+            return <SickPerson key={`sick-${person.id}`} id={person.id} status={person.status} isEveryoneSafe={isEveryoneSafe} />
         } else if (person.status === "terminal") {
             return <span className='terminalPersonEmoji' role='img' aria-label='terminal person emoji' key={`terminal-${person.id}`} id={person.id} style={{ cursor: 'not-allowed' }}>😵</span>
         } else if (person.status === "saved") {
@@ -86,77 +78,63 @@ class GameContainer extends Component {
         }
     }
 
-    render() {
-        let gameComplete = this.props.people.find(person => person.status === 'saved')
-        
-        if (!gameComplete) {
-            return (
-                <>
-                <div className='gameInProgressNavigation'>
-                    <button className='inProgressButton' disabled> ☟ <i>Game in Progress</i> ☟ </button>
+    let gameComplete = people.find(person => person.status === 'saved')
+    
+    if (!gameComplete) {
+        return (
+            <>
+            <div className='gameInProgressNavigation'>
+                <button className='inProgressButton' disabled> ☟ <i>Game in Progress</i> ☟ </button>
+            </div>
+            <div className="GameContainer">
+                <div className='InPublicContainer' id='InPublicContainer'>
+                    <h4>In Public</h4>
+                    {people.map(person => {
+                        return <span key={person.id}>{personRenderer(person)}</span>
+                    })
+                    }
                 </div>
-                <div className="GameContainer">
-                    <div className='InPublicContainer' id='InPublicContainer'>
-                        <h4>In Public</h4>
-                        {this.props.people.map(person => {
-                            return <span key={person.id}>{this.personRenderer(person)}</span>
-                        })
-                        }
-                    </div>
 
-                    <div className='QuarantinedContainer' onDrop={this.drop} onDragOver={this.allowDrop}>
-                        <h4>Quarantined</h4>
-                        {this.props.people.map(person => {
-                            if (person.status === "quarantined") {
-                                return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
-                            }
-                            else {
-                                return ''
-                            }
-                        })
+                <div className='QuarantinedContainer' onDrop={drop} onDragOver={allowDrop}>
+                    <h4>Quarantined</h4>
+                    {people.map(person => {
+                        if (person.status === "quarantined") {
+                            return <QuarantinedPerson key={`quarantined-${person.id}`} id={person.id} status={person.status} />
                         }
-                    </div>
+                        else {
+                            return ''
+                        }
+                    })
+                    }
+                </div>
 
-                </div> 
-                </>
-            )
-        } else {
-            return (
-                <>
-                <div className='gameCompleteNavigation'>
-                    < SuperheroInput score={Math.round(parseInt(this.props.people.filter(({ status }) => status === 'saved').length * 10) - (parseInt(this.state.time) / 2))} />
-                    < Confetti
-                        tweenDuration={1000}
-                    />
+            </div> 
+            </>
+        )
+    } else {
+        return (
+            <>
+            <div className='gameCompleteNavigation'>
+                < SuperheroInput score={Math.round(parseInt(people.filter(({ status }) => status === 'saved').length * 10) - (parseInt(time) / 2))} />
+                < Confetti
+                    tweenDuration={1000}
+                />
+            </div>
+            <div className="GameContainer">
+                <div className='InPublicContainer' id='InPublicContainer'>
+                    <h4>In Public</h4>
+                    {people.map(person => {
+                        return <span key={person.id}>{personRenderer(person)}</span>
+                    })
+                    }
                 </div>
-                <div className="GameContainer">
-                    <div className='InPublicContainer' id='InPublicContainer'>
-                        <h4>In Public</h4>
-                        {this.props.people.map(person => {
-                            return <span key={person.id}>{this.personRenderer(person)}</span>
-                        })
-                        }
-                    </div>
-                    <div className='QuarantinedContainer'>
-                        <h4>Quarantined</h4>
-                    </div>
+                <div className='QuarantinedContainer'>
+                    <h4>Quarantined</h4>
                 </div>
-                </>
-            )
-        }
+            </div>
+            </>
+        )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        people: state.people,
-        loading: state.loading
-    }
-}
-
-const mapDispatchToProps = dispatch => ({
-    dispatchedSafeToSavedChanger: () => dispatch(safeToSavedChanger()),
-    dispatchedMakeQuarantined: (id) => dispatch(makeQuarantined(parseInt(id)))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(GameContainer)
+export default GameContainer

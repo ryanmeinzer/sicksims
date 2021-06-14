@@ -1,48 +1,35 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchStats } from '../redux/actions'
+import React, {useEffect} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {fetchStats} from '../redux/actions'
 import Stats from './Stats.js'
 
-class StatsContainer extends Component {
+const StatsContainer = () => {
 
-    // fetch stats upon stats page load
-    componentDidMount() {
-        this.props.dispatchedFetchStats()
-    }
+    const mappedStats = useSelector(state => state.stats)
+    const loading = useSelector(state => state.loading)
+    const dispatch = useDispatch()
 
-    componentWillUnmount() {
-        clearInterval(this.interval)
-    }
+    useEffect(() => {
+        dispatch(fetchStats())
+    }, [dispatch])
 
     // handle fetch of stats upon app load with loading message if still loading
-    handleLoading = () => {
-        // console.log(this.props.loading)
-        if (this.props.loading) {
+    const handleLoading = () => {
+        console.log(loading)
+        if (loading) {
             return <div>Loading...</div>
         } else {
-            return <Stats mappedStats={this.props.mappedStats} />
+            return <Stats mappedStats={mappedStats} />
         }
     }
 
-    render() {
-        return (
-            <div className="StatsContainer">
-                <h4>COVID-19 Stats:</h4>
-                {this.handleLoading()}
-            </div>
-        )
-    }
+    return (
+        <div className="StatsContainer">
+            <h4>COVID-19 Stats:</h4>
+            {handleLoading()}
+        </div>
+    )
+
 }
 
-const mapStateToProps = state => {
-    return {
-        mappedStats: state.stats,
-        loading: state.loading
-    }
-}
-
-const mapDispatchToProps = dispatch => ({
-    dispatchedFetchStats: () => dispatch(fetchStats())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(StatsContainer)
+export default StatsContainer
