@@ -13,6 +13,7 @@ const QuarantinedPerson = (props) => {
 
     let interval
 
+    // start timer for score only upon mount
     useEffect(() => {
         interval = setInterval(updateCounter, 1000)
         return () => {
@@ -20,6 +21,7 @@ const QuarantinedPerson = (props) => {
         }
     }, [])
 
+    // whenever time updates, if at or below zero make quarantined people naive
     useEffect(() => {
         if (time <= 0) {
             dispatch(quarantinedToNaiveChanger(props.id))
@@ -27,6 +29,7 @@ const QuarantinedPerson = (props) => {
         }
     }, [time])
 
+    // decrement counter
     const updateCounter = () => {
         setTime(prevState => prevState - 1)
     }

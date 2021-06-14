@@ -37,7 +37,7 @@ const SuperheroInput = (props) => {
                     value={name}
                     placeholder="Your Superhero Name"
                     onChange={(event) => handleOnChange(event)} required />
-                <span>with a score of {props.score}</span>
+                <span>with a score of {score}</span>
                 <button type= "submit" className='scoreButton'><i>Save Your Superhero Score </i><span className='superheroGameEmoji' role='img' aria-label='superhero person emoji'> 🦸 </span></button>
             </form>
             or < RePlayButton />

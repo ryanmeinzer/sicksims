@@ -23,15 +23,18 @@ const GameContainer = () => {
 
     let interval
 
+    // start timer for score only upon mount
     useEffect(() => {
         interval = setInterval(updateCounter, 1000)
         playStartSound.play(0.05)
     }, [])
 
+    // increment counter
     const updateCounter = () => {
         setTime(prevState => prevState + 1)
     }
 
+    // once game is over, finalize game board and cleanup by clearing interval
     useEffect(() => {
         isEveryoneSafe()
         return () => {
@@ -39,7 +42,7 @@ const GameContainer = () => {
         }
     }, [!people.find(({status}) => status === 'naive' || status === 'sick' || status === 'quarantined')])
 
-    // Check to see if all living people are safe
+    // once game is over, make all safe people saved
     const isEveryoneSafe = () => {
         if (!people.find(({status}) => status === 'naive' || status === 'sick' || status === 'quarantined')) {
             dispatch(safeToSavedChanger())

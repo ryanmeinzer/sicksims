@@ -16,6 +16,7 @@ const SickPerson = (props) => {
 
     let interval
 
+    // start timer for score only upon mount
     useEffect(() => {
         interval = setInterval(updateCounter, 1000)
         return () => {
@@ -23,6 +24,7 @@ const SickPerson = (props) => {
         }
     }, [])
 
+    // whenever time updates, if at or below zero make sick people terminal
     useEffect(() => {
         if (time <= 0) {
             dispatch(sickToTerminalChanger(props.id))
@@ -30,6 +32,7 @@ const SickPerson = (props) => {
         }
     }, [time])
 
+    // decrement counter
     const updateCounter = () => {
         setTime(prevState => prevState - 1)
     }

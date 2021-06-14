@@ -16,6 +16,7 @@ const NaivePerson = (props) => {
 
     let interval
 
+    // start timer for score only upon mount
     useEffect(() => {
         interval = setInterval(updateCounter, 1000)
         return () => {
@@ -23,6 +24,7 @@ const NaivePerson = (props) => {
         }
     }, [])
 
+    // whenever time updates, if at or below zero make naive people sick
     useEffect(() => {
         if (time <= 0) {
             dispatch(naiveToSickChanger(props.id))
@@ -30,6 +32,7 @@ const NaivePerson = (props) => {
         }
     }, [time])
 
+    // decrement counter
     const updateCounter = () => {
         setTime(prevState => prevState - 1)
     }
