@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Header from './Header.js'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SuperherosContainer from './Superheros/SuperherosContainer.js'
@@ -6,9 +6,7 @@ import StatsContainer from './Stats/StatsContainer.js'
 import FakeGameContainer from './FakeGameContainer.js'
 import GameContainer from './GameContainer.js'
 
-class App extends Component {
-
-  render() {
+const App = () => {
     return (
       <div className="App">
         < Header />
@@ -20,7 +18,6 @@ class App extends Component {
         </Router>
       </div>
     )
-  }
 }
 
 export default App
